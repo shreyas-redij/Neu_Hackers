@@ -5,6 +5,16 @@
  */
 package UserInterface.ManageTravelAgency;
 
+import Business.Airliner;
+import Business.Flight;
+import Business.TravelAgency;
+import java.awt.CardLayout;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author shrey
@@ -14,10 +24,45 @@ public class TravelAgencyMngWorkAreaJPanel extends javax.swing.JPanel {
     /**
      * Creates new form TravelAgencyMngWorkAreaJPanel
      */
-    public TravelAgencyMngWorkAreaJPanel() {
+    private JPanel cardSequenceJPanel;
+    private TravelAgency travelAgency;
+    private Airliner airliner;
+    public TravelAgencyMngWorkAreaJPanel(JPanel cardSequenceJpanel, TravelAgency travelAgency) {
         initComponents();
+        this.cardSequenceJPanel= cardSequenceJpanel;
+        this.travelAgency = travelAgency;
+        populateTable();
     }
-
+    
+    // This funciton is used to populate table 
+    public void populateTable() {
+    DefaultTableModel dtm = (DefaultTableModel)tbltravelagency.getModel();
+        dtm.setRowCount(0); // Add a new Row
+        for(Airliner airliner:travelAgency.getAirlinerDirectory().getAirlinerList()) {
+            int i=0;
+            int count = 0;
+            for(Flight flight:airliner.getFlightList()) {
+            
+                if(airliner.getAirlinerName().equals(flight.getAirlinerName())){
+                    Object[] row = new Object[8];
+                    row[0]=airliner.getAirlinerName();
+                    row[1]=flight;
+                    row[2]=airliner.getFlightList().get(i).getSource();
+                    row[3]=airliner.getFlightList().get(i).getDestination();
+                    row[4]=airliner.getFlightList().get(i).getDepartureTime();
+                    row[5]=airliner.getFlightList().get(i).getArrivalTime();
+                    row[6]=airliner.getFlightList().get(i).getFlightPrice();
+                    row[7]=airliner.getFlightList().get(i).getTotalSeats();
+                    dtm.addRow(row);
+                    count++;
+                }
+                i++;
+            }
+            airliner.setAirlinerFleetSize(count);
+        }
+            
+}
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -29,33 +74,130 @@ public class TravelAgencyMngWorkAreaJPanel extends javax.swing.JPanel {
 
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tbltravelagency = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        txtSource = new javax.swing.JTextField();
+        txtDestination = new javax.swing.JTextField();
+        btnViewFlightDetails = new javax.swing.JButton();
+        btnDeleteFlight = new javax.swing.JButton();
+        btnSearch = new javax.swing.JButton();
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tbltravelagency.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Timings", "Flight Name"
+                "Airliner", "Airliner Number", "Source", "Destination", "Departure Time", "Arrival Time", "Price", "Total Seats"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tbltravelagency);
+
+        jLabel1.setText("Manage Travel Agency");
+
+        jLabel2.setText("Source:");
+
+        jLabel3.setText("Destination:");
+
+        txtSource.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSourceActionPerformed(evt);
+            }
+        });
+
+        txtDestination.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDestinationActionPerformed(evt);
+            }
+        });
+
+        btnViewFlightDetails.setBackground(new java.awt.Color(245, 245, 246));
+        btnViewFlightDetails.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        btnViewFlightDetails.setForeground(new java.awt.Color(78, 114, 175));
+        btnViewFlightDetails.setText("View Flight Details");
+        btnViewFlightDetails.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewFlightDetailsActionPerformed(evt);
+            }
+        });
+
+        btnDeleteFlight.setBackground(new java.awt.Color(245, 245, 246));
+        btnDeleteFlight.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        btnDeleteFlight.setForeground(new java.awt.Color(78, 114, 175));
+        btnDeleteFlight.setText("Delete Flight");
+        btnDeleteFlight.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteFlightActionPerformed(evt);
+            }
+        });
+
+        btnSearch.setBackground(new java.awt.Color(245, 245, 246));
+        btnSearch.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        btnSearch.setForeground(new java.awt.Color(78, 114, 175));
+        btnSearch.setText("Search");
+        btnSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(211, 211, 211)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(362, Short.MAX_VALUE))
+                .addGap(77, 77, 77)
+                .addComponent(btnViewFlightDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnDeleteFlight, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(57, 57, 57))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(379, 379, 379)
+                        .addComponent(jLabel1))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(230, 230, 230)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(9, 9, 9)
+                                .addComponent(jLabel2))
+                            .addComponent(jLabel3))
+                        .addGap(21, 21, 21)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtSource, javax.swing.GroupLayout.DEFAULT_SIZE, 173, Short.MAX_VALUE)
+                            .addComponent(txtDestination)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(328, 328, 328)
+                        .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(126, 126, 126)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 742, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(320, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(45, 45, 45)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(68, 68, 68)
+                .addComponent(jLabel1)
+                .addGap(32, 32, 32)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(txtSource, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(36, 36, 36)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel3)
+                    .addComponent(txtDestination, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(54, 54, 54)
+                .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(469, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnViewFlightDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnDeleteFlight, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(72, 72, 72))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -74,10 +216,112 @@ public class TravelAgencyMngWorkAreaJPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void txtDestinationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDestinationActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDestinationActionPerformed
+
+    private void txtSourceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSourceActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSourceActionPerformed
+
+    private void btnViewFlightDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewFlightDetailsActionPerformed
+        // TODO add your handling code here:
+        // TODO add your handling code here:
+       int selectedRow = tbltravelagency.getSelectedRow();
+         if(selectedRow<0) {
+                  JOptionPane.showMessageDialog(null, "Please select a row from table first to view flight details","Warning",JOptionPane.WARNING_MESSAGE);
+
+         }
+         else {
+           Flight flight = (Flight)tbltravelagency.getValueAt(selectedRow,1);
+           ViewFlightJpanel panel = new ViewFlightJpanel(cardSequenceJPanel,flight);
+           cardSequenceJPanel.add("ViewFlightJpanel",panel);
+           CardLayout layout = (CardLayout) cardSequenceJPanel.getLayout();
+           layout.next(cardSequenceJPanel);
+         }
+    }//GEN-LAST:event_btnViewFlightDetailsActionPerformed
+
+    private void btnDeleteFlightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteFlightActionPerformed
+        // TODO add your handling code here:
+        // TODO add your handling code here:
+        int selectedRow = tbltravelagency.getSelectedRow();
+        if(selectedRow  >= 0) {
+           int dialogButton = JOptionPane.YES_NO_OPTION;
+           int dialogResult = JOptionPane.showConfirmDialog(null,"Would you like to delete the airliner details ?","Warning",dialogButton);
+           if(dialogResult == JOptionPane.YES_OPTION) {
+               Flight flight = (Flight)tbltravelagency.getValueAt(selectedRow,1);
+               for(Airliner airliner:travelAgency.getAirlinerDirectory().getAirlinerList()){
+                   airliner.deleteFlight(flight);
+               } 
+               populateTable();
+            }
+        }
+        else {
+            JOptionPane.showMessageDialog(null, "Please select a row from table first","Warning",JOptionPane.WARNING_MESSAGE);
+        }
+    }//GEN-LAST:event_btnDeleteFlightActionPerformed
+
+    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
+        // TODO add your handling code here:
+        // TODO add your handling code here:
+        if((txtSource.getText() != null)&& !(txtSource.getText().isEmpty())
+           && (txtDestination.getText() != null)&& !(txtDestination.getText().isEmpty()) 
+            )
+       {
+           
+       try{
+        String source = txtSource.getText();
+        String destination = txtDestination.getText();
+        Pattern pattern = Pattern.compile("[^A-Za-z0-9]");
+            Matcher m = pattern.matcher(txtSource.getText() + txtDestination.getText());
+            boolean boo = m.find();
+        if(boo == true || source == null || destination == null ) {
+            JOptionPane.showMessageDialog(null,"Please remove special character from text field");
+        }
+        else{
+         DefaultTableModel dtm = (DefaultTableModel)tbltravelagency.getModel();
+         dtm.setRowCount(0);
+        for(Airliner airliner: travelAgency.getAirlinerDirectory().getAirlinerList()) {
+            for(Flight flight:airliner.getFlightList()) {
+                if(flight.getSource().equalsIgnoreCase(source)&&flight.getDestination().equalsIgnoreCase(destination)){
+                    
+                  if(airliner.getAirlinerName().equals(flight.getAirlinerName())){
+                    Object[] row = new Object[8];
+                    row[0]=airliner.getAirlinerName();
+                    row[1]=flight;
+                    row[2]=flight.getSource();
+                    row[3]=flight.getDestination();
+                    row[4]=flight.getDepartureTime();
+                    row[5]=flight.getArrivalTime();
+                    row[6]=flight.getFlightPrice();
+                    row[7]=flight.getTotalSeats();
+                    dtm.addRow(row);
+                  }
+                }
+            }
+        }
+        }}catch(Exception e) {
+        JOptionPane.showMessageDialog(null,"Please Enter Numeric Values ");
+        }
+       }
+      else{
+        JOptionPane.showMessageDialog(null,"Please enter both source and destination to search ");
+
+    }
+    }//GEN-LAST:event_btnSearchActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnDeleteFlight;
+    private javax.swing.JButton btnSearch;
+    private javax.swing.JButton btnViewFlightDetails;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tbltravelagency;
+    private javax.swing.JTextField txtDestination;
+    private javax.swing.JTextField txtSource;
     // End of variables declaration//GEN-END:variables
 }
