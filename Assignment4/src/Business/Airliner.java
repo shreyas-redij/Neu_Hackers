@@ -16,7 +16,7 @@ public class Airliner {
     private String airlinerName;
     private String airlinerHeadquaters;
     private int airlinerFleetSize;
-    private int dummy;
+    //private int dummy;
     public ArrayList<Flight> flightList; 
     
     public String getAirlinerName() {
