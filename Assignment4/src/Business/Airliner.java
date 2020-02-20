@@ -41,6 +41,12 @@ public class Airliner {
     public void setAirlinerFleetSize(int airlinerFleetSize) {
         this.airlinerFleetSize = airlinerFleetSize;
     }
+    
+    public Flight addFlight(String airlinerName, String flightNumber, String source, String destination, String departureTime, String arrivalTime, double flightPrice, int totalSeats) {
+       Flight flight = new Flight(airlinerName, flightNumber, source, destination, departureTime, arrivalTime, flightPrice, totalSeats);
+       flightList.add(flight);
+       return flight;
+    }
 
     public ArrayList<Flight> getFlightList() {
         return flightList;
