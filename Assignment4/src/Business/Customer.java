@@ -16,7 +16,7 @@ public class Customer {
     String customerName; // Name of the Customer
     long customerContact; // Customer Contact Number
     String customerEmail; // Customer Email Id
-    private String seatNumber; // Customer Seat No
+    //private String seatNumber; // Customer Seat No
     private String flightNumber; // Customer Filght Number
-    private ArrayList<AirlinerDirectory> airlinerDirectory;
+    //private ArrayList<AirlinerDirectory> airlinerDirectory;
 }
