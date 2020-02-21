@@ -85,10 +85,11 @@ public class BookFlightJPanel extends javax.swing.JPanel {
         txtName = new javax.swing.JTextField();
         lblName = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(22, 72, 128));
+        setBackground(new java.awt.Color(204, 204, 255));
+        setPreferredSize(new java.awt.Dimension(1000, 800));
 
         lblFlightNumber.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
-        lblFlightNumber.setForeground(new java.awt.Color(255, 255, 255));
+        lblFlightNumber.setForeground(new java.awt.Color(102, 102, 255));
         lblFlightNumber.setText("Flight Number");
 
         txtFlightNumber.setBackground(new java.awt.Color(245, 245, 246));
@@ -100,7 +101,7 @@ public class BookFlightJPanel extends javax.swing.JPanel {
         });
 
         lblPastBookings.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
-        lblPastBookings.setForeground(new java.awt.Color(255, 255, 255));
+        lblPastBookings.setForeground(new java.awt.Color(51, 51, 51));
         lblPastBookings.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblPastBookings.setText("BOOK FLIGHT");
 
@@ -118,18 +119,18 @@ public class BookFlightJPanel extends javax.swing.JPanel {
         txtPhone.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
 
         lblPhone.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
-        lblPhone.setForeground(new java.awt.Color(255, 255, 255));
+        lblPhone.setForeground(new java.awt.Color(102, 102, 255));
         lblPhone.setText("Phone");
 
         txtEmail.setBackground(new java.awt.Color(245, 245, 246));
         txtEmail.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
 
         lblEmail.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
-        lblEmail.setForeground(new java.awt.Color(255, 255, 255));
+        lblEmail.setForeground(new java.awt.Color(102, 102, 255));
         lblEmail.setText("Email");
 
         lblSeat.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
-        lblSeat.setForeground(new java.awt.Color(255, 255, 255));
+        lblSeat.setForeground(new java.awt.Color(102, 102, 255));
         lblSeat.setText("Seat");
 
         comboSeat.setBackground(new java.awt.Color(245, 245, 246));
@@ -154,22 +155,22 @@ public class BookFlightJPanel extends javax.swing.JPanel {
         txtName.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
 
         lblName.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
-        lblName.setForeground(new java.awt.Color(255, 255, 255));
+        lblName.setForeground(new java.awt.Color(102, 102, 255));
         lblName.setText("Name");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblPastBookings, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(386, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(53, 53, 53)
+                        .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 189, Short.MAX_VALUE)
+                        .addComponent(lblPastBookings, javax.swing.GroupLayout.PREFERRED_SIZE, 311, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(lblFlightNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -180,30 +181,32 @@ public class BookFlightJPanel extends javax.swing.JPanel {
                                 .addGap(53, 53, 53)
                                 .addComponent(txtPhone, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(lblName, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(lblSeat, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(lblEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(53, 53, 53)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtEmail)
-                                    .addComponent(comboSeat, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(lblName, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(336, 336, 336))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(btnBookAFlight, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(422, 422, 422))))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btnBookAFlight, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(txtEmail)
+                                        .addComponent(comboSeat, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
+                .addGap(336, 336, 336))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblPastBookings)
-                .addGap(52, 52, 52)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(16, 16, 16)
+                        .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(45, 45, 45)
+                        .addComponent(lblPastBookings)))
+                .addGap(68, 68, 68)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtFlightNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblFlightNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -223,9 +226,9 @@ public class BookFlightJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(comboSeat)
                     .addComponent(lblSeat, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(151, 151, 151)
+                .addGap(48, 48, 48)
                 .addComponent(btnBookAFlight, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(56, Short.MAX_VALUE))
+                .addContainerGap(168, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
