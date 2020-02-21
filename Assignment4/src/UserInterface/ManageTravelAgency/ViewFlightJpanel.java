@@ -17,7 +17,7 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author gulat
+ * @author Shrey
  */
 public class ViewFlightJpanel extends javax.swing.JPanel {
 
