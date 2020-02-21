@@ -56,7 +56,7 @@ public class TravelAgencyMain extends javax.swing.JFrame {
                 btnTravelAgencyActionPerformed(evt);
             }
         });
-        jPanel1.add(btnTravelAgency, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, -1, -1));
+        jPanel1.add(btnTravelAgency, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 120, 30));
 
         btnAirliners.setText("Airlines");
         btnAirliners.addActionListener(new java.awt.event.ActionListener() {
@@ -64,7 +64,7 @@ public class TravelAgencyMain extends javax.swing.JFrame {
                 btnAirlinersActionPerformed(evt);
             }
         });
-        jPanel1.add(btnAirliners, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, 130, -1));
+        jPanel1.add(btnAirliners, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, 120, 30));
 
         btnCustomers.setText("Customers");
         btnCustomers.addActionListener(new java.awt.event.ActionListener() {
@@ -72,7 +72,7 @@ public class TravelAgencyMain extends javax.swing.JFrame {
                 btnCustomersActionPerformed(evt);
             }
         });
-        jPanel1.add(btnCustomers, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 400, 120, -1));
+        jPanel1.add(btnCustomers, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 400, 120, 30));
 
         jSplitPane1.setLeftComponent(jPanel1);
 
@@ -83,11 +83,11 @@ public class TravelAgencyMain extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 397, Short.MAX_VALUE)
+            .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1000, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane1)
+            .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 800, Short.MAX_VALUE)
         );
 
         pack();
