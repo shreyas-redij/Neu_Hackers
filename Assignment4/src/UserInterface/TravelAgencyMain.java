@@ -7,6 +7,7 @@ package UserInterface;
 
 import Business.TravelAgency;
 import UserInterface.ManageAirliners.AirlinersMngWorkAreaJPanel;
+import UserInterface.ManageCustomers.CustomersMngWorkAreaJPanel;
 import UserInterface.ManageTravelAgency.TravelAgencyMngWorkAreaJPanel;
 import java.awt.CardLayout;
 
@@ -66,6 +67,11 @@ public class TravelAgencyMain extends javax.swing.JFrame {
         jPanel1.add(btnAirliners, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, 130, -1));
 
         btnCustomers.setText("Customers");
+        btnCustomers.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCustomersActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnCustomers, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 400, 120, -1));
 
         jSplitPane1.setLeftComponent(jPanel1);
@@ -104,6 +110,14 @@ public class TravelAgencyMain extends javax.swing.JFrame {
         CardLayout layout = (CardLayout) cardSequenceJPanel.getLayout();
         layout.next(cardSequenceJPanel);
     }//GEN-LAST:event_btnAirlinersActionPerformed
+
+    private void btnCustomersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCustomersActionPerformed
+        // TODO add your handling code here:
+        CustomersMngWorkAreaJPanel panel = new CustomersMngWorkAreaJPanel(cardSequenceJPanel,travelAgency);
+        cardSequenceJPanel.add("CustomersMngWorkAreaJPanel",panel);
+        CardLayout layout = (CardLayout) cardSequenceJPanel.getLayout();
+        layout.next(cardSequenceJPanel);
+    }//GEN-LAST:event_btnCustomersActionPerformed
 
     /**
      * @param args the command line arguments
