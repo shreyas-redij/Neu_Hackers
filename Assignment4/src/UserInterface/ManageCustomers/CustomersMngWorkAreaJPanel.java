@@ -43,17 +43,17 @@ public class CustomersMngWorkAreaJPanel extends javax.swing.JPanel {
         lblManageCustomers = new javax.swing.JLabel();
         btnBookFlights = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(22, 72, 128));
-        setPreferredSize(new java.awt.Dimension(1111, 765));
+        setBackground(new java.awt.Color(204, 204, 255));
+        setPreferredSize(new java.awt.Dimension(1000, 800));
 
         lblManageCustomers.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
-        lblManageCustomers.setForeground(new java.awt.Color(255, 255, 255));
+        lblManageCustomers.setForeground(new java.awt.Color(51, 51, 51));
         lblManageCustomers.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblManageCustomers.setText("MANAGE CUSTOMERS");
 
         btnBookFlights.setBackground(new java.awt.Color(245, 245, 246));
         btnBookFlights.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
-        btnBookFlights.setForeground(new java.awt.Color(78, 114, 175));
+        btnBookFlights.setForeground(new java.awt.Color(102, 102, 255));
         btnBookFlights.setText("Book Flights");
         btnBookFlights.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -65,20 +65,23 @@ public class CustomersMngWorkAreaJPanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblManageCustomers, javax.swing.GroupLayout.DEFAULT_SIZE, 1111, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnBookFlights, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(423, 423, 423))
+                .addContainerGap(345, Short.MAX_VALUE)
+                .addComponent(lblManageCustomers, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(342, 342, 342))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(406, 406, 406)
+                .addComponent(btnBookFlights, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(53, 53, 53)
-                .addComponent(lblManageCustomers)
-                .addGap(283, 283, 283)
+                .addGap(88, 88, 88)
+                .addComponent(lblManageCustomers, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(54, 54, 54)
                 .addComponent(btnBookFlights, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(341, Short.MAX_VALUE))
+                .addContainerGap(558, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

@@ -102,7 +102,7 @@ public class BookFlightWorkAreaJPanel extends javax.swing.JPanel {
         lblTo = new javax.swing.JLabel();
         lblTime = new javax.swing.JLabel();
         btnBookAFlight = new javax.swing.JButton();
-        lblPastBookings = new javax.swing.JLabel();
+        lblBookings = new javax.swing.JLabel();
         txtMinPrice = new javax.swing.JTextField();
         txtMaxPrice = new javax.swing.JTextField();
         comboBoxTime = new javax.swing.JComboBox<>();
@@ -113,8 +113,8 @@ public class BookFlightWorkAreaJPanel extends javax.swing.JPanel {
         comboBoxSource = new javax.swing.JComboBox<>();
         btnClear = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(22, 72, 128));
-        setPreferredSize(new java.awt.Dimension(1111, 765));
+        setBackground(new java.awt.Color(204, 204, 255));
+        setPreferredSize(new java.awt.Dimension(1000, 800));
 
         btnBack.setBackground(new java.awt.Color(245, 245, 246));
         btnBack.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
@@ -128,23 +128,23 @@ public class BookFlightWorkAreaJPanel extends javax.swing.JPanel {
         });
 
         lblFrom.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
-        lblFrom.setForeground(new java.awt.Color(255, 255, 255));
+        lblFrom.setForeground(new java.awt.Color(102, 102, 255));
         lblFrom.setText("From ");
 
         lblMinPrice.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
-        lblMinPrice.setForeground(new java.awt.Color(255, 255, 255));
+        lblMinPrice.setForeground(new java.awt.Color(102, 102, 255));
         lblMinPrice.setText("Min Price");
 
         lblMaxPrice.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
-        lblMaxPrice.setForeground(new java.awt.Color(255, 255, 255));
+        lblMaxPrice.setForeground(new java.awt.Color(102, 102, 255));
         lblMaxPrice.setText("Max Price");
 
         lblTo.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
-        lblTo.setForeground(new java.awt.Color(255, 255, 255));
+        lblTo.setForeground(new java.awt.Color(102, 102, 255));
         lblTo.setText("To");
 
         lblTime.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
-        lblTime.setForeground(new java.awt.Color(255, 255, 255));
+        lblTime.setForeground(new java.awt.Color(102, 102, 255));
         lblTime.setText("Time");
 
         btnBookAFlight.setBackground(new java.awt.Color(245, 245, 246));
@@ -157,10 +157,10 @@ public class BookFlightWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
-        lblPastBookings.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
-        lblPastBookings.setForeground(new java.awt.Color(255, 255, 255));
-        lblPastBookings.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblPastBookings.setText("SELECT BEST FLIGHT");
+        lblBookings.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
+        lblBookings.setForeground(new java.awt.Color(51, 51, 51));
+        lblBookings.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblBookings.setText("SELECT FLIGHT");
 
         txtMinPrice.setBackground(new java.awt.Color(245, 245, 246));
         txtMinPrice.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
@@ -235,56 +235,56 @@ public class BookFlightWorkAreaJPanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblPastBookings, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblMinPrice, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblTime, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblFrom, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(40, 40, 40)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(comboBoxSource, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtMinPrice, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(comboBoxTime, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(156, 156, 156)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(btnBookAFlight, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(450, 450, 450))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(lblMinPrice, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblTime, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblFrom, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(40, 40, 40)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(comboBoxSource, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtMinPrice, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(comboBoxTime, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(170, 170, 170)
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblTo, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblMaxPrice))
-                                .addGap(45, 45, 45)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(comboBoxDestination, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtMaxPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnSearchFlight, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnClear)))
-                        .addGap(141, 141, 141))))
+                            .addComponent(lblTo, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblMaxPrice))
+                        .addGap(45, 45, 45)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(comboBoxDestination, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtMaxPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addComponent(btnSearchFlight)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnClear)))
+                .addGap(141, 141, 141))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(47, 47, 47)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 1027, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(37, Short.MAX_VALUE))
+                        .addGap(66, 66, 66)
+                        .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(190, 190, 190)
+                        .addComponent(lblBookings, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(476, 476, 476)
+                        .addComponent(btnBookAFlight)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblPastBookings)
-                .addGap(50, 50, 50)
+                .addGap(26, 26, 26)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblBookings)
+                    .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(69, 69, 69)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(comboBoxDestination, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblTo, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -309,9 +309,9 @@ public class BookFlightWorkAreaJPanel extends javax.swing.JPanel {
                                 .addComponent(btnClear, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addGap(28, 28, 28)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(btnBookAFlight, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(77, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -453,10 +453,10 @@ public class BookFlightWorkAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> comboBoxSource;
     private javax.swing.JComboBox<String> comboBoxTime;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel lblBookings;
     private javax.swing.JLabel lblFrom;
     private javax.swing.JLabel lblMaxPrice;
     private javax.swing.JLabel lblMinPrice;
-    private javax.swing.JLabel lblPastBookings;
     private javax.swing.JLabel lblTime;
     private javax.swing.JLabel lblTo;
     private javax.swing.JTable tbltravelagency;
