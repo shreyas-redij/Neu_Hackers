@@ -103,8 +103,8 @@ public class Lab7 {
         
         //helper.getInactiveUsersBasedOnComments();
         
-        //helper.getTop5InactiveUserOverall(1);
+        helper.getTop5InactiveUserOverall(1);
         
-        //helper.getTop5ProactiveUserOverall();
+        helper.getTop5ProactiveUserOverall();
     }
 }
