@@ -112,8 +112,8 @@
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="comboBoxTime" max="32767" attributes="0"/>
                           <Group type="103" alignment="1" groupAlignment="3" attributes="0">
-                              <Component id="btnSearchFlight" alignment="3" min="-2" pref="46" max="-2" attributes="0"/>
-                              <Component id="btnClear" alignment="3" min="-2" pref="46" max="-2" attributes="0"/>
+                              <Component id="btnSearchFlight" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnClear" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
