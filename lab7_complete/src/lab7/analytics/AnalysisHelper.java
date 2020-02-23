@@ -73,4 +73,32 @@ public class AnalysisHelper {
             System.out.println(commentList.get(i));
         }   
     }
+ public void getPostWithMostComments(){
+        Map<Integer, Integer> postCommentCount = new HashMap<>();
+        Map<Integer, Post> posts = DataStore.getInstance().getPosts();
+        
+        for(Post p: posts.values()){
+            for(Comment c : p.getComments()){
+                int commentCount = 0;
+                if(postCommentCount.containsKey(p.getPostId())){
+                    commentCount = postCommentCount.get(p.getPostId());
+                    
+                }
+                commentCount += 1;
+                postCommentCount.put(p.getPostId(), commentCount);
+                
+            }
+        }
+        int max = 0;
+        int maxId = 0;
+        for (int id : postCommentCount.keySet()) {
+            if (postCommentCount.get(id) > max) {
+                max = postCommentCount.get(id);
+                maxId = id;
+            }
+        }
+        System.out.println("\nPost with most Comments ");
+        System.out.println(posts.get(maxId));
+        
+     }
 }
