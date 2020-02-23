@@ -78,7 +78,7 @@ public class AirlinersMngWorkAreaJPanel extends javax.swing.JPanel {
         btnSearchAirliner = new javax.swing.JButton();
         btnClearSearch = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(22, 72, 128));
+        setBackground(new java.awt.Color(204, 204, 255));
         setPreferredSize(new java.awt.Dimension(1000, 800));
 
         lblHeading.setFont(new java.awt.Font("Calibri", 1, 36)); // NOI18N
