@@ -7,7 +7,7 @@ package Business;
 
 /**
  *
- * @author mayur
+ * @author HP
  */
 public class Seats {
     
