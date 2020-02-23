@@ -27,8 +27,7 @@ import lab7.entities.Post;
 public class AnalysisHelper {
     // find user with Most Likes
     //  key: UserId ; Value: sum of likes from all comments
-    
-    public void userWithMostLikes() {
+     public void userWithMostLikes() {
         Map<Integer, Integer> userLikesCount = new HashMap<>();
         Map<Integer, User> users = DataStore.getInstance().getUsers();
     
@@ -167,6 +166,7 @@ public class AnalysisHelper {
     
     
     }
+   
     
     
 }
