@@ -75,9 +75,7 @@ public class AnalysisHelper {
     }
 
     
-    public void dummy(){
-    
-    }
+   
 
  public void getPostWithMostComments(){
         Map<Integer, Integer> postCommentCount = new HashMap<>();

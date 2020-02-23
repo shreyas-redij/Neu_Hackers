@@ -93,10 +93,10 @@ public class Lab7 {
     
     private void runAnalysis(){
         // find user with Most Likes
-        //helper.userWithMostLikes();
+        helper.getUserwithMostLikes();
         
-        //helper.getFiveMostLikedComment();
-        
+        helper.getTopFiveLikedCommnets();
+       
         //helper.getPostWithMostComments();
         
         //helper.getInactiveUsersBasedOnPost();
