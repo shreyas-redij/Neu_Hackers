@@ -27,7 +27,8 @@ import lab7.entities.Post;
 public class AnalysisHelper {
     // find user with Most Likes
     //  key: UserId ; Value: sum of likes from all comments
-     public void getUserwithMostLikes(){
+
+     public void userWithMostLikes(){
         Map<Integer,Integer> userLikesCount = new HashMap<>();
         Map<Integer,User> users = DataStore.getInstance().getUsers();
        
@@ -35,13 +36,14 @@ public class AnalysisHelper {
             for(Comment c : user.getComments()){
                 int likes=0;
                 if(userLikesCount.containsKey(user.getId())){
+
                     likes = userLikesCount.get(user.getId());
                 }
                 likes += c.getLikes();
                 userLikesCount.put(user.getId(), likes);
             }
         }
-         System.out.println(userLikesCount);
+        System.out.println(userLikesCount);
         int max=0;
         int maxId=0;
         for(int id: userLikesCount.keySet()){
@@ -52,30 +54,123 @@ public class AnalysisHelper {
         }
         System.out.println("\nUser with most likes : "+ max+ "\n"+ users.get(maxId));
     }
-     
-     // find 5 comments which have the most likes
-    // TODO
-    public void getTopFiveLikedCommnets(){
+
+    // find 5 comments which have the most likes
+    public void getFiveMostLikedComment() {
         Map<Integer, Comment> comments = DataStore.getInstance().getComments();
-        List<Comment> commentList = new ArrayList<Comment>(comments.values());
+        List<Comment> commentList = new ArrayList<>(comments.values());
         
-        Comparator<Comment> test = new Comparator<Comment>(){
-            public int compare(Comment c1, Comment c2){
-                return c2.getLikes() - c1.getLikes();
+        Collections.sort(commentList, new Comparator<Comment>() {
+            @Override 
+            public int compare(Comment o1, Comment o2) {
+                return o2.getLikes() - o1.getLikes();
             }
-        };
+        });
         
-        Collections.sort(commentList, test);
-        
-        System.out.println("\nTop 5 Comments with most likes");
-        for(int i =0; i<commentList.size() && i<5; i++){
-            
+        System.out.println("5 most likes comments: ");
+        for (int i = 0; i < commentList.size() && i < 5; i++) {
             System.out.println(commentList.get(i));
-        }   
+        }
+    }
+    
+    public void getTop5InactiveUserOverall(int a){
+        
+        Map<Integer,Integer> overallScore = new HashMap<>();
+        Map<Integer,User> users = DataStore.getInstance().getUsers();
+        Map<Integer,Post> posts = DataStore.getInstance().getPosts();
+        
+        for(User user : users.values()){
+            for(Comment c : user.getComments()){
+                int likes=0;
+                if(overallScore.containsKey(user.getId())){
+                    likes = overallScore.get(user.getId());
+                }
+                
+                likes += c.getLikes();
+                
+                overallScore.put(user.getId(), likes);
+            }
+        }
+       
+        for(User user : users.values()){  
+            int totalComments=0;
+            if(overallScore.containsKey(user.getId())){
+                totalComments = overallScore.get(user.getId());
+            }
+           
+            totalComments += user.getComments().size();
+            overallScore.put(user.getId(), totalComments);
+        }
+        
+        for(Post p : posts.values()){
+            int totalPosts = 0;
+            if(overallScore.containsKey(p.getUserId())){
+                totalPosts = overallScore.get(p.getUserId());
+            }
+            totalPosts += 1;
+            overallScore.put(p.getUserId(), totalPosts);
+        }
+  
+        Set set = overallScore.entrySet();     
+        List list = new LinkedList(overallScore.entrySet());
+        // Defined Custom Comparator here
+        if (a == 1){
+        Collections.sort(list, new Comparator() {
+            public int compare(Object o1, Object o2) {
+               return ((Comparable) ((Map.Entry) (o1)).getValue())
+                  .compareTo(((Map.Entry) (o2)).getValue());
+            }
+        });
+        }
+        else {
+             Collections.sort(list, new Comparator() {
+            public int compare(Object o1, Object o2) {
+               return ((Comparable) ((Map.Entry) (o2)).getValue())
+                  .compareTo(((Map.Entry) (o1)).getValue());
+            }
+        });
+        }
+
+        // Here I am copying the sorted list in HashMap
+        // using LinkedHashMap to preserve the insertion order
+        HashMap sortedHashMap = new LinkedHashMap();
+        for (Iterator it = list.iterator(); it.hasNext();) {
+              Map.Entry entry = (Map.Entry) it.next();
+              sortedHashMap.put(entry.getKey(), entry.getValue());
+        } 
+    
+        Set set2 = sortedHashMap.entrySet();
+        Iterator iterator2 = set2.iterator();
+        int i = 0;
+        if (a==1){ 
+              System.out.println("\nTop 5 Inactive Users are: ");  
+              while(iterator2.hasNext() && i<5) {
+              Map.Entry me2 = (Map.Entry)iterator2.next();
+              System.out.print("User ID :" + me2.getKey() + "      Overall Score: ");
+              System.out.println(me2.getValue());
+              i++;
+            }
+        }
+        else {  
+            System.out.println("\nTop 5 Proactive Users are: ");
+            while(iterator2.hasNext() && i<5) {
+            Map.Entry me2 = (Map.Entry)iterator2.next();
+              System.out.print("User ID :" + me2.getKey() + "      Overall Score: ");
+              System.out.println(me2.getValue());
+              i++;
+            }
+        }
     }
 
     
+    public void getTop5ProactiveUserOverall(){
+        
+        getTop5InactiveUserOverall(0);
+    
+    
+    }
    
+     
 
  public void getPostWithMostComments(){
         Map<Integer, Integer> postCommentCount = new HashMap<>();
