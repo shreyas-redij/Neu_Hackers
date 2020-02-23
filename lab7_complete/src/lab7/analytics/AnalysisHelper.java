@@ -73,4 +73,8 @@ public class AnalysisHelper {
             System.out.println(commentList.get(i));
         }   
     }
+    
+    public void dummy(){
+    
+    }
 }
