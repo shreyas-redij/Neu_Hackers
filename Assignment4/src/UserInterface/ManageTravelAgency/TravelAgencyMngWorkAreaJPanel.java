@@ -84,6 +84,8 @@ public class TravelAgencyMngWorkAreaJPanel extends javax.swing.JPanel {
         btnDeleteFlight = new javax.swing.JButton();
         btnSearch = new javax.swing.JButton();
 
+        jPanel1.setBackground(new java.awt.Color(204, 204, 255));
+
         tbltravelagency.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -97,10 +99,12 @@ public class TravelAgencyMngWorkAreaJPanel extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Calibri", 1, 36)); // NOI18N
         jLabel1.setText("Manage Travel Agency");
 
-        jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(102, 102, 255));
         jLabel2.setText("Source:");
 
-        jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(102, 102, 255));
         jLabel3.setText("Destination:");
 
         txtSource.addActionListener(new java.awt.event.ActionListener() {
@@ -116,7 +120,7 @@ public class TravelAgencyMngWorkAreaJPanel extends javax.swing.JPanel {
         });
 
         btnViewFlightDetails.setBackground(new java.awt.Color(245, 245, 246));
-        btnViewFlightDetails.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        btnViewFlightDetails.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         btnViewFlightDetails.setForeground(new java.awt.Color(78, 114, 175));
         btnViewFlightDetails.setText("View Flight Details");
         btnViewFlightDetails.addActionListener(new java.awt.event.ActionListener() {
@@ -126,7 +130,7 @@ public class TravelAgencyMngWorkAreaJPanel extends javax.swing.JPanel {
         });
 
         btnDeleteFlight.setBackground(new java.awt.Color(245, 245, 246));
-        btnDeleteFlight.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        btnDeleteFlight.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         btnDeleteFlight.setForeground(new java.awt.Color(78, 114, 175));
         btnDeleteFlight.setText("Delete Flight");
         btnDeleteFlight.addActionListener(new java.awt.event.ActionListener() {
@@ -136,7 +140,7 @@ public class TravelAgencyMngWorkAreaJPanel extends javax.swing.JPanel {
         });
 
         btnSearch.setBackground(new java.awt.Color(245, 245, 246));
-        btnSearch.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        btnSearch.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         btnSearch.setForeground(new java.awt.Color(78, 114, 175));
         btnSearch.setText("Search");
         btnSearch.addActionListener(new java.awt.event.ActionListener() {
@@ -151,10 +155,10 @@ public class TravelAgencyMngWorkAreaJPanel extends javax.swing.JPanel {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(77, 77, 77)
-                .addComponent(btnViewFlightDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnViewFlightDetails)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnDeleteFlight, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(57, 57, 57))
+                .addGap(279, 279, 279))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -194,13 +198,17 @@ public class TravelAgencyMngWorkAreaJPanel extends javax.swing.JPanel {
                     .addComponent(txtDestination, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(54, 54, 54)
                 .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnViewFlightDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnDeleteFlight, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(72, 72, 72))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(34, 34, 34)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                        .addComponent(btnViewFlightDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(72, 72, 72))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnDeleteFlight, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(61, 61, 61))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
