@@ -172,7 +172,7 @@ public class AnalysisHelper {
     }
    
      
-
+// this fuction gets the post of most comments  
  public void getPostWithMostComments(){
         Map<Integer, Integer> postCommentCount = new HashMap<>();
         Map<Integer, Post> posts = DataStore.getInstance().getPosts();
