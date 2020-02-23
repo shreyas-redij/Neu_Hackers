@@ -81,8 +81,8 @@ public class CustomersMngWorkAreaJPanel extends javax.swing.JPanel {
                 .addGap(82, 82, 82)
                 .addComponent(lblManageCustomers, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(60, 60, 60)
-                .addComponent(btnBookFlights, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(558, Short.MAX_VALUE))
+                .addComponent(btnBookFlights, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(561, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
