@@ -58,33 +58,33 @@ public class CreateNewAirlinerJPanel extends javax.swing.JPanel {
         btnBack = new javax.swing.JButton();
         btnCreate = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(22, 72, 128));
+        setBackground(new java.awt.Color(204, 204, 255));
         setEnabled(false);
         setPreferredSize(new java.awt.Dimension(1000, 800));
 
-        lblName.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
-        lblName.setForeground(new java.awt.Color(255, 255, 255));
+        lblName.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        lblName.setForeground(new java.awt.Color(102, 102, 255));
         lblName.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblName.setText("Name");
+        lblName.setText("Name :");
 
-        lblHeading.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
-        lblHeading.setForeground(new java.awt.Color(255, 255, 255));
+        lblHeading.setFont(new java.awt.Font("Calibri", 1, 36)); // NOI18N
+        lblHeading.setForeground(new java.awt.Color(51, 51, 51));
         lblHeading.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblHeading.setText("CREATE NEW AIRLINERS");
 
         txtName.setBackground(new java.awt.Color(245, 245, 246));
         txtName.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
 
-        lblHeadquarters.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
-        lblHeadquarters.setForeground(new java.awt.Color(255, 255, 255));
+        lblHeadquarters.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        lblHeadquarters.setForeground(new java.awt.Color(102, 102, 255));
         lblHeadquarters.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblHeadquarters.setText("Headquarters");
+        lblHeadquarters.setText("Headquarters :");
 
         txtHeadquarters.setBackground(new java.awt.Color(245, 245, 246));
         txtHeadquarters.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
 
         btnBack.setBackground(new java.awt.Color(245, 245, 246));
-        btnBack.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        btnBack.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         btnBack.setForeground(new java.awt.Color(78, 114, 175));
         btnBack.setText("< Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -94,7 +94,7 @@ public class CreateNewAirlinerJPanel extends javax.swing.JPanel {
         });
 
         btnCreate.setBackground(new java.awt.Color(245, 245, 246));
-        btnCreate.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        btnCreate.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         btnCreate.setForeground(new java.awt.Color(78, 114, 175));
         btnCreate.setText("Create");
         btnCreate.addActionListener(new java.awt.event.ActionListener() {
@@ -110,46 +110,46 @@ public class CreateNewAirlinerJPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(233, 233, 233)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addGroup(layout.createSequentialGroup()
                                     .addComponent(lblName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(layout.createSequentialGroup()
                                     .addComponent(lblHeadquarters, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(txtHeadquarters, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(56, 56, 56)
-                                .addComponent(lblHeading, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(txtHeadquarters, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(129, 129, 129)
-                                .addComponent(btnCreate, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(437, Short.MAX_VALUE))
+                                .addComponent(btnCreate, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(56, 56, 56)
+                                .addComponent(lblHeading, javax.swing.GroupLayout.PREFERRED_SIZE, 371, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(340, 340, 340))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(65, 65, 65)
-                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(104, 104, 104)
+                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(112, 112, 112)
                 .addComponent(lblHeading)
                 .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblName, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(39, 39, 39)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblHeadquarters, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtHeadquarters, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtHeadquarters, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(81, 81, 81)
-                .addComponent(btnCreate, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(212, Short.MAX_VALUE))
+                .addComponent(btnCreate, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(243, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

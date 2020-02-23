@@ -350,7 +350,8 @@ public class BookFlightWorkAreaJPanel extends javax.swing.JPanel {
 
     private void btnSearchFlightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchFlightActionPerformed
         // TODO add your handling code here:
-      try{  
+      // try catch validations for search details of the flight
+        try{  
         String source= String.valueOf(comboBoxSource.getSelectedItem());
         String destination = String.valueOf(comboBoxDestination.getSelectedItem());
         double minPrice;
