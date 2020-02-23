@@ -93,18 +93,21 @@ public class Lab7 {
     
     private void runAnalysis(){
         // find user with Most Likes
-        helper.getUserwithMostLikes();
+
+        helper.userWithMostLikes();
         
-        helper.getTopFiveLikedCommnets();
-       
-        //helper.getPostWithMostComments();
+        helper.getFiveMostLikedComment();
+        
+        helper.getPostWithMostComments();
+      
+
         
         //helper.getInactiveUsersBasedOnPost();
         
         //helper.getInactiveUsersBasedOnComments();
         
-        //helper.getTop5InactiveUserOverall(1);
+        helper.getTop5InactiveUserOverall(1);
         
-        //helper.getTop5ProactiveUserOverall();
+        helper.getTop5ProactiveUserOverall();
     }
 }
