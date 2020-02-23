@@ -117,7 +117,7 @@ public class BookFlightWorkAreaJPanel extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(1000, 800));
 
         btnBack.setBackground(new java.awt.Color(245, 245, 246));
-        btnBack.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
+        btnBack.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         btnBack.setForeground(new java.awt.Color(78, 114, 175));
         btnBack.setText("< Back");
         btnBack.setPreferredSize(new java.awt.Dimension(93, 31));
@@ -127,28 +127,33 @@ public class BookFlightWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
-        lblFrom.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        lblFrom.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         lblFrom.setForeground(new java.awt.Color(102, 102, 255));
-        lblFrom.setText("From ");
+        lblFrom.setText("From :");
+        lblFrom.setAutoscrolls(true);
 
-        lblMinPrice.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        lblMinPrice.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         lblMinPrice.setForeground(new java.awt.Color(102, 102, 255));
-        lblMinPrice.setText("Min Price");
+        lblMinPrice.setText("Min Price :");
+        lblMinPrice.setAutoscrolls(true);
 
-        lblMaxPrice.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        lblMaxPrice.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         lblMaxPrice.setForeground(new java.awt.Color(102, 102, 255));
         lblMaxPrice.setText("Max Price");
+        lblMaxPrice.setAutoscrolls(true);
 
-        lblTo.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        lblTo.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         lblTo.setForeground(new java.awt.Color(102, 102, 255));
-        lblTo.setText("To");
+        lblTo.setText("       To");
+        lblTo.setAutoscrolls(true);
 
-        lblTime.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        lblTime.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         lblTime.setForeground(new java.awt.Color(102, 102, 255));
-        lblTime.setText("Time");
+        lblTime.setText("Time :");
+        lblTime.setAutoscrolls(true);
 
         btnBookAFlight.setBackground(new java.awt.Color(245, 245, 246));
-        btnBookAFlight.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
+        btnBookAFlight.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         btnBookAFlight.setForeground(new java.awt.Color(78, 114, 175));
         btnBookAFlight.setText("Book Flight");
         btnBookAFlight.addActionListener(new java.awt.event.ActionListener() {
@@ -157,7 +162,7 @@ public class BookFlightWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
-        lblBookings.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
+        lblBookings.setFont(new java.awt.Font("Calibri", 1, 36)); // NOI18N
         lblBookings.setForeground(new java.awt.Color(51, 51, 51));
         lblBookings.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblBookings.setText("SELECT FLIGHT");
@@ -169,8 +174,14 @@ public class BookFlightWorkAreaJPanel extends javax.swing.JPanel {
         txtMaxPrice.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
 
         comboBoxTime.setBackground(new java.awt.Color(245, 245, 246));
-        comboBoxTime.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        comboBoxTime.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         comboBoxTime.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Morning", "Afternoon", "Evening ", "Night" }));
+        comboBoxTime.setAutoscrolls(true);
+        comboBoxTime.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboBoxTimeActionPerformed(evt);
+            }
+        });
 
         tbltravelagency.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -200,7 +211,7 @@ public class BookFlightWorkAreaJPanel extends javax.swing.JPanel {
         }
 
         btnSearchFlight.setBackground(new java.awt.Color(245, 245, 246));
-        btnSearchFlight.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
+        btnSearchFlight.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         btnSearchFlight.setForeground(new java.awt.Color(78, 114, 175));
         btnSearchFlight.setText("Search Flight");
         btnSearchFlight.addActionListener(new java.awt.event.ActionListener() {
@@ -222,7 +233,7 @@ public class BookFlightWorkAreaJPanel extends javax.swing.JPanel {
         });
 
         btnClear.setBackground(new java.awt.Color(245, 245, 246));
-        btnClear.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
+        btnClear.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         btnClear.setForeground(new java.awt.Color(78, 114, 175));
         btnClear.setText("Clear Search");
         btnClear.addActionListener(new java.awt.event.ActionListener() {
@@ -246,7 +257,7 @@ public class BookFlightWorkAreaJPanel extends javax.swing.JPanel {
                     .addComponent(comboBoxSource, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(txtMinPrice, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(comboBoxTime, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(156, 156, 156)
+                .addGap(150, 150, 150)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -288,13 +299,13 @@ public class BookFlightWorkAreaJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(comboBoxDestination, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblTo, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(comboBoxSource, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(comboBoxSource, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblFrom, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblMaxPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblMinPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtMinPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtMinPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtMaxPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -442,6 +453,10 @@ public class BookFlightWorkAreaJPanel extends javax.swing.JPanel {
     private void comboBoxSourceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxSourceActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_comboBoxSourceActionPerformed
+
+    private void comboBoxTimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxTimeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comboBoxTimeActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
