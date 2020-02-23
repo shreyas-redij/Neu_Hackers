@@ -171,26 +171,6 @@ public class AnalysisHelper {
    
     
      
-     // find 5 comments which have the most likes
-    // TODO
-    public void getFiveMostLikedComment(){
-        Map<Integer, Comment> comments = DataStore.getInstance().getComments();
-        List<Comment> commentList = new ArrayList<Comment>(comments.values());
-        
-        Comparator<Comment> test = new Comparator<Comment>(){
-            public int compare(Comment c1, Comment c2){
-                return c2.getLikes() - c1.getLikes();
-            }
-        };
-        
-        Collections.sort(commentList, test);
-        
-        System.out.println("\nTop 5 Comments with most likes");
-        for(int i =0; i<commentList.size() && i<5; i++){
-            
-            System.out.println(commentList.get(i));
-        }   
-    }
  public void getPostWithMostComments(){
         Map<Integer, Integer> postCommentCount = new HashMap<>();
         Map<Integer, Post> posts = DataStore.getInstance().getPosts();
