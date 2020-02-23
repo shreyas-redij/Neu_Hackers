@@ -28,7 +28,7 @@ public class AnalysisHelper {
     // find user with Most Likes
     //  key: UserId ; Value: sum of likes from all comments
 
-     public void getUserwithMostLikes(){
+     public void userWithMostLikes(){
         Map<Integer,Integer> userLikesCount = new HashMap<>();
         Map<Integer,User> users = DataStore.getInstance().getUsers();
        
@@ -173,7 +173,7 @@ public class AnalysisHelper {
      
      // find 5 comments which have the most likes
     // TODO
-    public void getTopFiveLikedCommnets(){
+    public void getFiveMostLikedComment(){
         Map<Integer, Comment> comments = DataStore.getInstance().getComments();
         List<Comment> commentList = new ArrayList<Comment>(comments.values());
         
