@@ -48,31 +48,35 @@ public class TravelAgencyMain extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel1.setBackground(new java.awt.Color(102, 102, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        btnTravelAgency.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         btnTravelAgency.setText("Travel Agency");
         btnTravelAgency.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnTravelAgencyActionPerformed(evt);
             }
         });
-        jPanel1.add(btnTravelAgency, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 120, 30));
+        jPanel1.add(btnTravelAgency, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, 130, 50));
 
+        btnAirliners.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         btnAirliners.setText("Airlines");
         btnAirliners.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAirlinersActionPerformed(evt);
             }
         });
-        jPanel1.add(btnAirliners, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, 120, 30));
+        jPanel1.add(btnAirliners, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 290, 130, 50));
 
+        btnCustomers.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         btnCustomers.setText("Customers");
         btnCustomers.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCustomersActionPerformed(evt);
             }
         });
-        jPanel1.add(btnCustomers, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 400, 120, 30));
+        jPanel1.add(btnCustomers, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 400, 130, 50));
 
         jSplitPane1.setLeftComponent(jPanel1);
 
