@@ -3,14 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/HP/Desktop/AED_Assignments/Ravi%20Group%20Assignments/Neu_Hackers/Assignment4/src/UserInterface/ManageCustomers/BookFlightWorkAreaJPanel.java</file>
-            <file>file:/C:/Users/HP/Desktop/AED_Assignments/Ravi%20Group%20Assignments/Neu_Hackers/Assignment4/src/UserInterface/ManageAirliners/CreateNewFlightJpanel.java</file>
-            <file>file:/C:/Users/HP/Desktop/AED_Assignments/Ravi%20Group%20Assignments/Neu_Hackers/Assignment4/src/UserInterface/ManageAirliners/ViewAirlinerDetailsJPanel.java</file>
-            <file>file:/C:/Users/HP/Desktop/AED_Assignments/Ravi%20Group%20Assignments/Neu_Hackers/Assignment4/src/UserInterface/ManageAirliners/AirlinersMngWorkAreaJPanel.java</file>
-            <file>file:/C:/Users/HP/Desktop/AED_Assignments/Ravi%20Group%20Assignments/Neu_Hackers/Assignment4/src/UserInterface/ManageAirliners/CreateNewAirlinerJPanel.java</file>
-            <file>file:/C:/Users/HP/Desktop/AED_Assignments/Ravi%20Group%20Assignments/Neu_Hackers/Assignment4/src/Business/TravelAgency.java</file>
-            <file>file:/C:/Users/HP/Desktop/AED_Assignments/Ravi%20Group%20Assignments/Neu_Hackers/Assignment4/src/UserInterface/TravelAgencyMain.java</file>
-            <file>file:/C:/Users/HP/Desktop/AED_Assignments/Ravi%20Group%20Assignments/Neu_Hackers/Assignment4/src/UserInterface/ManageCustomers/BookFlightJPanel.java</file>
+            <file>file:/C:/git/Neu_Hackers/Assignment4/src/UserInterface/ManageCustomers/CustomersMngWorkAreaJPanel.java</file>
+            <file>file:/C:/git/Neu_Hackers/Assignment4/src/UserInterface/ManageCustomers/BookFlightJPanel.java</file>
+            <file>file:/C:/git/Neu_Hackers/Assignment4/src/UserInterface/ManageTravelAgency/TravelAgencyMngWorkAreaJPanel.java</file>
+            <file>file:/C:/git/Neu_Hackers/Assignment4/src/UserInterface/TravelAgencyMainJFrame.java</file>
+            <file>file:/C:/git/Neu_Hackers/Assignment4/src/UserInterface/ManageCustomers/BookFlightWorkAreaJPanel.java</file>
+            <file>file:/C:/git/Neu_Hackers/Assignment4/src/UserInterface/ManageAirliners/CreateNewFlightJpanel.java</file>
         </group>
     </open-files>
 </project-private>

@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package UserInterface;
-
 import Business.TravelAgency;
 import UserInterface.ManageAirliners.AirlinersMngWorkAreaJPanel;
 import UserInterface.ManageCustomers.CustomersMngWorkAreaJPanel;
@@ -13,19 +12,15 @@ import java.awt.CardLayout;
 
 /**
  *
- * @author shrey
+ * @author mayur
  */
-public class TravelAgencyMain extends javax.swing.JFrame {
+public class TravelAgencyMainJFrame extends javax.swing.JFrame {
 
-    /**
-     * Creates new form TravelAgencyMain
-     */
-    
     /**
      * Creates new form TravelAgencyMainJFrame
      */
     private TravelAgency travelAgency;
-    public TravelAgencyMain() {
+    public TravelAgencyMainJFrame() {
         initComponents();
         this.travelAgency = new TravelAgency();
     }
@@ -39,67 +34,88 @@ public class TravelAgencyMain extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jSplitPane1 = new javax.swing.JSplitPane();
-        jPanel1 = new javax.swing.JPanel();
+        jSplitPanel = new javax.swing.JSplitPane();
+        leftJPanel = new javax.swing.JPanel();
+        btnCustomers = new javax.swing.JButton();
         btnTravelAgency = new javax.swing.JButton();
         btnAirliners = new javax.swing.JButton();
-        btnCustomers = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
         cardSequenceJPanel = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(102, 102, 255));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        leftJPanel.setBackground(new java.awt.Color(102, 153, 255));
+        leftJPanel.setPreferredSize(new java.awt.Dimension(250, 766));
+        leftJPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnTravelAgency.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        btnTravelAgency.setText("Travel Agency");
-        btnTravelAgency.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnTravelAgencyActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnTravelAgency, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, 130, 50));
-
-        btnAirliners.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        btnAirliners.setText("Airlines");
-        btnAirliners.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAirlinersActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnAirliners, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 290, 130, 50));
-
-        btnCustomers.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        btnCustomers.setBackground(new java.awt.Color(245, 245, 246));
+        btnCustomers.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        btnCustomers.setForeground(new java.awt.Color(78, 114, 175));
         btnCustomers.setText("Customers");
         btnCustomers.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCustomersActionPerformed(evt);
             }
         });
-        jPanel1.add(btnCustomers, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 400, 130, 50));
+        leftJPanel.add(btnCustomers, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 460, 190, 50));
 
-        jSplitPane1.setLeftComponent(jPanel1);
+        btnTravelAgency.setBackground(new java.awt.Color(245, 245, 246));
+        btnTravelAgency.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        btnTravelAgency.setForeground(new java.awt.Color(78, 114, 175));
+        btnTravelAgency.setText("Travel Agency");
+        btnTravelAgency.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTravelAgencyActionPerformed(evt);
+            }
+        });
+        leftJPanel.add(btnTravelAgency, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 190, 50));
 
+        btnAirliners.setBackground(new java.awt.Color(245, 245, 246));
+        btnAirliners.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        btnAirliners.setForeground(new java.awt.Color(78, 114, 175));
+        btnAirliners.setText("Airliners");
+        btnAirliners.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAirlinersActionPerformed(evt);
+            }
+        });
+        leftJPanel.add(btnAirliners, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, 190, 50));
+
+        jLabel1.setFont(new java.awt.Font("Century Gothic", 1, 22)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(235, 34, 38));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("<html>TRAVEL AGENCY<br/> MANAGEMENT SYSTEM</html>");
+        leftJPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 200, -1));
+
+        jSplitPanel.setLeftComponent(leftJPanel);
+
+        cardSequenceJPanel.setBackground(new java.awt.Color(204, 204, 255));
         cardSequenceJPanel.setLayout(new java.awt.CardLayout());
-        jSplitPane1.setRightComponent(cardSequenceJPanel);
+        jSplitPanel.setRightComponent(cardSequenceJPanel);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1000, Short.MAX_VALUE)
+            .addComponent(jSplitPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1366, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 800, Short.MAX_VALUE)
+            .addComponent(jSplitPanel, javax.swing.GroupLayout.Alignment.TRAILING)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnCustomersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCustomersActionPerformed
+         //TODO add your handling code here:
+        CustomersMngWorkAreaJPanel panel = new CustomersMngWorkAreaJPanel(cardSequenceJPanel,travelAgency);
+        cardSequenceJPanel.add("CustomersMngWorkAreaJPanel",panel);
+        CardLayout layout = (CardLayout) cardSequenceJPanel.getLayout();
+        layout.next(cardSequenceJPanel);
+    }//GEN-LAST:event_btnCustomersActionPerformed
+
     private void btnTravelAgencyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTravelAgencyActionPerformed
-        // TODO add your handling code here:
-        
         // TODO add your handling code here:
         TravelAgencyMngWorkAreaJPanel panel = new TravelAgencyMngWorkAreaJPanel(cardSequenceJPanel,travelAgency);
         cardSequenceJPanel.add("TravelAgencyMngWorkAreaJPanel", panel);
@@ -114,14 +130,6 @@ public class TravelAgencyMain extends javax.swing.JFrame {
         CardLayout layout = (CardLayout) cardSequenceJPanel.getLayout();
         layout.next(cardSequenceJPanel);
     }//GEN-LAST:event_btnAirlinersActionPerformed
-
-    private void btnCustomersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCustomersActionPerformed
-        // TODO add your handling code here:
-        CustomersMngWorkAreaJPanel panel = new CustomersMngWorkAreaJPanel(cardSequenceJPanel,travelAgency);
-        cardSequenceJPanel.add("CustomersMngWorkAreaJPanel",panel);
-        CardLayout layout = (CardLayout) cardSequenceJPanel.getLayout();
-        layout.next(cardSequenceJPanel);
-    }//GEN-LAST:event_btnCustomersActionPerformed
 
     /**
      * @param args the command line arguments
@@ -140,20 +148,20 @@ public class TravelAgencyMain extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TravelAgencyMain.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TravelAgencyMainJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TravelAgencyMain.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TravelAgencyMainJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TravelAgencyMain.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TravelAgencyMainJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TravelAgencyMain.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TravelAgencyMainJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TravelAgencyMain().setVisible(true);
+                new TravelAgencyMainJFrame().setVisible(true);
             }
         });
     }
@@ -163,7 +171,8 @@ public class TravelAgencyMain extends javax.swing.JFrame {
     private javax.swing.JButton btnCustomers;
     private javax.swing.JButton btnTravelAgency;
     private javax.swing.JPanel cardSequenceJPanel;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JSplitPane jSplitPane1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JSplitPane jSplitPanel;
+    private javax.swing.JPanel leftJPanel;
     // End of variables declaration//GEN-END:variables
 }
