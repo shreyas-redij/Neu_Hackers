@@ -311,6 +311,9 @@ public class CreateNewFlightJpanel extends javax.swing.JPanel {
         else if(!checkString(destination)){
             JOptionPane.showMessageDialog(null, "Please enter valid destination");
         }
+        else if(source.equalsIgnoreCase(destination)){
+            JOptionPane.showMessageDialog(null, "Please make sure source and destination are different");
+        }
         else {
             airliner.addFlight(airlinerName, flightNumber, source, destination, departure, arrival, price, totalSeats);
             txtFlightNumber.setText("");
