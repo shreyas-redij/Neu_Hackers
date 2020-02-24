@@ -44,7 +44,7 @@ public class TravelAgencyMainJFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        leftJPanel.setBackground(new java.awt.Color(0, 33, 83));
+        leftJPanel.setBackground(new java.awt.Color(102, 153, 255));
         leftJPanel.setPreferredSize(new java.awt.Dimension(250, 766));
         leftJPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -89,7 +89,7 @@ public class TravelAgencyMainJFrame extends javax.swing.JFrame {
 
         jSplitPanel.setLeftComponent(leftJPanel);
 
-        cardSequenceJPanel.setBackground(new java.awt.Color(22, 72, 128));
+        cardSequenceJPanel.setBackground(new java.awt.Color(204, 204, 255));
         cardSequenceJPanel.setLayout(new java.awt.CardLayout());
         jSplitPanel.setRightComponent(cardSequenceJPanel);
 
