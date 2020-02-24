@@ -19,13 +19,33 @@ public class Customer {
     private String seatNumber; // Customer Seat No
     private String flightNumber; // Customer Filght Number
     private ArrayList<AirlinerDirectory> airlinerDirectory;
+    private String arrivalTime;
+    private String departureTime;
 
-    Customer(String customerName, long customerContact, String customerEmail, String flightNumber, String seatNumber) {
+    Customer(String customerName, long customerContact, String customerEmail, String flightNumber, String seatNumber, String arrivalTime, String departureTime) {
         this.customerName =customerName ;
         this.customerEmail = customerEmail;
         this.customerContact = customerContact;
         this.flightNumber = flightNumber;
         this.seatNumber = seatNumber;
+        this.arrivalTime = arrivalTime;
+        this.departureTime = departureTime;
+    }
+
+    public String getArrivalTime() {
+        return arrivalTime;
+    }
+
+    public void setArrivalTime(String arrivalTime) {
+        this.arrivalTime = arrivalTime;
+    }
+
+    public String getDepartureTime() {
+        return departureTime;
+    }
+
+    public void setDepartureTime(String departureTime) {
+        this.departureTime = departureTime;
     }
     public ArrayList<AirlinerDirectory> getAirlinerdirectory() {
         return airlinerDirectory;

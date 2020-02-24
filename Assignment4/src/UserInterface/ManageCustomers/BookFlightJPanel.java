@@ -6,6 +6,7 @@
 package UserInterface.ManageCustomers;
 
 import Business.CustomerDirectory;
+import Business.Customer;
 import Business.Flight;
 import Business.Seats;
 import Business.TravelAgency;
@@ -71,6 +72,9 @@ public class BookFlightJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jFrame1 = new javax.swing.JFrame();
+        jFrame2 = new javax.swing.JFrame();
+        jFrame3 = new javax.swing.JFrame();
         lblFlightNumber = new javax.swing.JLabel();
         txtFlightNumber = new javax.swing.JTextField();
         lblPastBookings = new javax.swing.JLabel();
@@ -84,6 +88,39 @@ public class BookFlightJPanel extends javax.swing.JPanel {
         btnBookAFlight = new javax.swing.JButton();
         txtName = new javax.swing.JTextField();
         lblName = new javax.swing.JLabel();
+
+        javax.swing.GroupLayout jFrame1Layout = new javax.swing.GroupLayout(jFrame1.getContentPane());
+        jFrame1.getContentPane().setLayout(jFrame1Layout);
+        jFrame1Layout.setHorizontalGroup(
+            jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jFrame1Layout.setVerticalGroup(
+            jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jFrame2Layout = new javax.swing.GroupLayout(jFrame2.getContentPane());
+        jFrame2.getContentPane().setLayout(jFrame2Layout);
+        jFrame2Layout.setHorizontalGroup(
+            jFrame2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jFrame2Layout.setVerticalGroup(
+            jFrame2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jFrame3Layout = new javax.swing.GroupLayout(jFrame3.getContentPane());
+        jFrame3.getContentPane().setLayout(jFrame3Layout);
+        jFrame3Layout.setHorizontalGroup(
+            jFrame3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jFrame3Layout.setVerticalGroup(
+            jFrame3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
 
         setBackground(new java.awt.Color(204, 204, 255));
         setPreferredSize(new java.awt.Dimension(1000, 800));
@@ -259,9 +296,41 @@ public class BookFlightJPanel extends javax.swing.JPanel {
         String customerEmail = txtEmail.getText();
         String flightNumber = txtFlightNumber.getText();
         String seatNumber = (String)comboSeat.getSelectedItem();
+        String arrivalTime = flight.getArrivalTime();
+        String departureTime = flight.getDepartureTime();
+        
         long customerContact = 0;
         try{
             customerContact = Integer.parseInt(txtPhone.getText());
+            
+            for(Customer c : travelAgency.getCustomerDirectory().getCustomerDirectory()){
+                if(c.getCustomerName().equalsIgnoreCase(customerName) && c.getCustomerEmail().equals(customerEmail)){
+                    int currentarrival = Integer.parseInt(arrivalTime.substring(0, 2));
+                    int currentdeparture=Integer.parseInt(departureTime.substring(0, 2));
+                    
+                    int previousarrival = Integer.parseInt(c.getArrivalTime().substring(0, 2));
+                    int previousdeparture=Integer.parseInt(c.getDepartureTime().substring(0,2));
+                    
+                    if((currentdeparture > previousdeparture  && currentdeparture < previousarrival) || (currentarrival > previousdeparture  && currentarrival < previousarrival)){
+                        
+                        //if(currentdeparture < previousdeparture){
+                            JOptionPane.showMessageDialog(null, "No Overlapping allowed");
+                            return;
+                    
+                    //}
+                        
+                    }
+                    else if((previousdeparture > currentdeparture  && previousdeparture < currentarrival) || (previousarrival > currentdeparture  && previousarrival < currentarrival)){
+                        
+                        //if(currentdeparture < previousdeparture){
+                            JOptionPane.showMessageDialog(null, "No Overlapping allowed");
+                            return;
+                    
+                    //}
+                        
+                    }
+                }
+            }
             
             if(!phoneNumberPattern())
             {
@@ -284,7 +353,7 @@ public class BookFlightJPanel extends javax.swing.JPanel {
             }
             else{
                 
-               travelAgency.getCustomerDirectory().addCustomer(customerName, customerContact, customerEmail, flightNumber, seatNumber);
+               travelAgency.getCustomerDirectory().addCustomer(customerName, customerContact, customerEmail, flightNumber, seatNumber,arrivalTime, departureTime );
                flight.setAvailableSeats(flight.getTotalSeats()-1);
                JOptionPane.showMessageDialog(null, "Flight booked successfully\n"+"Airline: "+flight.getAirlinerName()+"\n"+"Flight Number: "+flight.getFlightNumber()+"\n"+"Seat Number: "+seatNumber);
                for(Seats seat:flight.getSeatList()){
@@ -319,6 +388,9 @@ public class BookFlightJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnBookAFlight;
     private javax.swing.JComboBox<String> comboSeat;
+    private javax.swing.JFrame jFrame1;
+    private javax.swing.JFrame jFrame2;
+    private javax.swing.JFrame jFrame3;
     private javax.swing.JLabel lblEmail;
     private javax.swing.JLabel lblFlightNumber;
     private javax.swing.JLabel lblName;
