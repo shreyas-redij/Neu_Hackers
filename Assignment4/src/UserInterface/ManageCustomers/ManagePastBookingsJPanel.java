@@ -74,7 +74,7 @@ public class ManagePastBookingsJPanel extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(1111, 765));
 
         lblPastBookings.setFont(new java.awt.Font("Calibri", 1, 36)); // NOI18N
-        lblPastBookings.setForeground(new java.awt.Color(255, 255, 255));
+        lblPastBookings.setForeground(new java.awt.Color(51, 51, 51));
         lblPastBookings.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblPastBookings.setText("Past Bookings");
 
