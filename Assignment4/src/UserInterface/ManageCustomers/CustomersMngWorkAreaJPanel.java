@@ -63,8 +63,8 @@ public class CustomersMngWorkAreaJPanel extends javax.swing.JPanel {
         });
 
         btnViewPastBookings.setBackground(new java.awt.Color(245, 245, 246));
-        btnViewPastBookings.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
-        btnViewPastBookings.setForeground(new java.awt.Color(78, 114, 175));
+        btnViewPastBookings.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        btnViewPastBookings.setForeground(new java.awt.Color(102, 102, 255));
         btnViewPastBookings.setText("View Past Bookings");
         btnViewPastBookings.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -79,17 +79,15 @@ public class CustomersMngWorkAreaJPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(336, 336, 336)
+                        .addComponent(lblManageCustomers))
+                    .addGroup(layout.createSequentialGroup()
                         .addGap(406, 406, 406)
                         .addComponent(btnBookFlights, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(336, 336, 336)
-                        .addComponent(lblManageCustomers)))
+                        .addGap(382, 382, 382)
+                        .addComponent(btnViewPastBookings)))
                 .addContainerGap(328, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(410, 410, 410)
-                    .addComponent(btnViewPastBookings, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(371, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -98,12 +96,9 @@ public class CustomersMngWorkAreaJPanel extends javax.swing.JPanel {
                 .addComponent(lblManageCustomers, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(60, 60, 60)
                 .addComponent(btnBookFlights, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(561, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(371, 371, 371)
-                    .addComponent(btnViewPastBookings, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(372, Short.MAX_VALUE)))
+                .addGap(79, 79, 79)
+                .addComponent(btnViewPastBookings, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(425, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
