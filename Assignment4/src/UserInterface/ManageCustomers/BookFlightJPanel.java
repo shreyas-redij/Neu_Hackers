@@ -6,6 +6,7 @@
 package UserInterface.ManageCustomers;
 
 import Business.CustomerDirectory;
+import Business.Customer;
 import Business.Flight;
 import Business.Seats;
 import Business.TravelAgency;
@@ -71,6 +72,9 @@ public class BookFlightJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jFrame1 = new javax.swing.JFrame();
+        jFrame2 = new javax.swing.JFrame();
+        jFrame3 = new javax.swing.JFrame();
         lblFlightNumber = new javax.swing.JLabel();
         txtFlightNumber = new javax.swing.JTextField();
         lblPastBookings = new javax.swing.JLabel();
@@ -85,12 +89,45 @@ public class BookFlightJPanel extends javax.swing.JPanel {
         txtName = new javax.swing.JTextField();
         lblName = new javax.swing.JLabel();
 
+        javax.swing.GroupLayout jFrame1Layout = new javax.swing.GroupLayout(jFrame1.getContentPane());
+        jFrame1.getContentPane().setLayout(jFrame1Layout);
+        jFrame1Layout.setHorizontalGroup(
+            jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jFrame1Layout.setVerticalGroup(
+            jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jFrame2Layout = new javax.swing.GroupLayout(jFrame2.getContentPane());
+        jFrame2.getContentPane().setLayout(jFrame2Layout);
+        jFrame2Layout.setHorizontalGroup(
+            jFrame2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jFrame2Layout.setVerticalGroup(
+            jFrame2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jFrame3Layout = new javax.swing.GroupLayout(jFrame3.getContentPane());
+        jFrame3.getContentPane().setLayout(jFrame3Layout);
+        jFrame3Layout.setHorizontalGroup(
+            jFrame3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jFrame3Layout.setVerticalGroup(
+            jFrame3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
         setBackground(new java.awt.Color(204, 204, 255));
         setPreferredSize(new java.awt.Dimension(1000, 800));
 
-        lblFlightNumber.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        lblFlightNumber.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         lblFlightNumber.setForeground(new java.awt.Color(102, 102, 255));
-        lblFlightNumber.setText("Flight Number");
+        lblFlightNumber.setText("Flight Number :");
 
         txtFlightNumber.setBackground(new java.awt.Color(245, 245, 246));
         txtFlightNumber.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
@@ -100,13 +137,13 @@ public class BookFlightJPanel extends javax.swing.JPanel {
             }
         });
 
-        lblPastBookings.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
+        lblPastBookings.setFont(new java.awt.Font("Calibri", 1, 36)); // NOI18N
         lblPastBookings.setForeground(new java.awt.Color(51, 51, 51));
         lblPastBookings.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblPastBookings.setText("BOOK FLIGHT");
 
         btnBack.setBackground(new java.awt.Color(245, 245, 246));
-        btnBack.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
+        btnBack.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         btnBack.setForeground(new java.awt.Color(78, 114, 175));
         btnBack.setText("< Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -118,23 +155,23 @@ public class BookFlightJPanel extends javax.swing.JPanel {
         txtPhone.setBackground(new java.awt.Color(245, 245, 246));
         txtPhone.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
 
-        lblPhone.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        lblPhone.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         lblPhone.setForeground(new java.awt.Color(102, 102, 255));
-        lblPhone.setText("Phone");
+        lblPhone.setText("Phone :");
 
         txtEmail.setBackground(new java.awt.Color(245, 245, 246));
         txtEmail.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
 
-        lblEmail.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        lblEmail.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         lblEmail.setForeground(new java.awt.Color(102, 102, 255));
-        lblEmail.setText("Email");
+        lblEmail.setText("Email :");
 
-        lblSeat.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        lblSeat.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         lblSeat.setForeground(new java.awt.Color(102, 102, 255));
-        lblSeat.setText("Seat");
+        lblSeat.setText("Seat :");
 
         comboSeat.setBackground(new java.awt.Color(245, 245, 246));
-        comboSeat.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        comboSeat.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         comboSeat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboSeatActionPerformed(evt);
@@ -142,7 +179,7 @@ public class BookFlightJPanel extends javax.swing.JPanel {
         });
 
         btnBookAFlight.setBackground(new java.awt.Color(245, 245, 246));
-        btnBookAFlight.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
+        btnBookAFlight.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         btnBookAFlight.setForeground(new java.awt.Color(78, 114, 175));
         btnBookAFlight.setText("Book Flight");
         btnBookAFlight.addActionListener(new java.awt.event.ActionListener() {
@@ -154,9 +191,9 @@ public class BookFlightJPanel extends javax.swing.JPanel {
         txtName.setBackground(new java.awt.Color(245, 245, 246));
         txtName.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
 
-        lblName.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        lblName.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         lblName.setForeground(new java.awt.Color(102, 102, 255));
-        lblName.setText("Name");
+        lblName.setText("Name :");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -167,10 +204,10 @@ public class BookFlightJPanel extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(53, 53, 53)
                         .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 189, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(lblPastBookings, javax.swing.GroupLayout.PREFERRED_SIZE, 311, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap(251, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(lblFlightNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -208,27 +245,27 @@ public class BookFlightJPanel extends javax.swing.JPanel {
                         .addComponent(lblPastBookings)))
                 .addGap(68, 68, 68)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtFlightNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtFlightNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblFlightNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblName, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblPhone, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtPhone, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtPhone, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(40, 40, 40)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(comboSeat)
-                    .addComponent(lblSeat, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblSeat, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(comboSeat, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(48, 48, 48)
                 .addComponent(btnBookAFlight, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(168, Short.MAX_VALUE))
+                .addContainerGap(165, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -259,9 +296,41 @@ public class BookFlightJPanel extends javax.swing.JPanel {
         String customerEmail = txtEmail.getText();
         String flightNumber = txtFlightNumber.getText();
         String seatNumber = (String)comboSeat.getSelectedItem();
+        String arrivalTime = flight.getArrivalTime();
+        String departureTime = flight.getDepartureTime();
+        
         long customerContact = 0;
         try{
             customerContact = Integer.parseInt(txtPhone.getText());
+            
+            for(Customer c : travelAgency.getCustomerDirectory().getCustomerDirectory()){
+                if(c.getCustomerName().equalsIgnoreCase(customerName) && c.getCustomerEmail().equals(customerEmail)){
+                    int currentarrival = Integer.parseInt(arrivalTime.substring(0, 2));
+                    int currentdeparture=Integer.parseInt(departureTime.substring(0, 2));
+                    
+                    int previousarrival = Integer.parseInt(c.getArrivalTime().substring(0, 2));
+                    int previousdeparture=Integer.parseInt(c.getDepartureTime().substring(0,2));
+                    
+                    if((currentdeparture > previousdeparture  && currentdeparture < previousarrival) || (currentarrival > previousdeparture  && currentarrival < previousarrival)){
+                        
+                        //if(currentdeparture < previousdeparture){
+                            JOptionPane.showMessageDialog(null, "No Overlapping allowed");
+                            return;
+                    
+                    //}
+                        
+                    }
+                    else if((previousdeparture > currentdeparture  && previousdeparture < currentarrival) || (previousarrival > currentdeparture  && previousarrival < currentarrival)){
+                        
+                        //if(currentdeparture < previousdeparture){
+                            JOptionPane.showMessageDialog(null, "No Overlapping allowed");
+                            return;
+                    
+                    //}
+                        
+                    }
+                }
+            }
             
             if(!phoneNumberPattern())
             {
@@ -284,7 +353,7 @@ public class BookFlightJPanel extends javax.swing.JPanel {
             }
             else{
                 
-               travelAgency.getCustomerDirectory().addCustomer(customerName, customerContact, customerEmail, flightNumber, seatNumber);
+               travelAgency.getCustomerDirectory().addCustomer(customerName, customerContact, customerEmail, flightNumber, seatNumber,arrivalTime, departureTime );
                flight.setAvailableSeats(flight.getTotalSeats()-1);
                JOptionPane.showMessageDialog(null, "Flight booked successfully\n"+"Airline: "+flight.getAirlinerName()+"\n"+"Flight Number: "+flight.getFlightNumber()+"\n"+"Seat Number: "+seatNumber);
                for(Seats seat:flight.getSeatList()){
@@ -319,6 +388,9 @@ public class BookFlightJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnBookAFlight;
     private javax.swing.JComboBox<String> comboSeat;
+    private javax.swing.JFrame jFrame1;
+    private javax.swing.JFrame jFrame2;
+    private javax.swing.JFrame jFrame3;
     private javax.swing.JLabel lblEmail;
     private javax.swing.JLabel lblFlightNumber;
     private javax.swing.JLabel lblName;
