@@ -19,7 +19,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author Gunjan
+ * @author Joy
  */
 public class ManagePastBookingsJPanel extends javax.swing.JPanel {
 

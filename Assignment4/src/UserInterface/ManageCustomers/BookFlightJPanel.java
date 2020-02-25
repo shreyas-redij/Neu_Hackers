@@ -33,6 +33,7 @@ public class BookFlightJPanel extends javax.swing.JPanel {
     private JPanel cardSequenceJPanel;
     private Flight flight;
     private TravelAgency travelAgency;
+    
     public BookFlightJPanel(JPanel cardSequenceJPanel,Flight flight,TravelAgency travelAgency) {
         initComponents();
         this.cardSequenceJPanel = cardSequenceJPanel;
