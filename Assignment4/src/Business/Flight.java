@@ -21,9 +21,9 @@ public class Flight {
     private String arrivalTime; // Arrival time of the flight
     private double flightPrice; // Flight proce
     private int totalSeats;   
-   private int availableSeats;
-   private ArrayList<Seats> seatList;
-   private Seats seat;
+    private int availableSeats;
+    private ArrayList<Seats> seatList;
+    private Seats seat;
    
    public Flight(String airlinerName,String flightNumber,String source,String destination,String departureTime,String arrivalTime,double flightPrice,int totalSeats ){
         seatList = new ArrayList<>();

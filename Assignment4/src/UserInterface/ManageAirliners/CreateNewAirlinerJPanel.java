@@ -28,6 +28,7 @@ public class CreateNewAirlinerJPanel extends javax.swing.JPanel {
     private JPanel cardSequenceJPanel;
     private TravelAgency travelAgency;
     private Airliner airliner;
+    
     public CreateNewAirlinerJPanel(JPanel cardSequenceJPanel,TravelAgency travelAgency) {
         initComponents();
         this.cardSequenceJPanel = cardSequenceJPanel;
