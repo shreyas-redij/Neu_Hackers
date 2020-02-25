@@ -27,6 +27,7 @@ public class ViewFlightJpanel extends javax.swing.JPanel {
     private JPanel cardSequenceJPanel;
     private TravelAgency travelAgency;
     private Flight flight;
+    
     public ViewFlightJpanel(JPanel cardSequenceJpanel,Flight flight) {
         initComponents();
         this.cardSequenceJPanel = cardSequenceJpanel;
