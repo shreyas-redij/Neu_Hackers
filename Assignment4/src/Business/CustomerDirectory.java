@@ -30,8 +30,8 @@ public class CustomerDirectory {
         this.customerList = customerDirectory;
     }
 
-   public Customer addCustomer(String customerName,long customerContact, String customerEmail,String flightNumber, String seatNumber, String arrivalTime, String departureTime ) {
-       Customer customer = new Customer(customerName , customerContact , customerEmail, flightNumber, seatNumber, arrivalTime, departureTime );
+   public Customer addCustomer(String customerName,long customerContact, String customerEmail,String flightNumber, String seatNumber, String arrivalTime, String departureTime, String flightDate ) {
+       Customer customer = new Customer(customerName , customerContact , customerEmail, flightNumber, seatNumber, arrivalTime, departureTime , flightDate);
        customerList.add(customer);
        return customer;
    }

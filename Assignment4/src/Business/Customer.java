@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author shrey
+ * @author Joy
  */
 public class Customer {
     
@@ -21,8 +21,17 @@ public class Customer {
     private ArrayList<AirlinerDirectory> airlinerDirectory;
     private String arrivalTime;
     private String departureTime;
+    private String flightDate;
 
-    Customer(String customerName, long customerContact, String customerEmail, String flightNumber, String seatNumber, String arrivalTime, String departureTime) {
+    public String getFlightDate() {
+        return flightDate;
+    }
+
+    public void setFlightDate(String flightDate) {
+        this.flightDate = flightDate;
+    }
+
+    Customer(String customerName, long customerContact, String customerEmail, String flightNumber, String seatNumber, String arrivalTime, String departureTime, String flightDate) {
         this.customerName =customerName ;
         this.customerEmail = customerEmail;
         this.customerContact = customerContact;
@@ -30,6 +39,7 @@ public class Customer {
         this.seatNumber = seatNumber;
         this.arrivalTime = arrivalTime;
         this.departureTime = departureTime;
+        this.flightDate = flightDate;
     }
 
     public String getArrivalTime() {

@@ -19,7 +19,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author Gunjan
+ * @author Joy
  */
 public class ManagePastBookingsJPanel extends javax.swing.JPanel {
 
@@ -30,6 +30,7 @@ public class ManagePastBookingsJPanel extends javax.swing.JPanel {
     private TravelAgency travelAgency;
     private Flight flight;
     private Seats seat;
+    
     public ManagePastBookingsJPanel(JPanel cardSequenceJPanel,TravelAgency travelAgency) {
         initComponents();
         this.cardSequenceJPanel = cardSequenceJPanel;
@@ -41,14 +42,15 @@ public class ManagePastBookingsJPanel extends javax.swing.JPanel {
         DefaultTableModel table = (DefaultTableModel) tblPastBookings.getModel();
         table.setRowCount(0);
         for(Customer customer : travelAgency.getCustomerDirectory().getCustomerDirectory()){
-            Object row[] = new Object[7];
+            Object row[] = new Object[8];
             row[0]=customer;
             row[1]=customer.getCustomerContact();
             row[2]=customer.getCustomerEmail();
             row[3]=customer.getFlightNumber();
             row[4]=customer.getSeatNumber();
-            row[5]=customer.getDepartureTime();
-            row[6]=customer.getArrivalTime();
+            row[5]=customer.getFlightDate();
+            row[6]=customer.getDepartureTime();
+            row[7]=customer.getArrivalTime();
             
             table.addRow(row);
         }
@@ -91,11 +93,11 @@ public class ManagePastBookingsJPanel extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Name", "Contact", "Email", "Flight Number", "Seat Number", "Departiure Time", "Arrival Time"
+                "Name", "Contact", "Email", "Flight Number", "Seat Number", "Flight Date", "Departiure Time", "Arrival Time"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, true, true
+                false, false, false, false, false, false, true, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -109,6 +111,9 @@ public class ManagePastBookingsJPanel extends javax.swing.JPanel {
             tblPastBookings.getColumnModel().getColumn(2).setResizable(false);
             tblPastBookings.getColumnModel().getColumn(3).setResizable(false);
             tblPastBookings.getColumnModel().getColumn(4).setResizable(false);
+            tblPastBookings.getColumnModel().getColumn(5).setResizable(false);
+            tblPastBookings.getColumnModel().getColumn(6).setResizable(false);
+            tblPastBookings.getColumnModel().getColumn(7).setResizable(false);
         }
 
         btnDeleteBooking.setBackground(new java.awt.Color(245, 245, 246));
@@ -136,14 +141,13 @@ public class ManagePastBookingsJPanel extends javax.swing.JPanel {
                         .addComponent(btnBack)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 125, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(btnDeleteBooking, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(192, 192, 192))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 708, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(263, 263, 263))))))
+                        .addGap(0, 731, Short.MAX_VALUE)
+                        .addComponent(btnDeleteBooking, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(192, 192, 192))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 941, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(82, 82, 82))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -156,7 +160,7 @@ public class ManagePastBookingsJPanel extends javax.swing.JPanel {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(111, 111, 111)
                 .addComponent(btnDeleteBooking, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(321, Short.MAX_VALUE))
+                .addContainerGap(324, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

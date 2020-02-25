@@ -73,7 +73,7 @@ public class AnalysisHelper {
         }
     }
     
-    //////////////////////////////////////////////////////////////
+
     public void getTop5InactiveUserOverall(int a){
         
         Map<Integer,Integer> overallScore = new HashMap<>();
