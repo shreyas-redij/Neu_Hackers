@@ -21,7 +21,7 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author Joy
+ * @author HP
  */
 public class MotherRegister extends javax.swing.JPanel {
 
