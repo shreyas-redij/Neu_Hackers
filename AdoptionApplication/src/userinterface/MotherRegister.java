@@ -15,7 +15,11 @@ import Business.Network.Network;
 import Business.Organization.Organization;
 import Business.WorkQueue.BirthMotherToCounselor;
 import Business.WorkQueue.WorkQueue;
+import java.awt.Color;
 import java.util.Random;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import javax.swing.BorderFactory;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -61,11 +65,11 @@ public class MotherRegister extends javax.swing.JPanel {
 
         jLabel6 = new javax.swing.JLabel();
         nameTxt = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
+        UsrNameLabel = new javax.swing.JLabel();
         userNameTxt = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
+        emailIdLbl = new javax.swing.JLabel();
         emailTxt = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
+        passwordLabel = new javax.swing.JLabel();
         passwordTxt = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         confirmPassTxt = new javax.swing.JTextField();
@@ -84,11 +88,11 @@ public class MotherRegister extends javax.swing.JPanel {
             }
         });
 
-        jLabel1.setText("Username*:");
+        UsrNameLabel.setText("Username*:");
 
-        jLabel4.setText("Email*:");
+        emailIdLbl.setText("Email*:");
 
-        jLabel2.setText("Password*:");
+        passwordLabel.setText("Password*:");
 
         jLabel3.setText("Confirm Password*:");
 
@@ -121,15 +125,15 @@ public class MotherRegister extends javax.swing.JPanel {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(btnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(layout.createSequentialGroup()
-                            .addComponent(jLabel4)
+                            .addComponent(emailIdLbl)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                             .addComponent(emailTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(layout.createSequentialGroup()
-                            .addComponent(jLabel2)
+                            .addComponent(passwordLabel)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                             .addComponent(passwordTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(layout.createSequentialGroup()
-                            .addComponent(jLabel1)
+                            .addComponent(UsrNameLabel)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                             .addComponent(userNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(layout.createSequentialGroup()
@@ -157,15 +161,15 @@ public class MotherRegister extends javax.swing.JPanel {
                         .addComponent(nameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel1)
+                        .addComponent(UsrNameLabel)
                         .addComponent(userNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel4)
+                        .addComponent(emailIdLbl)
                         .addComponent(emailTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel2)
+                        .addComponent(passwordLabel)
                         .addComponent(passwordTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -241,6 +245,36 @@ public class MotherRegister extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(null, "Please select the Hospital");
                 throw new RuntimeException("Please enter the Hospital");
             }
+            
+                           if (usernamePatternCorrect()==false){
+            UsrNameLabel.setForeground (Color.red);
+            userNameTxt.setBorder(BorderFactory.createLineBorder(Color.RED));
+            JOptionPane.showMessageDialog(null, "Username should be in the format of xx_xx@xx.xx");
+            return;
+            } else{
+            UsrNameLabel.setForeground (Color.BLUE);
+            userNameTxt.setBorder(BorderFactory.createLineBorder(Color.blue));
+            }
+            
+            if (emailIdPatternCorrect()==false){
+            emailIdLbl.setForeground (Color.red);
+            emailTxt.setBorder(BorderFactory.createLineBorder(Color.RED));
+            JOptionPane.showMessageDialog(null, "Username should be in the format of xx_xx@xx.xx");
+            return;
+            } else{
+            UsrNameLabel.setForeground (Color.BLUE);
+            userNameTxt.setBorder(BorderFactory.createLineBorder(Color.blue));
+            }
+            if (passwordPatternCorrect()==false){
+            passwordLabel.setForeground (Color.red);
+            passwordTxt.setBorder(BorderFactory.createLineBorder(Color.RED));
+            JOptionPane.showMessageDialog(null, "Password should be at least 6 digits and contain at least one upper case letter,"
+                    + " one lower case letter, one digit and one special character $, *, # or &.");
+            return;
+            }else{
+            passwordLabel.setForeground (Color.BLUE);
+            passwordTxt.setBorder(BorderFactory.createLineBorder(Color.blue));
+            }
       
       // BirthMother in people created
             birthMother.setEmailId(emailId);
@@ -293,20 +327,43 @@ public class MotherRegister extends javax.swing.JPanel {
         //Adding work request to current work queue
 
     }//GEN-LAST:event_btnConfirmActionPerformed
+// Validation part//
+    
+    private boolean usernamePatternCorrect(){
+        Pattern p=Pattern.compile("^[a-zA-Z0-9]+_[a-zA-Z0-9]+@[a-zA-Z0-9]+.[a-zA-Z0-9]+$");
+        Matcher m=p.matcher(userNameTxt.getText());
+        boolean b=m.matches();
+        return b;
+    }
+    
+    private boolean emailIdPatternCorrect(){
+        Pattern p=Pattern.compile("^[a-zA-Z0-9]+_[a-zA-Z0-9]+@[a-zA-Z0-9]+.[a-zA-Z0-9]+$");
+        Matcher m=p.matcher(emailTxt.getText());
+        boolean b=m.matches();
+        return b;
+    }
+    
+     private boolean passwordPatternCorrect(){
+        Pattern p1;
+        p1 = Pattern.compile("^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{6,}$");
+        Matcher m1=p1.matcher(passwordTxt.getText());
+        boolean b1=m1.matches();
+        return b1;
+    }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel UsrNameLabel;
     private javax.swing.JButton btnConfirm;
     private javax.swing.JTextField confirmPassTxt;
+    private javax.swing.JLabel emailIdLbl;
     private javax.swing.JTextField emailTxt;
     private javax.swing.JComboBox hospitalJComboBox;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JTextField nameTxt;
+    private javax.swing.JLabel passwordLabel;
     private javax.swing.JTextField passwordTxt;
     private javax.swing.JTextField userNameTxt;
     // End of variables declaration//GEN-END:variables

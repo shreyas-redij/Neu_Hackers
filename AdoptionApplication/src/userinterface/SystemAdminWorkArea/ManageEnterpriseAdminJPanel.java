@@ -13,7 +13,11 @@ import Business.Role.HospitalAdminRole;
 import Business.Role.SystemAdminRole;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
+import java.awt.Color;
 import java.awt.Component;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import javax.swing.BorderFactory;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -88,12 +92,12 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
         enterpriseJTable = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         networkJComboBox = new javax.swing.JComboBox();
-        jLabel2 = new javax.swing.JLabel();
+        UsrNameLabel = new javax.swing.JLabel();
         usernameJTextField = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         enterpriseJComboBox = new javax.swing.JComboBox();
         submitJButton = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
+        passwordLabel = new javax.swing.JLabel();
         nameJTextField = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         passwordJPasswordField = new javax.swing.JPasswordField();
@@ -133,7 +137,7 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
             }
         });
 
-        jLabel2.setText("Username");
+        UsrNameLabel.setText("Username");
 
         jLabel3.setText("Enterprise");
 
@@ -146,7 +150,7 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
             }
         });
 
-        jLabel4.setText("Password");
+        passwordLabel.setText("Password");
 
         jLabel5.setText("Name");
 
@@ -178,12 +182,12 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
                                         .addComponent(enterpriseJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel2)
+                                        .addComponent(UsrNameLabel)
                                         .addGap(52, 52, 52)
                                         .addComponent(usernameJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel4)
+                                            .addComponent(passwordLabel)
                                             .addComponent(jLabel5))
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(layout.createSequentialGroup()
@@ -220,11 +224,11 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
                     .addComponent(enterpriseJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
+                    .addComponent(UsrNameLabel)
                     .addComponent(usernameJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
+                    .addComponent(passwordLabel)
                     .addComponent(passwordJPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -271,6 +275,31 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
             throw new RuntimeException("Please enter the Name");
             
         }
+             // Validation
+             
+            if (usernamePatternCorrect()==false){
+            UsrNameLabel.setForeground (Color.red);
+            usernameJTextField.setBorder(BorderFactory.createLineBorder(Color.RED));
+            JOptionPane.showMessageDialog(null, "Username should be in the format of xx_xx@xx.xx");
+            return;
+            } else{
+            UsrNameLabel.setForeground (Color.BLUE);
+            usernameJTextField.setBorder(BorderFactory.createLineBorder(Color.blue));
+            }
+            if (passwordPatternCorrect()==false){
+            passwordLabel.setForeground (Color.red);
+            passwordJPasswordField.setBorder(BorderFactory.createLineBorder(Color.RED));
+            JOptionPane.showMessageDialog(null, "Password should be at least 6 digits and contain at least one upper case letter,"
+                    + " one lower case letter, one digit and one special character $, *, # or &.");
+            return;
+            }else{
+            passwordLabel.setForeground (Color.BLUE);
+            passwordJPasswordField.setBorder(BorderFactory.createLineBorder(Color.blue));
+            JOptionPane.showMessageDialog(null, "Enterprise Admin Created Successfully");
+            
+            }
+             
+             
        }catch(Exception e){
             //e.printStackTrace();
           JOptionPane.showMessageDialog(this, "Please enter valid data", "warning", JOptionPane.WARNING_MESSAGE);
@@ -298,7 +327,22 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
 
         
     }//GEN-LAST:event_submitJButtonActionPerformed
-
+    // Validation Part
+    
+    private boolean usernamePatternCorrect(){
+        Pattern p=Pattern.compile("^[a-zA-Z0-9]+_[a-zA-Z0-9]+@[a-zA-Z0-9]+.[a-zA-Z0-9]+$");
+        Matcher m=p.matcher(usernameJTextField.getText());
+        boolean b=m.matches();
+        return b;
+    }
+    
+     private boolean passwordPatternCorrect(){
+        Pattern p1;
+        p1 = Pattern.compile("^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{6,}$");
+        Matcher m1=p1.matcher(passwordJPasswordField.getText());
+        boolean b1=m1.matches();
+        return b1;
+    }
     private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed
         userProcessContainer.remove(this);
         Component[] componentArray = userProcessContainer.getComponents();
@@ -310,18 +354,18 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_backJButtonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel UsrNameLabel;
     private javax.swing.JButton backJButton;
     private javax.swing.JComboBox enterpriseJComboBox;
     private javax.swing.JTable enterpriseJTable;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField nameJTextField;
     private javax.swing.JComboBox networkJComboBox;
     private javax.swing.JPasswordField passwordJPasswordField;
+    private javax.swing.JLabel passwordLabel;
     private javax.swing.JButton submitJButton;
     private javax.swing.JTextField usernameJTextField;
     // End of variables declaration//GEN-END:variables

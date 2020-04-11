@@ -200,7 +200,7 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
         Enterprise enterprise = network.getEnterpriseDirectory().createAndAddEnterprise(name, type);
 
         populateTable();
-
+        JOptionPane.showMessageDialog(null, "New Enterprise Added Successfully" );
     }//GEN-LAST:event_submitJButtonActionPerformed
 
     private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed
