@@ -4,11 +4,7 @@
  */
 package Business.UserAccount;
 
-
-import Business.Directory.BirthMother;
-import Business.Directory.Counsellor;
-import Business.Directory.Employee;
-import Business.Directory.Parents;
+import Business.Directory.*;
 import Business.Role.Role;
 import java.util.ArrayList;
 
@@ -68,7 +64,7 @@ public class UserAccountDirectory {
         userAccountList.add(userAccount);
         return userAccount;
     }
-  /*  
+
     public UserAccount createBankManagerUserAccount(String username, String password, BankManager employee, Role role,String network){
         UserAccount userAccount = new UserAccount();
         userAccount.setUsername(username);
@@ -79,8 +75,7 @@ public class UserAccountDirectory {
         userAccountList.add(userAccount);
         return userAccount;
     }
-*/
-    /*
+
     public UserAccount createInsuranceManagerUserAccount(String username, String password, InsuranceManager employee, Role role, String network){
         UserAccount userAccount = new UserAccount();
         userAccount.setUsername(username);
@@ -91,7 +86,7 @@ public class UserAccountDirectory {
         userAccountList.add(userAccount);
         return userAccount;
     }
-*/
+
     public UserAccount createUserAccountParents(String username, String password, Parents parent, Role role, String network){
         UserAccount userAccount = new UserAccount();
         userAccount.setUsername(username);

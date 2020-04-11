@@ -4,7 +4,7 @@
  */
 package Business.Directory;
 
-//import Business.BankAccount.Loan;
+import Business.BankAccount.Loan;
 //import Business.Insurance.Insurance;
 import java.util.ArrayList;
 import java.util.Random;
@@ -34,7 +34,9 @@ public class BirthMother {
     private ArrayList<Parents> acceptedParents;
     //private Insurance insurance;
     private Parents finalizedParent;
+    private Loan loanaccount;
    
+    private int requiredFund;
 /*   
     private int loanRequestAmount;
     private int loanAmountApproved;
@@ -56,7 +58,7 @@ public class BirthMother {
         this.contactMother = contactMother;
     }
  /*   
-   private Loan loanaccount;
+   
 
     public int getRequiredFund() {
         return requiredFund;
@@ -77,10 +79,12 @@ public class BirthMother {
     public void setOwnFunds(int ownFunds) {
         this.ownFunds = ownFunds;
     }
-/*
+    
     public void setRequiredFund(int requiredFund) {
         this.requiredFund = requiredFund;
     }
+/*
+    
 
     public int getNetFunding(){
         if (requiredFund !=0 && bankBalance!=0){
@@ -135,14 +139,16 @@ public class BirthMother {
         this.finalizedParent = finalizedParent;
     }
 
-     public Loan getLoanaccount() {
+
+*/
+    public Loan getLoanaccount() {
         return loanaccount;
     }
 
     public void setLoanaccount(Loan loanaccount) {
         this.loanaccount = loanaccount;
     }
-*/
+    
     public ArrayList<Parents> getAcceptedParents() {
         return acceptedParents;
     }

@@ -14,15 +14,15 @@ public class EmployeeDirectory {
  
     private ArrayList<Employee> employeeList;
     private ArrayList<Counsellor> counselorlist;
-    //private ArrayList<BankManager> bankManagerList;
-    //private ArrayList<InsuranceManager> insuranceManagerList;
+    private ArrayList<BankManager> bankManagerList;
+    private ArrayList<InsuranceManager> insuranceManagerList;
     
     
 
     public EmployeeDirectory() {
         counselorlist = new ArrayList<Counsellor>();
-        //bankManagerList = new ArrayList<>();
-        //insuranceManagerList = new ArrayList<>();
+        bankManagerList = new ArrayList<BankManager>();
+        insuranceManagerList = new ArrayList<InsuranceManager>();
                 
                 
         employeeList = new ArrayList();
@@ -49,7 +49,7 @@ public class EmployeeDirectory {
         counselorlist.add(em);
         return em;
     }
-   /*
+
     public InsuranceManager createandadInsuranceManager (String name){
         InsuranceManager em = new InsuranceManager();
         em.setName(name);
@@ -63,7 +63,7 @@ public class EmployeeDirectory {
         bankManagerList.add(em);
         return em;
     }
-*/
+
     public ArrayList<Counsellor> getCounselorlist() {
         return counselorlist;
     }
@@ -71,7 +71,7 @@ public class EmployeeDirectory {
     public void setCounselorlist(ArrayList<Counsellor> counselorlist) {
         this.counselorlist = counselorlist;
     }
-/*
+
     public ArrayList<BankManager> getBankManagerList() {
         return bankManagerList;
     }
@@ -87,6 +87,6 @@ public class EmployeeDirectory {
     public void setInsuranceManagerList(ArrayList<InsuranceManager> insuranceManagerList) {
         this.insuranceManagerList = insuranceManagerList;
     }
-  */    
+ 
     
 }

@@ -4,10 +4,7 @@
  */
 package Business.UserAccount;
 
-import Business.Directory.BirthMother;
-import Business.Directory.Counsellor;
-import Business.Directory.Employee;
-import Business.Directory.Parents;
+import Business.Directory.*;
 import Business.Role.Role;
 import Business.WorkQueue.WorkQueue;
 
@@ -22,9 +19,9 @@ public class UserAccount {
     private String password;
     private Employee employee;
     private BirthMother birthmother;
-    //private InsuranceManager insuranceManager;
+    private InsuranceManager insuranceManager;
     private Counsellor counselor;
-    //private BankManager bankManager;
+    private BankManager bankManager;
     private Parents parent;
     private Role role;
     private WorkQueue workQueue;
@@ -45,7 +42,7 @@ public class UserAccount {
     public void setName(String name) {
         this.name = name;
     }
-/*
+
     public InsuranceManager getInsuranceManager() {
         return insuranceManager;
     }
@@ -53,7 +50,7 @@ public class UserAccount {
     public void setInsuranceManager(InsuranceManager insuranceManager) {
         this.insuranceManager = insuranceManager;
     }
-*/
+
     public Counsellor getCounselor() {
         return counselor;
     }
@@ -61,7 +58,7 @@ public class UserAccount {
     public void setCounselor(Counsellor counselor) {
         this.counselor = counselor;
     }
-/*
+
     public BankManager getBankManager() {
         return bankManager;
     }
@@ -69,7 +66,7 @@ public class UserAccount {
     public void setBankManager(BankManager bankManager) {
         this.bankManager = bankManager;
     }
-*/
+
     public Parents getParent() {
         return parent;
     }

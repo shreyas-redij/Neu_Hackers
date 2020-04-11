@@ -272,7 +272,7 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
             
         }
        }catch(Exception e){
-            e.printStackTrace();
+            //e.printStackTrace();
           JOptionPane.showMessageDialog(this, "Please enter valid data", "warning", JOptionPane.WARNING_MESSAGE);
           return;     
             

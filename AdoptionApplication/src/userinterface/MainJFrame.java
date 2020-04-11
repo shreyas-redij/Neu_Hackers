@@ -124,7 +124,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // Get user name
-        RegisterOptions ls = new RegisterOptions(userProcessContainer,system);
+        LoginOptions ls = new LoginOptions(userProcessContainer,system);
         userProcessContainer.add("loginOptions", ls);
         CardLayout layout = (CardLayout)this.userProcessContainer.getLayout();
         layout.next(userProcessContainer);
@@ -150,6 +150,13 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
         // TODO add your handling code here:
+        RegisterOptions ls = new RegisterOptions(userProcessContainer,system);
+        userProcessContainer.add("registerOptions", ls);
+        CardLayout layout = (CardLayout)this.userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+        btnLogout.setEnabled(true);
+        btnLogin.setEnabled(false);
+        btnRegister.setEnabled(false);
     }//GEN-LAST:event_btnRegisterActionPerformed
 
     /**

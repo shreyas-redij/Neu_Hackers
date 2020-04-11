@@ -55,14 +55,14 @@ public class BirthMotherWorkAreaJPanel extends javax.swing.JPanel {
         setMinimumSize(new java.awt.Dimension(1245, 1000));
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        jLabel1.setText("Parents Work Area");
+        jLabel1.setText("Birth Work Area");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(557, Short.MAX_VALUE)
+                .addContainerGap(581, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(487, 487, 487))
         );

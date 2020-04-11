@@ -25,7 +25,7 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace pref="557" max="32767" attributes="0"/>
+              <EmptySpace pref="581" max="32767" attributes="0"/>
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="487" max="-2" attributes="0"/>
           </Group>
@@ -47,7 +47,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Times New Roman" size="24" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Parents Work Area"/>
+        <Property name="text" type="java.lang.String" value="Birth Work Area"/>
       </Properties>
     </Component>
   </SubComponents>

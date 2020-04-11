@@ -85,18 +85,20 @@ public class RegisterOptions extends javax.swing.JPanel {
 
     private void btnBirthMotherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBirthMotherActionPerformed
         // TODO add your handling code here:
-        LoginPage ls = new LoginPage(userProcessContainer, system, type.BirthMotherOrg);
-        userProcessContainer.add("LoginPage", ls);
+        MotherRegister ls = new MotherRegister(userProcessContainer, system);
+        userProcessContainer.add("MotherRegister", ls);
         CardLayout layout = (CardLayout)this.userProcessContainer.getLayout();
         layout.next(userProcessContainer);
     }//GEN-LAST:event_btnBirthMotherActionPerformed
 
     private void btnParentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnParentActionPerformed
         // TODO add your handling code here:
-        LoginPage ls = new LoginPage(userProcessContainer, system, type.ParentsOrg);
-        userProcessContainer.add("LoginPage", ls);
+        /*
+        ParentRegister ls = new ParentRegister(userProcessContainer, system);
+        userProcessContainer.add("ParentRegister", ls);
         CardLayout layout = (CardLayout)this.userProcessContainer.getLayout();
         layout.next(userProcessContainer);
+*/
     }//GEN-LAST:event_btnParentActionPerformed
 
 
