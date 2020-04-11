@@ -235,6 +235,9 @@ public class ManageNetworkJPanel extends javax.swing.JPanel {
         cityJTextField.setText("");
         stateJTextField.setText("");
         countryJTextField.setText("");
+        
+        
+        JOptionPane.showMessageDialog(null, "New Network Created Successfully" );
     }//GEN-LAST:event_submitJButtonActionPerformed
 
     private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed
