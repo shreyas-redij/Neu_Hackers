@@ -59,7 +59,6 @@ public class CounselorWorkAreaJPanel extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel1.setText("Counselor Work Area");
 
-        reviewBirthMotherJButton.setBackground(new java.awt.Color(255, 153, 51));
         reviewBirthMotherJButton.setText("New Birth Mother Applications");
         reviewBirthMotherJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -67,7 +66,6 @@ public class CounselorWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
-        reviewParentsJButton.setBackground(new java.awt.Color(255, 153, 51));
         reviewParentsJButton.setText("New Parent Applications");
         reviewParentsJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

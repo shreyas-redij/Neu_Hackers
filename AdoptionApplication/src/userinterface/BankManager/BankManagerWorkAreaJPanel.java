@@ -59,7 +59,6 @@ public class BankManagerWorkAreaJPanel extends javax.swing.JPanel {
         valueLabel.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         valueLabel.setText("<value>");
 
-        viewBankAccountDetails.setBackground(new java.awt.Color(255, 153, 51));
         viewBankAccountDetails.setText("View Bank Account Details");
         viewBankAccountDetails.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

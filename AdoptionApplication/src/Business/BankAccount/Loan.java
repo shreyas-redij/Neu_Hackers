@@ -8,7 +8,7 @@ import java.util.Random;
 
 /**
  *
- * @author Sebsebin
+ * @author Shreyas
  */
 public class Loan {
     
