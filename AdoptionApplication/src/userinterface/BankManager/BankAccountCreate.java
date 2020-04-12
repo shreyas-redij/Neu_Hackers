@@ -12,12 +12,14 @@ import Business.WorkQueue.HospitalAdminToBank;
 import java.awt.CardLayout;
 import java.awt.Component;
 import java.util.Date;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
  *
- * @author Joy
+ * @author HP
  */
 public class BankAccountCreate extends javax.swing.JPanel {
 
@@ -96,6 +98,12 @@ public class BankAccountCreate extends javax.swing.JPanel {
         jLabel3.setText("FIRST NAME:");
 
         jLabel5.setText("EMAIL ID:");
+
+        txtEmail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtEmailActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setText("CLIENT DETAILS");
@@ -209,6 +217,10 @@ public class BankAccountCreate extends javax.swing.JPanel {
         CardLayout cardlayout = (CardLayout) userProcessContainer.getLayout();
         cardlayout.previous(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed
+
+    private void txtEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtEmailActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
