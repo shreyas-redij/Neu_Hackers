@@ -83,6 +83,7 @@ public class ViewBirthMotherJPanel extends javax.swing.JPanel {
         btnReject = new javax.swing.JButton();
         btnAccept = new javax.swing.JButton();
         enterpriseLabel = new javax.swing.JLabel();
+        btnBack = new javax.swing.JButton();
 
         setMaximumSize(new java.awt.Dimension(1245, 1000));
         setMinimumSize(new java.awt.Dimension(1245, 1000));
@@ -132,6 +133,13 @@ public class ViewBirthMotherJPanel extends javax.swing.JPanel {
         enterpriseLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         enterpriseLabel.setText("Birth Mother Approval");
 
+        btnBack.setText("Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -165,23 +173,27 @@ public class ViewBirthMotherJPanel extends javax.swing.JPanel {
                                 .addComponent(patientID2)))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                             .addContainerGap()
-                            .addComponent(txtFundsRequired, javax.swing.GroupLayout.PREFERRED_SIZE, 384, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txtFundsRequired, javax.swing.GroupLayout.PREFERRED_SIZE, 384, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(310, 310, 310)
+                            .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(69, 69, 69)
+                            .addComponent(enterpriseLabel)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(396, 396, 396)
                         .addComponent(btnReject, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(111, 111, 111)
-                        .addComponent(btnAccept, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(465, 465, 465)
-                        .addComponent(enterpriseLabel)))
+                        .addComponent(btnAccept, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(428, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(176, 176, 176)
-                .addComponent(enterpriseLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(52, 52, 52)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(enterpriseLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBack))
+                .addGap(51, 51, 51)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(userNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -294,9 +306,17 @@ public class ViewBirthMotherJPanel extends javax.swing.JPanel {
         
     }//GEN-LAST:event_btnAcceptActionPerformed
 
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+        userProcessContainer.remove(this);
+        CardLayout cardlayout = (CardLayout) userProcessContainer.getLayout();
+        cardlayout.previous(userProcessContainer);
+    }//GEN-LAST:event_btnBackActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAccept;
+    private javax.swing.JButton btnBack;
     private javax.swing.JButton btnReject;
     private javax.swing.JTextField emailTxt;
     private javax.swing.JLabel enterpriseLabel;

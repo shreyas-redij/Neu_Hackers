@@ -1,5 +1,6 @@
 /*
- * To change this template, choose Tools | Templates
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 package userinterface.FinanceAdministrativeRole;
@@ -16,10 +17,13 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author Joy
+ * @author shrey
  */
 public class FinanceManageOrganizationJPanel extends javax.swing.JPanel {
 
+    /**
+     * Creates new form FinanceManageOrganizationJPanel
+     */
     private OrganizationDirectory directory;
     private JPanel userProcessContainer;
     private UserAccount account;
@@ -39,8 +43,8 @@ public class FinanceManageOrganizationJPanel extends javax.swing.JPanel {
     
     private void populateCombo(){
         organizationJComboBox.removeAllItems();
-        organizationJComboBox.addItem(Type.BankManager);
-        organizationJComboBox.addItem(Type.InsuranceManager);
+        organizationJComboBox.addItem(Organization.Type.BankManager);
+        organizationJComboBox.addItem(Organization.Type.InsuranceManager);
   
     }
 
@@ -57,6 +61,7 @@ public class FinanceManageOrganizationJPanel extends javax.swing.JPanel {
             model.addRow(row);
         }
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -66,16 +71,32 @@ public class FinanceManageOrganizationJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        organizationJTable = new javax.swing.JTable();
         addJButton = new javax.swing.JButton();
         organizationJComboBox = new javax.swing.JComboBox();
         jLabel1 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        organizationJTable = new javax.swing.JTable();
         btnBack = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
 
         setMaximumSize(new java.awt.Dimension(1245, 1000));
         setMinimumSize(new java.awt.Dimension(1245, 1000));
+
+        addJButton.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
+        addJButton.setText("ADD ORGANIZATION");
+        addJButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addJButtonActionPerformed(evt);
+            }
+        });
+
+        organizationJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        organizationJComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                organizationJComboBoxActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("Organization Type ");
 
         organizationJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -104,40 +125,11 @@ public class FinanceManageOrganizationJPanel extends javax.swing.JPanel {
             }
         });
         jScrollPane1.setViewportView(organizationJTable);
-        if (organizationJTable.getColumnModel().getColumnCount() > 0) {
-            organizationJTable.getColumnModel().getColumn(0).setResizable(false);
-            organizationJTable.getColumnModel().getColumn(1).setResizable(false);
-        }
 
-        addJButton.setBackground(new java.awt.Color(255, 153, 51));
-        addJButton.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
-        addJButton.setText("ADD ORGANIZATION");
-        addJButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addJButtonActionPerformed(evt);
-            }
-        });
-
-        organizationJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        organizationJComboBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                organizationJComboBoxActionPerformed(evt);
-            }
-        });
-
-        jLabel1.setText("Organization Type ");
-
-        btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/left-arrow-in-circular-button-black-symbol-2.png"))); // NOI18N
+        btnBack.setText("Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
-            }
-        });
-
-        jButton1.setText("Back");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
             }
         });
 
@@ -145,44 +137,36 @@ public class FinanceManageOrganizationJPanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(399, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btnBack))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(352, 352, 352)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(140, 140, 140)
-                                .addComponent(addJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(87, 87, 87)
-                                .addComponent(jLabel1)
-                                .addGap(32, 32, 32)
-                                .addComponent(organizationJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(39, 39, 39)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(413, Short.MAX_VALUE))
+                    .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addComponent(jLabel1)
+                            .addGap(32, 32, 32)
+                            .addComponent(organizationJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(40, 40, 40))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addComponent(addJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(135, 135, 135))))
+                .addGap(366, 366, 366))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btnBack)
-                .addGap(18, 18, 18)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(221, 221, 221)
+                .addGap(199, 199, 199)
+                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(56, 56, 56)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(51, 51, 51)
+                .addGap(56, 56, 56)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(organizationJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
-                .addGap(71, 71, 71)
+                .addGap(60, 60, 60)
                 .addComponent(addJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(416, Short.MAX_VALUE))
+                .addContainerGap(427, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -190,8 +174,8 @@ public class FinanceManageOrganizationJPanel extends javax.swing.JPanel {
 
         Type type = (Type) organizationJComboBox.getSelectedItem();
         if(!enterprise.getOrganizationDirectory().containsType(type)){
-        enterprise.getOrganizationDirectory().createOrganization(type);
-        populateTable();
+            enterprise.getOrganizationDirectory().createOrganization(type);
+            populateTable();
         }
         else{
             JOptionPane.showMessageDialog(this, "Organization already present under this enterprise");
@@ -209,17 +193,10 @@ public class FinanceManageOrganizationJPanel extends javax.swing.JPanel {
         cardlayout.previous(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        userProcessContainer.remove(this);
-        CardLayout cardlayout = (CardLayout) userProcessContainer.getLayout();
-        cardlayout.previous(userProcessContainer);
-    }//GEN-LAST:event_jButton1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addJButton;
     private javax.swing.JButton btnBack;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JComboBox organizationJComboBox;

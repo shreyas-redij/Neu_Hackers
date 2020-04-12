@@ -10,7 +10,7 @@ import Business.Directory.Parents;
 
 /**
  *
- * @author Sebsebin
+ * @author Shreyas
  */
 public class HospitalAdminToBank extends WorkRequest{
     

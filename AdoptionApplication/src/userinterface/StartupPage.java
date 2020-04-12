@@ -29,9 +29,6 @@ public class StartupPage extends javax.swing.JPanel {
 
         jLabel1 = new javax.swing.JLabel();
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Joy\\Downloads\\The-Climate-of-Adoption-1200x1000s.jpg")); // NOI18N
-        jLabel1.setText("jLabel1");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
