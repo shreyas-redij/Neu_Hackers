@@ -17,7 +17,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author Joy
+ * @author HP
  */
 public class ViewBankAccountDetailsJPanel extends javax.swing.JPanel {
 

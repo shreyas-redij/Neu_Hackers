@@ -12,6 +12,10 @@ import Business.Organization.Organization;
 import Business.Role.Role;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
+import java.awt.Color;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import javax.swing.BorderFactory;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -98,10 +102,10 @@ public class FinanceManageUserAccountJPanel extends javax.swing.JPanel {
 
         nameJTextField = new javax.swing.JTextField();
         roleJComboBox = new javax.swing.JComboBox();
-        jLabel1 = new javax.swing.JLabel();
+        UsrNameLabel = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         userJTable = new javax.swing.JTable();
-        jLabel2 = new javax.swing.JLabel();
+        passwordLabel = new javax.swing.JLabel();
         passwordJTextField = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         employeeJComboBox = new javax.swing.JComboBox();
@@ -116,7 +120,7 @@ public class FinanceManageUserAccountJPanel extends javax.swing.JPanel {
 
         roleJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        jLabel1.setText("User Name");
+        UsrNameLabel.setText("User Name");
 
         userJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -143,7 +147,7 @@ public class FinanceManageUserAccountJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(userJTable);
 
-        jLabel2.setText("Password");
+        passwordLabel.setText("Password");
 
         jLabel3.setText("Employee");
 
@@ -191,13 +195,13 @@ public class FinanceManageUserAccountJPanel extends javax.swing.JPanel {
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addComponent(jLabel2)
+                                        .addComponent(passwordLabel)
                                         .addGap(46, 46, 46)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                             .addComponent(nameJTextField)
                                             .addComponent(passwordJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel1)
+                                        .addComponent(UsrNameLabel)
                                         .addGap(266, 266, 266)))
                                 .addGroup(layout.createSequentialGroup()
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -238,11 +242,11 @@ public class FinanceManageUserAccountJPanel extends javax.swing.JPanel {
                     .addComponent(jLabel4))
                 .addGap(42, 42, 42)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
+                    .addComponent(UsrNameLabel)
                     .addComponent(nameJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
+                    .addComponent(passwordLabel)
                     .addComponent(passwordJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(50, 50, 50)
                 .addComponent(createUserJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -280,6 +284,30 @@ public class FinanceManageUserAccountJPanel extends javax.swing.JPanel {
                 return;
 
             }
+            
+            if (usernamePatternCorrect()==false){
+            UsrNameLabel.setForeground (Color.red);
+            nameJTextField.setBorder(BorderFactory.createLineBorder(Color.RED));
+            JOptionPane.showMessageDialog(null, "Username should be in the format of xx_xx@xx.xx");
+            return;
+            }else{
+            UsrNameLabel.setForeground (Color.BLACK);
+            nameJTextField.setBorder(BorderFactory.createLineBorder(Color.black));
+            
+            }
+            
+            if (passwordPatternCorrect()==false){
+            passwordLabel.setForeground (Color.red);
+            passwordJTextField.setBorder(BorderFactory.createLineBorder(Color.RED));
+            JOptionPane.showMessageDialog(null, "Password should be at least 6 digits and contain at least one upper case letter,"
+                    + " one lower case letter, one digit and one special character $, *, # or &.");
+            return;
+            }else{
+            passwordLabel.setForeground (Color.BLACK);
+            passwordJTextField.setBorder(BorderFactory.createLineBorder(Color.black));
+            }
+            
+            
 
             Role role = (Role) roleJComboBox.getSelectedItem();
             for(UserAccount ua : organization.getUserAccountDirectory().getUserAccountList())
@@ -314,8 +342,23 @@ public class FinanceManageUserAccountJPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "Please enter valid data", "warning", JOptionPane.WARNING_MESSAGE);
             return;
         }
+        
     }//GEN-LAST:event_createUserJButtonActionPerformed
-
+// Validation part//
+    
+    private boolean usernamePatternCorrect(){
+        Pattern p=Pattern.compile("^[a-zA-Z0-9]+_[a-zA-Z0-9]+@[a-zA-Z0-9]+.[a-zA-Z0-9]+$");
+        Matcher m=p.matcher(nameJTextField.getText());
+        boolean b=m.matches();
+        return b;
+    }
+     private boolean passwordPatternCorrect(){
+        Pattern p1;
+        p1 = Pattern.compile("^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{6,}$");
+        Matcher m1=p1.matcher(passwordJTextField.getText());
+        boolean b1=m1.matches();
+        return b1;
+    }
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
         // TODO add your handling code here:
@@ -332,11 +375,10 @@ public class FinanceManageUserAccountJPanel extends javax.swing.JPanel {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel UsrNameLabel;
     private javax.swing.JButton btnBack;
     private javax.swing.JButton createUserJButton;
     private javax.swing.JComboBox employeeJComboBox;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -344,6 +386,7 @@ public class FinanceManageUserAccountJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField nameJTextField;
     private javax.swing.JComboBox organizationJComboBox;
     private javax.swing.JTextField passwordJTextField;
+    private javax.swing.JLabel passwordLabel;
     private javax.swing.JComboBox roleJComboBox;
     private javax.swing.JTable userJTable;
     // End of variables declaration//GEN-END:variables

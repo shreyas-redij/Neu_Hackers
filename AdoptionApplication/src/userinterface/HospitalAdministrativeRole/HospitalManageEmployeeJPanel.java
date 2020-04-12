@@ -11,6 +11,10 @@ import Business.Organization.Organization;
 import Business.Role.Role;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
+import java.awt.Color;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import javax.swing.BorderFactory;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -82,11 +86,11 @@ public class HospitalManageEmployeeJPanel extends javax.swing.JPanel {
         nameJTextField = new javax.swing.JTextField();
         userNameJTextField = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        UsrNameLabel = new javax.swing.JLabel();
         roleJComboBox = new javax.swing.JComboBox();
         jScrollPane1 = new javax.swing.JScrollPane();
         organizationJTable = new javax.swing.JTable();
-        jLabel5 = new javax.swing.JLabel();
+        passwordLabel = new javax.swing.JLabel();
         passwordJTextField = new javax.swing.JTextField();
         addJButton = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
@@ -105,9 +109,15 @@ public class HospitalManageEmployeeJPanel extends javax.swing.JPanel {
 
         jLabel2.setText("Name");
 
+        userNameJTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                userNameJTextFieldActionPerformed(evt);
+            }
+        });
+
         jLabel4.setText("Role");
 
-        jLabel3.setText("User Name");
+        UsrNameLabel.setText("User Name");
 
         roleJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         roleJComboBox.addActionListener(new java.awt.event.ActionListener() {
@@ -144,7 +154,7 @@ public class HospitalManageEmployeeJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(organizationJTable);
 
-        jLabel5.setText("Password");
+        passwordLabel.setText("Password");
 
         addJButton.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
         addJButton.setText("CREATE EMPLOYEE");
@@ -182,7 +192,7 @@ public class HospitalManageEmployeeJPanel extends javax.swing.JPanel {
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel5)
+                                .addComponent(passwordLabel)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(passwordJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -191,7 +201,7 @@ public class HospitalManageEmployeeJPanel extends javax.swing.JPanel {
                                     .addGap(56, 56, 56)
                                     .addComponent(roleJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jLabel3)
+                                    .addComponent(UsrNameLabel)
                                     .addGap(18, 18, 18)
                                     .addComponent(userNameJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 549, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -223,11 +233,11 @@ public class HospitalManageEmployeeJPanel extends javax.swing.JPanel {
                             .addComponent(roleJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3)
+                            .addComponent(UsrNameLabel)
                             .addComponent(userNameJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
+                    .addComponent(passwordLabel)
                     .addComponent(passwordJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(addJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -267,6 +277,29 @@ public class HospitalManageEmployeeJPanel extends javax.swing.JPanel {
 
                 throw new RuntimeException("Please enter the Name");
             }
+             if (usernamePatternCorrect()==false){
+            UsrNameLabel.setForeground (Color.red);
+            userNameJTextField.setBorder(BorderFactory.createLineBorder(Color.RED));
+            JOptionPane.showMessageDialog(null, "Username should be in the format of xx_xx@xx.xx");
+            return;
+            }else{
+            UsrNameLabel.setForeground (Color.BLACK);
+            userNameJTextField.setBorder(BorderFactory.createLineBorder(Color.black));
+            }
+            if (passwordPatternCorrect()==false){
+            passwordLabel.setForeground (Color.red);
+            passwordJTextField.setBorder(BorderFactory.createLineBorder(Color.RED));
+            JOptionPane.showMessageDialog(null, "Password should be at least 6 digits and contain at least one upper case letter,"
+                    + " one lower case letter, one digit and one special character $, *, # or &.");
+            return;
+             }else{
+            passwordLabel.setForeground (Color.BLACK);
+            passwordJTextField.setBorder(BorderFactory.createLineBorder(Color.black));
+            }
+            
+            
+            
+            
         }catch(Exception e){
             e.printStackTrace();
             JOptionPane.showMessageDialog(this, "Please enter valid data", "warning", JOptionPane.WARNING_MESSAGE);
@@ -287,7 +320,21 @@ public class HospitalManageEmployeeJPanel extends javax.swing.JPanel {
         passwordJTextField.setText("");
         nameJTextField.setText("");
     }//GEN-LAST:event_addJButtonActionPerformed
-
+// Validation part//
+    
+    private boolean usernamePatternCorrect(){
+        Pattern p=Pattern.compile("^[a-zA-Z0-9]+_[a-zA-Z0-9]+@[a-zA-Z0-9]+.[a-zA-Z0-9]+$");
+        Matcher m=p.matcher(userNameJTextField.getText());
+        boolean b=m.matches();
+        return b;
+    }
+     private boolean passwordPatternCorrect(){
+        Pattern p1;
+        p1 = Pattern.compile("^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{6,}$");
+        Matcher m1=p1.matcher(passwordJTextField.getText());
+        boolean b1=m1.matches();
+        return b1;
+    }
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
         userProcessContainer.remove(this);
@@ -295,20 +342,24 @@ public class HospitalManageEmployeeJPanel extends javax.swing.JPanel {
         cardlayout.previous(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed
 
+    private void userNameJTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userNameJTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_userNameJTextFieldActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel UsrNameLabel;
     private javax.swing.JButton addJButton;
     private javax.swing.JButton btnBack;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField nameJTextField;
     private javax.swing.JComboBox organizationEmpJComboBox;
     private javax.swing.JTable organizationJTable;
     private javax.swing.JTextField passwordJTextField;
+    private javax.swing.JLabel passwordLabel;
     private javax.swing.JComboBox roleJComboBox;
     private javax.swing.JTextField userNameJTextField;
     // End of variables declaration//GEN-END:variables

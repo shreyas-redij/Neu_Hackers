@@ -247,26 +247,28 @@ public class MotherRegister extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(null, "Please select the Hospital");
                 throw new RuntimeException("Please enter the Hospital");
             }
-            
-                           if (usernamePatternCorrect()==false){
+             if (usernamePatternCorrect()==false){
             UsrNameLabel.setForeground (Color.red);
             userNameTxt.setBorder(BorderFactory.createLineBorder(Color.RED));
             JOptionPane.showMessageDialog(null, "Username should be in the format of xx_xx@xx.xx");
             return;
             } else{
-            UsrNameLabel.setForeground (Color.BLUE);
-            userNameTxt.setBorder(BorderFactory.createLineBorder(Color.blue));
+            UsrNameLabel.setForeground (Color.BLACK);
+            userNameTxt.setBorder(BorderFactory.createLineBorder(Color.black));
+            
             }
+             
             
             if (emailIdPatternCorrect()==false){
             emailIdLbl.setForeground (Color.red);
             emailTxt.setBorder(BorderFactory.createLineBorder(Color.RED));
             JOptionPane.showMessageDialog(null, "Username should be in the format of xx_xx@xx.xx");
             return;
-            } else{
-            UsrNameLabel.setForeground (Color.BLUE);
-            userNameTxt.setBorder(BorderFactory.createLineBorder(Color.blue));
+            }else{
+            emailIdLbl.setForeground (Color.BLACK);
+            emailTxt.setBorder(BorderFactory.createLineBorder(Color.black));
             }
+            
             if (passwordPatternCorrect()==false){
             passwordLabel.setForeground (Color.red);
             passwordTxt.setBorder(BorderFactory.createLineBorder(Color.RED));
@@ -274,9 +276,9 @@ public class MotherRegister extends javax.swing.JPanel {
                     + " one lower case letter, one digit and one special character $, *, # or &.");
             return;
             }else{
-            passwordLabel.setForeground (Color.BLUE);
-            passwordTxt.setBorder(BorderFactory.createLineBorder(Color.blue));
-            }
+            passwordLabel.setForeground (Color.BLACK);
+            passwordTxt.setBorder(BorderFactory.createLineBorder(Color.black));
+                }
       
       // BirthMother in people created
             birthMother.setEmailId(emailId);
@@ -284,7 +286,7 @@ public class MotherRegister extends javax.swing.JPanel {
             birthMother.setPassword(password);
             birthMother.setUsername(username);
             birthMother.setFirstName(name);
-      
+            JOptionPane.showMessageDialog(null, "BirthMother Profile Created Successfully");
         //Initiating work request for BMC
              BirthMotherToCounselor bmc = new BirthMotherToCounselor(birthMother);
      
@@ -329,7 +331,7 @@ public class MotherRegister extends javax.swing.JPanel {
         //Adding work request to current work queue
 
     }//GEN-LAST:event_btnConfirmActionPerformed
-// Validation part//
+// Validation part
     
     private boolean usernamePatternCorrect(){
         Pattern p=Pattern.compile("^[a-zA-Z0-9]+_[a-zA-Z0-9]+@[a-zA-Z0-9]+.[a-zA-Z0-9]+$");
