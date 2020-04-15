@@ -11,11 +11,15 @@ import Business.Directory.Counsellor;
 import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
 import Business.Enterprise.HospitalEnterprise;
+import Business.Mail.EmailUtility;
+import Business.Mail.ConfigUtility;
 import Business.Network.Network;
 import Business.Organization.Organization;
 import Business.WorkQueue.BirthMotherToCounselor;
 import Business.WorkQueue.WorkQueue;
 import java.awt.Color;
+import java.io.File;
+import java.util.Properties;
 import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -36,6 +40,8 @@ public class MotherRegister extends javax.swing.JPanel {
     public BirthMother birthMother;
     public BirthMotherToCounselor bmWorkQueue;
     private EcoSystem system;
+    private ConfigUtility configUtil;
+    private EmailUtility emailUtil;
     
 
     /**
@@ -47,6 +53,8 @@ public class MotherRegister extends javax.swing.JPanel {
     public MotherRegister(JPanel userProcessContainer, EcoSystem system) {
         
         initComponents();
+        this.emailUtil = new EmailUtility();
+        this.configUtil = new ConfigUtility();
         this.userProcessContainer = userProcessContainer;
         this.system = system;
         this.birthMother = new BirthMother(); 
@@ -254,7 +262,7 @@ public class MotherRegister extends javax.swing.JPanel {
             return;
             } else{
             UsrNameLabel.setForeground (Color.BLACK);
-            userNameTxt.setBorder(BorderFactory.createLineBorder(Color.black));
+            userNameTxt.setBorder(BorderFactory.createEmptyBorder());
             
             }
              
@@ -266,7 +274,7 @@ public class MotherRegister extends javax.swing.JPanel {
             return;
             }else{
             emailIdLbl.setForeground (Color.BLACK);
-            emailTxt.setBorder(BorderFactory.createLineBorder(Color.black));
+            emailTxt.setBorder(BorderFactory.createEmptyBorder());
             }
             
             if (passwordPatternCorrect()==false){
@@ -276,8 +284,8 @@ public class MotherRegister extends javax.swing.JPanel {
                     + " one lower case letter, one digit and one special character $, *, # or &.");
             return;
             }else{
-            passwordLabel.setForeground (Color.BLACK);
-            passwordTxt.setBorder(BorderFactory.createLineBorder(Color.black));
+            passwordLabel.setForeground (Color.black);
+            passwordTxt.setBorder(BorderFactory.createEmptyBorder());
                 }
       
       // BirthMother in people created
@@ -309,6 +317,7 @@ public class MotherRegister extends javax.swing.JPanel {
             WorkQueue wq = hospital.getWorkQueue();
         
             wq.addBirthMotherToCounselor(bmc);
+            sendMail();
             nameTxt.setText("");
             userNameTxt.setText("");
             emailTxt.setText("");
@@ -322,7 +331,7 @@ public class MotherRegister extends javax.swing.JPanel {
 
         }
         catch(Exception e){
-            e.printStackTrace();
+            //e.printStackTrace();
           JOptionPane.showMessageDialog(this, "Please enter valid data", "warning", JOptionPane.WARNING_MESSAGE);
           return;     
             
@@ -354,7 +363,34 @@ public class MotherRegister extends javax.swing.JPanel {
         boolean b1=m1.matches();
         return b1;
     }
-
+     
+     public void sendMail(){
+         
+        String toAddress = "gomesjoy1696@gmail.com";
+        String subject = "Test";
+        String message = "Message delivered successfully";
+        File[] attachFiles = null;
+    /*    
+        
+         
+        if (!filePicker.getSelectedFilePath().equals("")) {
+            File selectedFile = new File(filePicker.getSelectedFilePath());
+            attachFiles = new File[] {selectedFile};
+        }
+     */    
+        try {
+            Properties smtpProperties = configUtil.loadProperties();
+            emailUtil.sendEmail(smtpProperties, toAddress, subject, message, attachFiles);
+             
+            JOptionPane.showMessageDialog(this,
+                    "The e-mail has been sent successfully!");
+             
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this,
+                    "Error while sending the e-mail: " + ex.getMessage(),
+                    "Error", JOptionPane.ERROR_MESSAGE);
+        }
+     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel UsrNameLabel;
