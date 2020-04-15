@@ -271,7 +271,7 @@ public class ViewBankAccount extends javax.swing.JPanel {
                 }
                 catch (Exception e)
                 {
-                  e.printStackTrace();
+                  //e.printStackTrace();
                 }
                 ImageIcon imageIcon = new ImageIcon(image);
                 JLabel jLabel = new JLabel();

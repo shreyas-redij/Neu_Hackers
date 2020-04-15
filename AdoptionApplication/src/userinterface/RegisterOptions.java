@@ -93,12 +93,10 @@ public class RegisterOptions extends javax.swing.JPanel {
 
     private void btnParentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnParentActionPerformed
         // TODO add your handling code here:
-        /*
         ParentRegister ls = new ParentRegister(userProcessContainer, system);
         userProcessContainer.add("ParentRegister", ls);
         CardLayout layout = (CardLayout)this.userProcessContainer.getLayout();
         layout.next(userProcessContainer);
-*/
     }//GEN-LAST:event_btnParentActionPerformed
 
 

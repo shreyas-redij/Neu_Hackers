@@ -127,11 +127,11 @@ public class CounselorWorkAreaJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_reviewBirthMotherJButtonActionPerformed
 
     private void reviewParentsJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reviewParentsJButtonActionPerformed
-        /*
+ 
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         userProcessContainer.add("ParentsRequestWorkAreaJPanel", new ParentsRequestWorkAreaJPanel(userProcessContainer, userAccount, organization, enterprise));
         layout.next(userProcessContainer);
-*/
+
     }//GEN-LAST:event_reviewParentsJButtonActionPerformed
 
 
