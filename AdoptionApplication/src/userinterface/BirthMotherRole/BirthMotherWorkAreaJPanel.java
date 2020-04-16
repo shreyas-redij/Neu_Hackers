@@ -10,7 +10,10 @@ import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
 import Business.Organization.Organization;
 import Business.UserAccount.UserAccount;
+import java.awt.CardLayout;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import userinterface.Dashboards.BirthMotherDashboard;
 
 /**
  *
@@ -38,6 +41,9 @@ public class BirthMotherWorkAreaJPanel extends javax.swing.JPanel {
         this.system = system;
         this.BirthMother = account.getBirthmother();
         
+        
+        BirthMotherDashboard BMD = new BirthMotherDashboard(BirthMother);
+       dashboardPanel.add(BMD);
     }
 
     /**
@@ -50,6 +56,16 @@ public class BirthMotherWorkAreaJPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
+        chkBankAccount = new javax.swing.JRadioButton();
+        chkInsurance = new javax.swing.JRadioButton();
+        updateProfile = new javax.swing.JButton();
+        enterpriseLabel = new javax.swing.JLabel();
+        valueLabel = new javax.swing.JLabel();
+        viewParentsJButton = new javax.swing.JButton();
+        viewBankDetails = new javax.swing.JButton();
+        btnCreateLoan = new javax.swing.JButton();
+        btnCreateInsurance = new javax.swing.JButton();
+        dashboardPanel = new javax.swing.JPanel();
 
         setMaximumSize(new java.awt.Dimension(1245, 1000));
         setMinimumSize(new java.awt.Dimension(1245, 1000));
@@ -57,26 +73,269 @@ public class BirthMotherWorkAreaJPanel extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel1.setText("Birth Work Area");
 
+        chkBankAccount.setText("Loan Request");
+        chkBankAccount.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chkBankAccountActionPerformed(evt);
+            }
+        });
+
+        chkInsurance.setText("Insurance");
+        chkInsurance.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chkInsuranceActionPerformed(evt);
+            }
+        });
+
+        updateProfile.setText("View/Update Profile");
+        updateProfile.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updateProfileActionPerformed(evt);
+            }
+        });
+
+        enterpriseLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        enterpriseLabel.setText("ENTERPRISE:");
+
+        valueLabel.setFont(new java.awt.Font("Lucida Grande", 3, 18)); // NOI18N
+        valueLabel.setText("<value>");
+
+        viewParentsJButton.setText("View Parent Directory");
+        viewParentsJButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewParentsJButtonActionPerformed(evt);
+            }
+        });
+
+        viewBankDetails.setText("View Bank Details");
+        viewBankDetails.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewBankDetailsActionPerformed(evt);
+            }
+        });
+
+        btnCreateLoan.setText("Create Loan Request");
+        btnCreateLoan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCreateLoanActionPerformed(evt);
+            }
+        });
+
+        btnCreateInsurance.setText("Insurance ");
+        btnCreateInsurance.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCreateInsuranceActionPerformed(evt);
+            }
+        });
+
+        dashboardPanel.setBackground(new java.awt.Color(153, 153, 153));
+        dashboardPanel.setPreferredSize(new java.awt.Dimension(700, 300));
+
+        javax.swing.GroupLayout dashboardPanelLayout = new javax.swing.GroupLayout(dashboardPanel);
+        dashboardPanel.setLayout(dashboardPanelLayout);
+        dashboardPanelLayout.setHorizontalGroup(
+            dashboardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 900, Short.MAX_VALUE)
+        );
+        dashboardPanelLayout.setVerticalGroup(
+            dashboardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(468, 468, 468)
+                .addComponent(enterpriseLabel)
+                .addGap(46, 46, 46)
+                .addComponent(valueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(581, Short.MAX_VALUE)
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addGap(487, 487, 487))
+                .addGap(519, 519, 519))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(77, 77, 77)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(viewParentsJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnCreateLoan, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(83, 83, 83)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnCreateInsurance, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(updateProfile, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(97, 97, 97)
+                        .addComponent(chkBankAccount)
+                        .addGap(159, 159, 159)
+                        .addComponent(chkInsurance))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(214, 214, 214)
+                        .addComponent(viewBankDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(dashboardPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 900, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(230, 230, 230)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel1)
-                .addContainerGap(742, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(valueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(enterpriseLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(52, 52, 52)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(viewParentsJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(updateProfile, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(66, 66, 66)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(chkBankAccount)
+                            .addComponent(chkInsurance))
+                        .addGap(58, 58, 58)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnCreateLoan, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnCreateInsurance, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(86, 86, 86)
+                        .addComponent(viewBankDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(423, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(dashboardPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 839, Short.MAX_VALUE)
+                        .addContainerGap())))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void chkBankAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkBankAccountActionPerformed
+       /* if(BirthMother.getLoanaccount().getBankAccountNumber() == 0){
+            JOptionPane.showMessageDialog(this, "Please wait for Bank Manager to accept the bank account req");
+            return;
+        }
+        if(BirthMother.getParentAidfund() == 0){
+            JOptionPane.showMessageDialog(this, "Please wait for Parent to add aid amount");
+            return;
+        }
+        if(BirthMother.getOwnFunds() == 0){
+            JOptionPane.showMessageDialog(this, "Please add your contribution in View Bank Acccount page");
+            return;
+
+        }
+
+        if (chkBankAccount.isSelected()){
+            btnCreateLoan.setEnabled(true);
+            btnCreateInsurance.setEnabled(false);
+            chkInsurance.setSelected(false);
+        }*/
+
+    }//GEN-LAST:event_chkBankAccountActionPerformed
+
+    private void chkInsuranceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkInsuranceActionPerformed
+      /*  if(BirthMother.getLoanaccount().getBankAccountNumber() == 0){
+            JOptionPane.showMessageDialog(this, "Please wait for Bank Manager to accept the bank account req");
+            return;
+        }
+        if(BirthMother.getParentAidfund() == 0){
+            JOptionPane.showMessageDialog(this, "Please wait for Parent to add aid amount");
+            return;
+        }
+        if(BirthMother.getOwnFunds() == 0){
+            JOptionPane.showMessageDialog(this, "Please add your contribution in View Bank Acccount page");
+            return;
+
+        }
+        if (chkInsurance.isSelected()){
+            btnCreateLoan.setEnabled(false);
+            btnCreateInsurance.setEnabled(true);
+            chkBankAccount.setSelected(false);
+        }*/
+    }//GEN-LAST:event_chkInsuranceActionPerformed
+
+    private void updateProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateProfileActionPerformed
+
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        BirthMotherProfile birthProfile = new BirthMotherProfile(userAccount,organization, userProcessContainer);
+        userProcessContainer.add(birthProfile);
+        layout.next(userProcessContainer);
+
+    }//GEN-LAST:event_updateProfileActionPerformed
+
+    private void viewParentsJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewParentsJButtonActionPerformed
+        if(BirthMother.getAddress() == null){
+            JOptionPane.showMessageDialog(this, "Please update the profile before viewing Parents");
+            return;
+        }
+        else{
+            if(BirthMother.getFinalizedParent() == null)
+            {
+
+                CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+                userProcessContainer.add("ViewParentDirectory", new ViewParentDirectory(userProcessContainer, userAccount, BirthMother,enterprise));
+                layout.next(userProcessContainer);
+            }
+            else{
+                JOptionPane.showMessageDialog(this, "You are already set, cant view Parents. \n Please contact your Counselor!");
+                return;
+            }
+       }
+    }//GEN-LAST:event_viewParentsJButtonActionPerformed
+
+    private void viewBankDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewBankDetailsActionPerformed
+       /* if(BirthMother.getLoanaccount().getBankAccountNumber() == 0){
+            JOptionPane.showMessageDialog(this, "Please wait for Bank Manager to accept the bank account req");
+            return;
+        }
+        else{
+            CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+            UpdateBankInformation bankAcc = new UpdateBankInformation(userAccount, userProcessContainer, system);
+            userProcessContainer.add(bankAcc);
+            layout.next(userProcessContainer);
+        }*/
+    }//GEN-LAST:event_viewBankDetailsActionPerformed
+
+    private void btnCreateLoanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateLoanActionPerformed
+       /* if(userAccount.getBirthmother().getTypeL() != 2){
+            CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+            LoanCreation bankAcc = new LoanCreation(userAccount, userProcessContainer, system);
+            userProcessContainer.add(bankAcc);
+            layout.next(userProcessContainer);
+        }
+        else{
+            JOptionPane.showMessageDialog(this, "Cant select Loan as your Bank account is not ready or else you have opted for Insurance");
+            return;
+        }*/
+    }//GEN-LAST:event_btnCreateLoanActionPerformed
+
+    private void btnCreateInsuranceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateInsuranceActionPerformed
+        /*if(userAccount.getBirthmother().getTypeL() != 1){
+            CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+            InsuranceViewPage bankAcc = new InsuranceViewPage(userAccount, userProcessContainer, enterprise, system);
+            userProcessContainer.add(bankAcc);
+            layout.next(userProcessContainer);
+        }
+        else{
+            JOptionPane.showMessageDialog(this, "Cant select Insurance as your Bank account is not ready or else you have opted for Loan");
+            return;
+        }*/
+    }//GEN-LAST:event_btnCreateInsuranceActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCreateInsurance;
+    private javax.swing.JButton btnCreateLoan;
+    private javax.swing.JRadioButton chkBankAccount;
+    private javax.swing.JRadioButton chkInsurance;
+    private javax.swing.JPanel dashboardPanel;
+    private javax.swing.JLabel enterpriseLabel;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton updateProfile;
+    private javax.swing.JLabel valueLabel;
+    private javax.swing.JButton viewBankDetails;
+    private javax.swing.JButton viewParentsJButton;
     // End of variables declaration//GEN-END:variables
 }

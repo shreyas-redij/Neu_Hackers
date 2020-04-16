@@ -297,6 +297,8 @@ public class ParentsRequestWorkAreaJPanel extends javax.swing.JPanel {
         txtUserName.setText("");
         txtPassword.setText("");
         txtMessage.setText("");
+        JOptionPane.showMessageDialog(null, "User Account created Successfully");
+        
     }//GEN-LAST:event_btnCreateActionPerformed
     
     private void refreshTestJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshTestJButtonActionPerformed

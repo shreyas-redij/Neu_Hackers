@@ -15,7 +15,7 @@ public class WorkQueue {
     private ArrayList<BirthMotherToCounselor> birthMotherToCounselor;
     private ArrayList<ParentToCounselor> parentToCounselor;
     private ArrayList<CounselorToAdmin> counselorToAdmin;
-    //private ArrayList<BirthMotherToParent> birthMotherToParent;
+    private ArrayList<BirthMotherToParent> birthMotherToParent;
     //private ArrayList<BirthMotherToLoan> birthMotherToLoan; 
     private ArrayList<HospitalAdminToBank> hospitalAdminToBank;
     //private ArrayList<BirthMotherToInsuranceManager> birthMotherToInsurance;
@@ -24,7 +24,7 @@ public class WorkQueue {
         birthMotherToCounselor = new ArrayList();
         parentToCounselor = new ArrayList();
         counselorToAdmin = new ArrayList();
-        //birthMotherToParent =  new ArrayList();
+        birthMotherToParent =  new ArrayList();
         //birthMotherToLoan = new ArrayList();
         hospitalAdminToBank = new ArrayList();
         //birthMotherToInsurance = new ArrayList<>();
@@ -47,6 +47,7 @@ public class WorkQueue {
     public void setBirthMotherToLoan(ArrayList<BirthMotherToLoan> birthMotherToLoan) {
         this.birthMotherToLoan = birthMotherToLoan;
     }
+    */
 
     public ArrayList<BirthMotherToParent> getBirthMotherToParent() {
         return birthMotherToParent;
@@ -55,7 +56,7 @@ public class WorkQueue {
     public void setBirthMotherToParent(ArrayList<BirthMotherToParent> birthMotherToParent) {
         this.birthMotherToParent = birthMotherToParent;
     }
-*/
+
 
     public ArrayList<BirthMotherToCounselor> getBirthMotherToCounsellor() {
         return birthMotherToCounselor;
@@ -93,5 +94,6 @@ public class WorkQueue {
     public void setHospitalAdminToBank(ArrayList<HospitalAdminToBank> hospitalAdminToBank) {
         this.hospitalAdminToBank = hospitalAdminToBank;
     }
+
 
 }
