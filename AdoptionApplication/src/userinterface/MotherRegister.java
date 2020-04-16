@@ -255,10 +255,10 @@ public class MotherRegister extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(null, "Please select the Hospital");
                 throw new RuntimeException("Please enter the Hospital");
             }
-             if (usernamePatternCorrect()==false){
+             if (userNameTxt.getText()==""){
             UsrNameLabel.setForeground (Color.red);
             userNameTxt.setBorder(BorderFactory.createLineBorder(Color.RED));
-            JOptionPane.showMessageDialog(null, "Username should be in the format of xx_xx@xx.xx");
+            JOptionPane.showMessageDialog(null, "Username should not be empty");
             return;
             } else{
             UsrNameLabel.setForeground (Color.BLACK);
@@ -270,7 +270,7 @@ public class MotherRegister extends javax.swing.JPanel {
             if (emailIdPatternCorrect()==false){
             emailIdLbl.setForeground (Color.red);
             emailTxt.setBorder(BorderFactory.createLineBorder(Color.RED));
-            JOptionPane.showMessageDialog(null, "Username should be in the format of xx_xx@xx.xx");
+            JOptionPane.showMessageDialog(null, " Email  provided should be in the format of xx_xx@xx.xx");
             return;
             }else{
             emailIdLbl.setForeground (Color.BLACK);
@@ -342,15 +342,8 @@ public class MotherRegister extends javax.swing.JPanel {
     }//GEN-LAST:event_btnConfirmActionPerformed
 // Validation part
     
-    private boolean usernamePatternCorrect(){
-        Pattern p=Pattern.compile("^[a-zA-Z0-9]+_[a-zA-Z0-9]+@[a-zA-Z0-9]+.[a-zA-Z0-9]+$");
-        Matcher m=p.matcher(userNameTxt.getText());
-        boolean b=m.matches();
-        return b;
-    }
-    
     private boolean emailIdPatternCorrect(){
-        Pattern p=Pattern.compile("^[a-zA-Z0-9]+_[a-zA-Z0-9]+@[a-zA-Z0-9]+.[a-zA-Z0-9]+$");
+        Pattern p=Pattern.compile("^[a-zA-Z0-9]+[a-zA-Z0-9]+@[a-zA-Z0-9]+.[a-zA-Z0-9]+$");
         Matcher m=p.matcher(emailTxt.getText());
         boolean b=m.matches();
         return b;

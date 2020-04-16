@@ -43,9 +43,10 @@ public class BirthMother {
     private int requiredFund;   //Total Cost of Pregnancy
     private int insuranceAmount; //Amount of insurance approved
     private int bankBalance; // Amount for personal bank balance
+    */
     private int parentAidfund; // Amount transferred from parents
-    private int netfunding; // Net Funding required
-*/
+    //private int netfunding; // Net Funding required
+
     private int ownFunds;
 
     private String contactMother;
@@ -122,7 +123,7 @@ public class BirthMother {
     public void setBankBalance(int bankBalance) {
         this.bankBalance = bankBalance;
     }
-
+*/
     public int getParentAidfund() {
         return parentAidfund;
     }
@@ -139,8 +140,6 @@ public class BirthMother {
         this.finalizedParent = finalizedParent;
     }
 
-
-*/
     public Loan getLoanaccount() {
         return loanaccount;
     }
@@ -156,7 +155,6 @@ public class BirthMother {
     public void setAcceptedParents(ArrayList<Parents> acceptedParents) {
         this.acceptedParents = acceptedParents;
     }
-
 
     public String getAddress() {
         return address;
@@ -237,7 +235,7 @@ public class BirthMother {
         //this.requiredFund =0;
         //this.insuranceAmount =0;
         //this.bankBalance = 0;
-        //this.parentAidfund =0;
+        this.parentAidfund =0;
         //this.netfunding = 0;
                 
     }
