@@ -16,6 +16,9 @@ import Business.Mail.ConfigUtility;
 import Business.Mail.EmailVariables;
 import Business.Network.Network;
 import Business.Organization.Organization;
+import Business.Validations.ValidateEmailTextField;
+import Business.Validations.ValidatePasswords;
+import Business.Validations.ValidateStrings;
 import Business.WorkQueue.BirthMotherToCounselor;
 import Business.WorkQueue.WorkQueue;
 import java.awt.CardLayout;
@@ -27,6 +30,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javafx.stage.FileChooser;
 import javax.swing.BorderFactory;
+import javax.swing.InputVerifier;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -62,8 +66,23 @@ public class MotherRegister extends javax.swing.JPanel {
         this.system = system;
         this.birthMother = new BirthMother(); 
         populateComboBox();
+        addInputVerifiers();
+    }
+    
+     private void addInputVerifiers() {
+        InputVerifier stringValidation = new ValidateStrings();
+        nameTxt.setInputVerifier(stringValidation);
+        userNameTxt.setInputVerifier(stringValidation);
+        InputVerifier passwordValidation = new ValidatePasswords();
+        InputVerifier emailValidation = new ValidateEmailTextField();
+        
+        passwordTxt.setInputVerifier(passwordValidation);
+        confirmPassTxt.setInputVerifier(passwordValidation);
+        emailTxt.setInputVerifier(emailValidation);
         
     }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -270,7 +289,9 @@ public class MotherRegister extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(null, "Please select the Hospital");
                 throw new RuntimeException("Please enter the Hospital");
             }
-             if (userNameTxt.getText()==""){
+            
+            //Validation Part
+            /*if (userNameTxt.getText()==""){
             UsrNameLabel.setForeground (Color.red);
             userNameTxt.setBorder(BorderFactory.createLineBorder(Color.RED));
             JOptionPane.showMessageDialog(null, "Username should not be empty");
@@ -302,6 +323,7 @@ public class MotherRegister extends javax.swing.JPanel {
             passwordLabel.setForeground (Color.black);
             passwordTxt.setBorder(BorderFactory.createEmptyBorder());
                 }
+                */
       
       // BirthMother in people created
             birthMother.setEmailId(emailId);
@@ -364,7 +386,7 @@ public class MotherRegister extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton1ActionPerformed
 // Validation part
     
-    private boolean emailIdPatternCorrect(){
+  /*  private boolean emailIdPatternCorrect(){
         Pattern p=Pattern.compile("^[a-zA-Z0-9]+[a-zA-Z0-9]+@[a-zA-Z0-9]+.[a-zA-Z0-9]+$");
         Matcher m=p.matcher(emailTxt.getText());
         boolean b=m.matches();
@@ -378,7 +400,7 @@ public class MotherRegister extends javax.swing.JPanel {
         boolean b1=m1.matches();
         return b1;
     }
-     
+     */
      public void sendMail(Counsellor c){
          
         String toAddress = emailTxt.getText();;

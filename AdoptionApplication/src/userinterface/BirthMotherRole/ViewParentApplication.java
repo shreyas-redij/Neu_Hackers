@@ -186,6 +186,7 @@ public class ViewParentApplication extends javax.swing.JPanel {
         jLabel12.setText("You want to say “yes” not out of guilt.");
         jLabel12.setEnabled(false);
 
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/left-arrow-in-circular-button-black-symbol-2.png"))); // NOI18N
         jButton1.setText("Back");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

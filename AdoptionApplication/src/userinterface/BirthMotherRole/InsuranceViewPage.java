@@ -12,25 +12,23 @@ import Business.Insurance.InsuranceAccountDirectory;
 import Business.Network.Network;
 import Business.Directory.BirthMother;
 import Business.UserAccount.UserAccount;
-//import Business.Validations.ValidateEmailTextField;
-////import Business.Validations.ValidatePasswords;
-//import Business.Validations.ValidatePhoneNumber;
-//import Business.Validations.ValidateStrings;
+import Business.Validations.ValidateEmailTextField;
+import Business.Validations.ValidatePasswords;
+import Business.Validations.ValidatePhoneNumber;
+import Business.Validations.ValidateStrings;
 import Business.WorkQueue.BirthMotherToInsuranceManager;
 import java.awt.CardLayout;
 import java.io.File;
 import java.util.Date;
-import javax.swing.ImageIcon;
 import javax.swing.InputVerifier;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.filechooser.FileNameExtensionFilter;
-//import userinterface.Dialog.SuccessDialog;
 
 /**
  *
- * @author ishanibose
+ * @author HP
  */
 public class InsuranceViewPage extends javax.swing.JPanel {
 
@@ -39,12 +37,14 @@ public class InsuranceViewPage extends javax.swing.JPanel {
      */
     
     private BirthMother BirthMother;
+    private Insurance insurance; 
     private JPanel userProcessContainer;
     private UserAccount userAccount;
     private String documentUpload;
-     private String firstName;
+    private String firstName;
     private String lastName;
     private String emailId;
+    private String requestedFunds;
     private int policynumber;
     private String address;
     private InsuranceAccountDirectory insuranceDirectory;
@@ -61,11 +61,13 @@ public class InsuranceViewPage extends javax.swing.JPanel {
         this.BirthMother = userAccount.getBirthmother();
         this.userProcessContainer = userProcessContainer;
         this.enterprise = enterprise;
+       // this.Ins
         
         txtUsername.setText(BirthMother.getUsername());
         txtEmail.setText(BirthMother.getEmailId());
         txtFirstName.setText(BirthMother.getFirstName());
         txtLastName.setText(BirthMother.getLastName());
+        
         
 //        
 //        for(Network n : system.getNetworkList()){
@@ -82,13 +84,14 @@ public class InsuranceViewPage extends javax.swing.JPanel {
 //        
 //        }
         this.system = system;
-        //addInputVerifiers();
+        addInputVerifiers();
         btnConfirm.setEnabled(true);
         
-        
-        
     }
- /*private void addInputVerifiers() {
+    
+    // Validations 
+    
+        private void addInputVerifiers() {
         InputVerifier stringValidation = new ValidateStrings();
         txtFirstName.setInputVerifier(stringValidation);
         txtUsername.setInputVerifier(stringValidation);
@@ -100,7 +103,7 @@ public class InsuranceViewPage extends javax.swing.JPanel {
         txtLastName.setInputVerifier(stringValidation);
         txtEmail.setInputVerifier(emailValidation);
         
-    }*/
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -129,8 +132,8 @@ public class InsuranceViewPage extends javax.swing.JPanel {
         btnBack = new javax.swing.JButton();
         btnConfirm = new javax.swing.JButton();
         agreeCheckBox = new javax.swing.JCheckBox();
-
-        setBackground(new java.awt.Color(64, 151, 182));
+        reqstdFunds = new javax.swing.JLabel();
+        txtreqfunds = new javax.swing.JTextField();
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setText("INSURANCE DETAILS");
@@ -168,14 +171,14 @@ public class InsuranceViewPage extends javax.swing.JPanel {
 
         jLabel17.setText("UPLOAD DOCUMENT:");
 
-        btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/left-arrow-in-circular-button-black-symbol-2.png"))); // NOI18N
+        btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/left-arrow-in-circular-button-black-symbol-2.png"))); // NOI18N
+        btnBack.setText("Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
             }
         });
 
-        btnConfirm.setBackground(new java.awt.Color(255, 153, 51));
         btnConfirm.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
         btnConfirm.setText("CONFIRM");
         btnConfirm.addActionListener(new java.awt.event.ActionListener() {
@@ -191,48 +194,54 @@ public class InsuranceViewPage extends javax.swing.JPanel {
             }
         });
 
+        reqstdFunds.setText("REQUESTED FUNDS :");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnBack)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel12)
-                            .addComponent(jLabel17)
-                            .addComponent(jLabel10))
-                        .addGap(33, 33, 33)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtPolicyNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtLastName, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(txtDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnBack)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel1))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel5)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel12)
+                                    .addComponent(jLabel17)
+                                    .addComponent(jLabel10))
                                 .addGap(33, 33, 33)
-                                .addComponent(btnBrowse)))))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtPolicyNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtLastName, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(txtDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(33, 33, 33)
+                                        .addComponent(btnBrowse)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 395, Short.MAX_VALUE))
+                            .addComponent(agreeCheckBox)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(117, 117, 117)
+                        .addComponent(btnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(258, 258, 258))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(reqstdFunds, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33)
+                .addComponent(txtreqfunds, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(agreeCheckBox)
-                .addGap(620, 620, 620))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(119, 119, 119)
-                    .addComponent(btnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(792, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -265,7 +274,14 @@ public class InsuranceViewPage extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
                     .addComponent(txtPolicyNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(7, 7, 7)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(txtreqfunds, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(reqstdFunds)))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel17, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -273,12 +289,9 @@ public class InsuranceViewPage extends javax.swing.JPanel {
                         .addComponent(btnBrowse)))
                 .addGap(18, 18, 18)
                 .addComponent(agreeCheckBox)
-                .addContainerGap(227, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(407, 407, 407)
-                    .addComponent(btnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(156, Short.MAX_VALUE)))
+                .addGap(32, 32, 32)
+                .addComponent(btnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(105, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -323,7 +336,7 @@ public class InsuranceViewPage extends javax.swing.JPanel {
         this.emailId = txtEmail.getText();
         this.policynumber = Integer.parseInt(txtPolicyNumber.getText());
         this.address = txtAddress.getText();
-       
+        //this.requestedFunds= txtreqfunds.getRequestedFunds;
         
         
        if (flagC == true){
@@ -360,6 +373,7 @@ public class InsuranceViewPage extends javax.swing.JPanel {
         this.BirthMother.setInsurance(nw);
         //SuccessDialog d = new SuccessDialog("Successfully updated Insurance Profile");
                 //d.setVisible(true);
+                JOptionPane.showMessageDialog(null, "Successfully updated Insurance Profile");
         
        }
         
@@ -391,6 +405,7 @@ public class InsuranceViewPage extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel reqstdFunds;
     private javax.swing.JTextField txtAddress;
     private javax.swing.JTextField txtDoc;
     private javax.swing.JTextField txtEmail;
@@ -398,5 +413,6 @@ public class InsuranceViewPage extends javax.swing.JPanel {
     private javax.swing.JTextField txtLastName;
     private javax.swing.JTextField txtPolicyNumber;
     private javax.swing.JTextField txtUsername;
+    private javax.swing.JTextField txtreqfunds;
     // End of variables declaration//GEN-END:variables
 }

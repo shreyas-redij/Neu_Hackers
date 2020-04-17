@@ -8,6 +8,7 @@ package userinterface.BankManager;
 import Business.BankAccount.Loan;
 import Business.Enterprise.Enterprise;
 import Business.UserAccount.UserAccount;
+import Business.Validations.ValidateStrings;
 import Business.WorkQueue.HospitalAdminToBank;
 import java.awt.CardLayout;
 import java.awt.Color;
@@ -16,6 +17,7 @@ import java.util.Date;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.BorderFactory;
+import javax.swing.InputVerifier;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -51,9 +53,14 @@ public class BankAccountCreate extends javax.swing.JPanel {
         txtEmail.setText(req.getBirthMother().getEmailId());
         txtHospital.setText(req.getBirthMother().getHospital());
         txtCounselor.setText(req.getBirthMother().getCounselor());
+       // addInputVerifiers();
     }
    
+    /*private void addInputVerifiers() {
+    InputVerifier stringValidation = new ValidateStrings();
+    txtFirstName.setInputVerifier(ValidateStrings);
     
+    }*/
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -110,6 +117,7 @@ public class BankAccountCreate extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setText("CLIENT DETAILS");
 
+        btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/left-arrow-in-circular-button-black-symbol-2.png"))); // NOI18N
         btnBack.setText("Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -180,7 +188,7 @@ public class BankAccountCreate extends javax.swing.JPanel {
 
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
         // TODO add your handling code here:
-        // Validation
+       /* // Validation
         
         if (emailIdPatternCorrect()==false){
             emailIdLbl.setForeground (Color.red);
@@ -190,7 +198,8 @@ public class BankAccountCreate extends javax.swing.JPanel {
             }else{
             emailIdLbl.setForeground (Color.BLACK);
             txtEmail.setBorder(BorderFactory.createEmptyBorder());
-            }
+            }*/
+
         this.firstName = txtFirstName.getText();
 
         this.emailId = txtEmail.getText();

@@ -10,7 +10,7 @@ import Business.Directory.BirthMother;
 
 /**
  *
- * @author Sebsebin
+ * @author HP
  */
 public class Insurance {
     
@@ -23,6 +23,7 @@ public class Insurance {
     private String hospital;
     private int fundsApproved;
     private BirthMother birthmother;
+   // private int requestedFunds ;
 
    
     private String username;

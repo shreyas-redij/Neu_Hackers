@@ -8,10 +8,14 @@ package userinterface.ParentsRole;
 import Business.Directory.Parents;
 import Business.Organization.Organization;
 import Business.UserAccount.UserAccount;
+import Business.Validations.ValidateEmailTextField;
+import Business.Validations.ValidatePhoneNumber;
+import Business.Validations.ValidateStrings;
 import java.awt.CardLayout;
 import java.awt.Component;
 import java.io.File;
 import javax.swing.ImageIcon;
+import javax.swing.InputVerifier;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -47,9 +51,19 @@ public class ParentProfile extends javax.swing.JPanel {
         txtAddress.setText(parent.getAddress());
         profilePhotoComponent.setIcon(new ImageIcon(parent.getImgPath())); 
         txtContact.setText(parent.getContactParent());
-        
+        addInputVerifiers();
     }
-
+     
+    public void addInputVerifiers(){
+        InputVerifier string = new ValidateStrings();
+        txtFirstName.setInputVerifier(string);
+        txtLastName.setInputVerifier(string);
+        InputVerifier email = new ValidateEmailTextField();
+        txtEmail.setInputVerifier(email);
+        InputVerifier number = new ValidatePhoneNumber();
+        txtContact.setInputVerifier(number);
+    
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -133,6 +147,7 @@ public class ParentProfile extends javax.swing.JPanel {
         profilePhotoComponent.setText("UPLOADED IMAGE DISPLAY");
         profilePhotoComponent.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/left-arrow-in-circular-button-black-symbol-2.png"))); // NOI18N
         jButton1.setText("Back");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -249,7 +264,7 @@ public class ParentProfile extends javax.swing.JPanel {
                             .addComponent(txtContact, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(52, 52, 52)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(49, Short.MAX_VALUE))
+                .addContainerGap(45, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
