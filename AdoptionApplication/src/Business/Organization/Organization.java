@@ -8,6 +8,7 @@ import Business.BankAccount.LoanAccountDirectory;
 import Business.Directory.BirthMotherDirectory;
 import Business.Directory.ParentsDirectory;
 import Business.Directory.EmployeeDirectory;
+import Business.Insurance.InsuranceAccountDirectory;
 import Business.Role.Role;
 import Business.UserAccount.UserAccountDirectory;
 import Business.WorkQueue.WorkQueue;
@@ -27,7 +28,7 @@ public abstract class Organization {
     private EmployeeDirectory employeeDirectory;
     private UserAccountDirectory userAccountDirectory;
     private LoanAccountDirectory loanDirectory;
-    //private InsuranceAccountDirectory insuranceAccountDirectory;
+    private InsuranceAccountDirectory insuranceAccountDirectory;
     private int organizationID;
     private static int counter=0;
 
@@ -57,7 +58,13 @@ public abstract class Organization {
         this.loanDirectory = loanDirectory;
     }
     
-    
+     public InsuranceAccountDirectory getInsuranceAccountDirectory() {
+        return insuranceAccountDirectory;
+    }
+
+    public void setInsuranceAccountDirectory(InsuranceAccountDirectory insuranceAccountDirectory) {
+        this.insuranceAccountDirectory = insuranceAccountDirectory;
+    }
     public enum Type{
         HospitalAdmin("HospitalAdmin Organization"), 
         Counselor("Counselor Organization"), 
@@ -86,8 +93,8 @@ public abstract class Organization {
         parentDirectory = new ParentsDirectory();
         birthMotherDirectory = new BirthMotherDirectory();
         userAccountDirectory = new UserAccountDirectory();
-        //loanDirectory = new LoanAccountDirectory();
-        //insuranceAccountDirectory = new InsuranceAccountDirectory();
+        loanDirectory = new LoanAccountDirectory();
+        insuranceAccountDirectory = new InsuranceAccountDirectory();
         
         organizationID = counter;
         ++counter;

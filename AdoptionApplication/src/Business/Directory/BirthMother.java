@@ -5,7 +5,7 @@
 package Business.Directory;
 
 import Business.BankAccount.Loan;
-//import Business.Insurance.Insurance;
+import Business.Insurance.Insurance;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -32,13 +32,19 @@ public class BirthMother {
     private String address;
     private String counselor;
     private ArrayList<Parents> acceptedParents;
-    //private Insurance insurance;
+    private Insurance insurance;
     private Parents finalizedParent;
     private Loan loanaccount;
+
  
+
+   
+    private int requiredFund;
+   
+
     private int loanRequestAmount;
     private int loanAmountApproved;
-    private int requiredFund;   //Total Cost of Pregnancy
+    //private int requiredFund;   //Total Cost of Pregnancy
     private int insuranceAmount; //Amount of insurance approved
     private int bankBalance; // Amount for personal bank balance
 
@@ -56,6 +62,7 @@ public class BirthMother {
     public void setContactMother(String contactMother) {
         this.contactMother = contactMother;
     }
+
 
     public int getRequiredFund() {
         return requiredFund;
@@ -80,6 +87,7 @@ public class BirthMother {
     public void setRequiredFund(int requiredFund) {
         this.requiredFund = requiredFund;
     }
+
 
     public int getNetFunding(){
         if (requiredFund !=0 && bankBalance!=0){
@@ -161,7 +169,7 @@ public class BirthMother {
     public void setCounselor(String counselor) {
         this.counselor = counselor;
     }
-/*
+
     public Insurance getInsurance() {
         return insurance;
     }
@@ -177,7 +185,7 @@ public class BirthMother {
     public void setInsuranceAmount(int insuranceAmount) {
         this.insuranceAmount = insuranceAmount;
     }
-*/
+
     public void setAddress(String address) {
         this.address = address;
     }
@@ -223,14 +231,14 @@ public class BirthMother {
         this.emailId =new String();
         this.password =new String();
         this.username =new String();
-        //this.loanaccount = new Loan();
-        //this.insurance = new Insurance();
+        this.loanaccount = new Loan();
+        this.insurance = new Insurance();
         acceptedParents = new ArrayList<Parents>();
-        //this.requiredFund =0;
-        //this.insuranceAmount =0;
-        //this.bankBalance = 0;
+        this.requiredFund =0;
+        this.insuranceAmount =0;
+        this.bankBalance = 0;
         this.parentAidfund =0;
-        //this.netfunding = 0;
+        this.netfunding = 0;
                 
     }
 
@@ -290,14 +298,14 @@ public class BirthMother {
         this.imgPath = imgPath;
        
     }
-//    public void setValues(String firstName, String LastName, String email, int bankBalance, String address) {
-//        this.firstName = firstName;
-//        this.lastName = LastName;
-//        this.emailId = email;
-//        this.ownFunds = bankBalance;
-//        this.bankBalance = bankBalance;
-//        this.address = address;
-//        this.imgPath = imgPath;
-//    } 
-//    
+   public void setValues(String firstName, String LastName, String email, int bankBalance, String address) {
+       this.firstName = firstName;
+        this.lastName = LastName;
+       this.emailId = email;
+      this.ownFunds = bankBalance;
+     this.bankBalance = bankBalance;
+        this.address = address;
+       this.imgPath = imgPath;
+ } 
+   
 }
