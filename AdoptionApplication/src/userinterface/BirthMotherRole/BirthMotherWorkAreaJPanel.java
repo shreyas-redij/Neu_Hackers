@@ -219,7 +219,7 @@ public class BirthMotherWorkAreaJPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void chkBankAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkBankAccountActionPerformed
-       /* if(BirthMother.getLoanaccount().getBankAccountNumber() == 0){
+       if(BirthMother.getLoanaccount().getBankAccountNumber() == 0){
             JOptionPane.showMessageDialog(this, "Please wait for Bank Manager to accept the bank account req");
             return;
         }
@@ -237,12 +237,12 @@ public class BirthMotherWorkAreaJPanel extends javax.swing.JPanel {
             btnCreateLoan.setEnabled(true);
             btnCreateInsurance.setEnabled(false);
             chkInsurance.setSelected(false);
-        }*/
+        }
 
     }//GEN-LAST:event_chkBankAccountActionPerformed
 
     private void chkInsuranceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkInsuranceActionPerformed
-      /*  if(BirthMother.getLoanaccount().getBankAccountNumber() == 0){
+        if(BirthMother.getLoanaccount().getBankAccountNumber() == 0){
             JOptionPane.showMessageDialog(this, "Please wait for Bank Manager to accept the bank account req");
             return;
         }
@@ -259,7 +259,7 @@ public class BirthMotherWorkAreaJPanel extends javax.swing.JPanel {
             btnCreateLoan.setEnabled(false);
             btnCreateInsurance.setEnabled(true);
             chkBankAccount.setSelected(false);
-        }*/
+        }
     }//GEN-LAST:event_chkInsuranceActionPerformed
 
     private void updateProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateProfileActionPerformed
@@ -292,7 +292,7 @@ public class BirthMotherWorkAreaJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_viewParentsJButtonActionPerformed
 
     private void viewBankDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewBankDetailsActionPerformed
-       /* if(BirthMother.getLoanaccount().getBankAccountNumber() == 0){
+        if(BirthMother.getLoanaccount().getBankAccountNumber() == 0){
             JOptionPane.showMessageDialog(this, "Please wait for Bank Manager to accept the bank account req");
             return;
         }
@@ -301,12 +301,13 @@ public class BirthMotherWorkAreaJPanel extends javax.swing.JPanel {
             UpdateBankInformation bankAcc = new UpdateBankInformation(userAccount, userProcessContainer, system);
             userProcessContainer.add(bankAcc);
             layout.next(userProcessContainer);
-        }*/
+        }
     }//GEN-LAST:event_viewBankDetailsActionPerformed
 
     private void btnCreateLoanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateLoanActionPerformed
-       /* if(userAccount.getBirthmother().getTypeL() != 2){
+        if(userAccount.getBirthmother().getTypeL() != 2){
             CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+            //LoanCreation bankAcc = new LoanCreation();
             LoanCreation bankAcc = new LoanCreation(userAccount, userProcessContainer, system);
             userProcessContainer.add(bankAcc);
             layout.next(userProcessContainer);
@@ -314,11 +315,11 @@ public class BirthMotherWorkAreaJPanel extends javax.swing.JPanel {
         else{
             JOptionPane.showMessageDialog(this, "Cant select Loan as your Bank account is not ready or else you have opted for Insurance");
             return;
-        }*/
+        }
     }//GEN-LAST:event_btnCreateLoanActionPerformed
 
     private void btnCreateInsuranceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateInsuranceActionPerformed
-        /*if(userAccount.getBirthmother().getTypeL() != 1){
+        if(userAccount.getBirthmother().getTypeL() != 1){
             CardLayout layout = (CardLayout) userProcessContainer.getLayout();
             InsuranceViewPage bankAcc = new InsuranceViewPage(userAccount, userProcessContainer, enterprise, system);
             userProcessContainer.add(bankAcc);
@@ -327,7 +328,7 @@ public class BirthMotherWorkAreaJPanel extends javax.swing.JPanel {
         else{
             JOptionPane.showMessageDialog(this, "Cant select Insurance as your Bank account is not ready or else you have opted for Loan");
             return;
-        }*/
+        }
     }//GEN-LAST:event_btnCreateInsuranceActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

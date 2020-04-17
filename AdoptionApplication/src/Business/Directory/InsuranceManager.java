@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author srijonibiswas
+ * @author Shreyas
  */
 public class InsuranceManager extends Employee {
     public String InsuranceName;

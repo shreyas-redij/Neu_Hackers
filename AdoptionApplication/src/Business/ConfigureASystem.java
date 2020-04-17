@@ -17,7 +17,7 @@ import Business.Directory.*;
 
 /**
  *
- * @author Joy
+ * @author Shreyas
  */
 public class ConfigureASystem {
     
