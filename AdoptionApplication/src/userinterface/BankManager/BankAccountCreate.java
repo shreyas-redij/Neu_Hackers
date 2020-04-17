@@ -202,7 +202,7 @@ public class BankAccountCreate extends javax.swing.JPanel {
         loan = new Loan(req.getBirthMother().getFirstName(), req.getBirthMother().getEmailId());
         loan.setHospital(hospital);
         loan.setCounselor(counselor);
-        //enterprise.getLoanDirectory().addLoan(loan);
+        enterprise.getLoanDirectory().addLoan(loan);
         req.getBirthMother().setLoanaccount(loan);
         req.setReceiver(userAccount);
         req.setResolveDate(new Date());
