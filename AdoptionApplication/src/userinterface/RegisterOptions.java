@@ -43,10 +43,12 @@ public class RegisterOptions extends javax.swing.JPanel {
         btnParent = new javax.swing.JButton();
         btnBirthMother = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setMaximumSize(new java.awt.Dimension(1245, 1000));
         setMinimumSize(new java.awt.Dimension(1245, 1000));
         setPreferredSize(new java.awt.Dimension(1245, 1000));
 
+        btnParent.setBackground(new java.awt.Color(255, 153, 0));
         btnParent.setText("Parent");
         btnParent.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -54,6 +56,7 @@ public class RegisterOptions extends javax.swing.JPanel {
             }
         });
 
+        btnBirthMother.setBackground(new java.awt.Color(255, 153, 0));
         btnBirthMother.setText("Birth Mother");
         btnBirthMother.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

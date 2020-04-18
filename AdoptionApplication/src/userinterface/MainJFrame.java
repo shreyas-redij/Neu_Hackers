@@ -106,14 +106,14 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addComponent(btnLogout)
                 .addGap(32, 32, 32)
                 .addComponent(loginJLabel)
-                .addContainerGap(564, Short.MAX_VALUE))
+                .addContainerGap(748, Short.MAX_VALUE))
         );
 
         jSplitPane1.setLeftComponent(jPanel1);
 
-        userProcessContainer.setMaximumSize(new java.awt.Dimension(1150, 700));
-        userProcessContainer.setMinimumSize(new java.awt.Dimension(1150, 700));
-        userProcessContainer.setPreferredSize(new java.awt.Dimension(1150, 700));
+        userProcessContainer.setMaximumSize(new java.awt.Dimension(1245, 1000));
+        userProcessContainer.setMinimumSize(new java.awt.Dimension(1245, 1000));
+        userProcessContainer.setPreferredSize(new java.awt.Dimension(1245, 1000));
         userProcessContainer.setLayout(new java.awt.CardLayout());
         jSplitPane1.setRightComponent(userProcessContainer);
 

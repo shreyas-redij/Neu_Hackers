@@ -21,13 +21,12 @@ public class ValidatePasswords extends InputVerifier{
     public boolean verify(JComponent input) {
         String text = ((JTextField) input).getText();
         
-        String pattern = ("^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{6,}$");
+        String pattern = "^([a-zA-Z+]+[0-9+]+[@#!$%^]+)$";
         
         if (text.length() > 0) {
             if (text.toLowerCase().startsWith(" ") || text.length() == 0 || text.matches(pattern) != true) {
                 input.setBackground(Color.red);
-                JOptionPane.showMessageDialog(input, "Password should be at least 6 digits and contain at least one upper case letter,"
-                    + " one lower case letter, one digit and one special character $, *, # or &.", "Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(input, "Please enter valid Password. Pattern: Character followed by Number followed by # or @", "Error", JOptionPane.ERROR_MESSAGE);
                 return false;
             } else {
                 input.setBackground(Color.white);
