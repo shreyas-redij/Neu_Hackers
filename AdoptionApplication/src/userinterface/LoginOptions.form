@@ -2,10 +2,16 @@
 
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
   <Properties>
+    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+      <Color blue="d1" green="b4" id="Active Caption" palette="2" red="99" type="palette"/>
+    </Property>
     <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
       <Dimension value="[1245, 1000]"/>
     </Property>
     <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+      <Dimension value="[1245, 1000]"/>
+    </Property>
+    <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
       <Dimension value="[1245, 1000]"/>
     </Property>
   </Properties>
@@ -42,7 +48,7 @@
                   <Component id="btnBank" min="-2" pref="156" max="-2" attributes="0"/>
                   <Component id="btnInsurance" min="-2" pref="156" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="325" max="-2" attributes="0"/>
+              <EmptySpace pref="325" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>

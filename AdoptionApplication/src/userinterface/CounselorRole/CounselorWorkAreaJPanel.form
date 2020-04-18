@@ -24,34 +24,34 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" attributes="0">
-              <EmptySpace pref="520" max="32767" attributes="0"/>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace pref="504" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="487" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="373" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Component id="reviewParentsJButton" min="-2" pref="256" max="-2" attributes="0"/>
                           <Component id="reviewBirthMotherJButton" min="-2" pref="256" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="469" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="355" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <Component id="enterpriseLabel" min="-2" pref="127" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="valueLabel" min="-2" pref="453" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="114" max="-2" attributes="0"/>
                   </Group>
               </Group>
+              <EmptySpace min="-2" pref="130" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="230" max="-2" attributes="0"/>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace pref="303" max="32767" attributes="0"/>
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -62,7 +62,7 @@
               <Component id="reviewBirthMotherJButton" min="-2" pref="68" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="104" max="-2" attributes="0"/>
               <Component id="reviewParentsJButton" min="-2" pref="68" max="-2" attributes="0"/>
-              <EmptySpace pref="366" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="293" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>

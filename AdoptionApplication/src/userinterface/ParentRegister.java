@@ -13,12 +13,16 @@ import Business.Enterprise.HospitalEnterprise;
 import Business.Network.Network;
 import Business.Organization.Organization;
 import Business.UserAccount.UserAccount;
+import Business.Validations.ValidateEmailTextField;
+import Business.Validations.ValidatePasswords;
+import Business.Validations.ValidateStrings;
 import Business.WorkQueue.ParentToCounselor;
 import java.awt.CardLayout;
 import java.awt.Color;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.BorderFactory;
+import javax.swing.InputVerifier;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -57,8 +61,21 @@ public class ParentRegister extends javax.swing.JPanel {
         this.userProcessContainer = userProcessContainer;
         this.system = system;
         populateComboBox();
+        addInputVerifiers();
     }
 
+       private void addInputVerifiers() {
+        InputVerifier stringValidation = new ValidateStrings();
+        
+        InputVerifier passwordValidation = new ValidatePasswords();
+        InputVerifier emailValidation = new ValidateEmailTextField();
+             txtUsername.setInputVerifier(stringValidation);
+   
+        txtPassword.setInputVerifier(passwordValidation);
+        txtConfPassword.setInputVerifier(passwordValidation);
+        txtEmail.setInputVerifier(emailValidation);
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -68,55 +85,48 @@ public class ParentRegister extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        notOnBoardChildren = new javax.swing.JRadioButton();
-        jLabel10 = new javax.swing.JLabel();
         txtEmail = new javax.swing.JTextField();
-        isEducated = new javax.swing.JRadioButton();
         passwordLabel = new javax.swing.JLabel();
-        notEducated = new javax.swing.JRadioButton();
         txtPassword = new javax.swing.JTextField();
-        jLabel11 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        isPromise = new javax.swing.JRadioButton();
         txtConfPassword = new javax.swing.JTextField();
-        notPromise = new javax.swing.JRadioButton();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        notGuilty = new javax.swing.JRadioButton();
-        isPrepared = new javax.swing.JRadioButton();
-        isGuilty = new javax.swing.JRadioButton();
-        notPrepared = new javax.swing.JRadioButton();
-        jLabel6 = new javax.swing.JLabel();
         hospitalJComboBox = new javax.swing.JComboBox();
         jLabel13 = new javax.swing.JLabel();
-        isFinance = new javax.swing.JRadioButton();
-        notSelectFinance = new javax.swing.JRadioButton();
-        isBigChange = new javax.swing.JRadioButton();
-        jLabel7 = new javax.swing.JLabel();
-        notBigChange = new javax.swing.JRadioButton();
-        jLabel8 = new javax.swing.JLabel();
-        notComfortable = new javax.swing.JRadioButton();
-        isComfortable = new javax.swing.JRadioButton();
-        isChildrenOnBoard = new javax.swing.JRadioButton();
         usrNameLabel = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
         txtUsername = new javax.swing.JTextField();
         emailIdLbl = new javax.swing.JLabel();
         btnConfirm = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        isChildrenOnBoard = new javax.swing.JRadioButton();
+        notOnBoardChildren = new javax.swing.JRadioButton();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        notPrepared = new javax.swing.JRadioButton();
+        isPrepared = new javax.swing.JRadioButton();
+        isFinance = new javax.swing.JRadioButton();
+        notSelectFinance = new javax.swing.JRadioButton();
+        isEducated = new javax.swing.JRadioButton();
+        notEducated = new javax.swing.JRadioButton();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        isBigChange = new javax.swing.JRadioButton();
+        notBigChange = new javax.swing.JRadioButton();
+        isComfortable = new javax.swing.JRadioButton();
+        jLabel8 = new javax.swing.JLabel();
+        notComfortable = new javax.swing.JRadioButton();
+        isGuilty = new javax.swing.JRadioButton();
+        notGuilty = new javax.swing.JRadioButton();
+        jLabel12 = new javax.swing.JLabel();
+        notPromise = new javax.swing.JRadioButton();
+        isPromise = new javax.swing.JRadioButton();
 
-        setMaximumSize(new java.awt.Dimension(1024, 1000));
-        setMinimumSize(new java.awt.Dimension(1024, 1000));
-
-        notOnBoardChildren.setText("No");
-
-        jLabel10.setText("You are educated about the realities of the type of adoption you are pursuing.");
-
-        isEducated.setText("Yes");
+        setMaximumSize(new java.awt.Dimension(1245, 1000));
+        setMinimumSize(new java.awt.Dimension(1245, 1000));
+        setPreferredSize(new java.awt.Dimension(1245, 1000));
 
         passwordLabel.setText("Password*:");
-
-        notEducated.setText("No");
 
         txtPassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -124,53 +134,13 @@ public class ParentRegister extends javax.swing.JPanel {
             }
         });
 
-        jLabel11.setText("You plan to make promises or commitments you actually can or will keep");
-
         jLabel3.setText("Confirm Password*:");
-
-        isPromise.setText("Yes");
-
-        notPromise.setText("No");
-
-        jLabel12.setText("You want to say “yes” not out of guilt.");
-
-        jLabel5.setText("You are prepared for the “worst case scenario.”");
-
-        notGuilty.setText("No");
-
-        isPrepared.setText("Yes");
-
-        isGuilty.setText("Yes");
-
-        notPrepared.setText("No");
-
-        jLabel6.setText("You are financially prepared for the child.");
 
         hospitalJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel13.setText("Select Hospital:");
 
-        isFinance.setText("Yes");
-
-        notSelectFinance.setText("No");
-
-        isBigChange.setText("Yes");
-
-        jLabel7.setText("You are able or willing to make BIG changes.");
-
-        notBigChange.setText("No");
-
-        jLabel8.setText("Your partner is comfortable with the situation.");
-
-        notComfortable.setText("No");
-
-        isComfortable.setText("Yes");
-
-        isChildrenOnBoard.setText("Yes");
-
         usrNameLabel.setText("Username*:");
-
-        jLabel9.setText("Your current children are on board with the situation.");
 
         txtUsername.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -196,178 +166,238 @@ public class ParentRegister extends javax.swing.JPanel {
             }
         });
 
+        jLabel5.setText("You are prepared for the “worst case scenario.”");
+        jLabel5.setEnabled(false);
+
+        jLabel9.setText("Your current children are on board with the situation.");
+        jLabel9.setEnabled(false);
+
+        isChildrenOnBoard.setText("Yes");
+        isChildrenOnBoard.setEnabled(false);
+
+        notOnBoardChildren.setText("No");
+        notOnBoardChildren.setEnabled(false);
+
+        jLabel10.setText("You are educated about the realities of the type of adoption you are pursuing.");
+        jLabel10.setEnabled(false);
+
+        jLabel6.setText("You are financially prepared for the child.");
+        jLabel6.setEnabled(false);
+
+        notPrepared.setText("No");
+        notPrepared.setEnabled(false);
+
+        isPrepared.setText("Yes");
+        isPrepared.setEnabled(false);
+
+        isFinance.setText("Yes");
+        isFinance.setEnabled(false);
+
+        notSelectFinance.setText("No");
+        notSelectFinance.setEnabled(false);
+
+        isEducated.setText("Yes");
+        isEducated.setEnabled(false);
+
+        notEducated.setText("No");
+        notEducated.setEnabled(false);
+
+        jLabel11.setText("You plan to make promises or commitments you actually can or will keep");
+        jLabel11.setEnabled(false);
+
+        jLabel7.setText("You are able or willing to make BIG changes.");
+        jLabel7.setEnabled(false);
+
+        isBigChange.setText("Yes");
+        isBigChange.setEnabled(false);
+
+        notBigChange.setText("No");
+        notBigChange.setEnabled(false);
+
+        isComfortable.setText("Yes");
+        isComfortable.setEnabled(false);
+
+        jLabel8.setText("Your partner is comfortable with the situation.");
+        jLabel8.setEnabled(false);
+
+        notComfortable.setText("No");
+        notComfortable.setEnabled(false);
+
+        isGuilty.setText("Yes");
+        isGuilty.setEnabled(false);
+
+        notGuilty.setText("No");
+        notGuilty.setEnabled(false);
+
+        jLabel12.setText("You want to say “yes” not out of guilt.");
+        jLabel12.setEnabled(false);
+
+        notPromise.setText("No");
+        notPromise.setEnabled(false);
+
+        isPromise.setText("Yes");
+        isPromise.setEnabled(false);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(203, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(btnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(600, 600, 600))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(emailIdLbl)
-                            .addComponent(passwordLabel)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel13)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jButton1)
-                                .addComponent(usrNameLabel)))
-                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtConfPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(hospitalJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel5)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(isComfortable)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(notComfortable))
+                            .addComponent(jLabel8)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(isBigChange)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(notBigChange))
+                            .addComponent(jLabel7)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(isFinance)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(notSelectFinance))
+                            .addComponent(jLabel6)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(isPrepared)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(notPrepared)))
+                        .addGap(51, 51, 51)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
-                                .addComponent(isChildrenOnBoard)
-                                .addGap(38, 38, 38)
-                                .addComponent(notOnBoardChildren)
-                                .addGap(476, 476, 476))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(72, 72, 72)
-                                        .addComponent(isPrepared)
-                                        .addGap(34, 34, 34)
-                                        .addComponent(notPrepared))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(72, 72, 72)
-                                        .addComponent(isBigChange)
-                                        .addGap(39, 39, 39)
-                                        .addComponent(notBigChange))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(53, 53, 53)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel9)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addGap(19, 19, 19)
-                                                .addComponent(isComfortable)
-                                                .addGap(40, 40, 40)
-                                                .addComponent(notComfortable))
-                                            .addComponent(jLabel8)
-                                            .addComponent(jLabel7)
-                                            .addComponent(jLabel6)
-                                            .addComponent(jLabel5)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addGap(18, 18, 18)
-                                                .addComponent(isFinance)
-                                                .addGap(33, 33, 33)
-                                                .addComponent(notSelectFinance))
-                                            .addComponent(jLabel11)
-                                            .addComponent(jLabel12)
-                                            .addComponent(jLabel10))))
-                                .addGap(0, 0, Short.MAX_VALUE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addGap(114, 114, 114)
-                                .addComponent(btnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(108, 108, 108)
                                 .addComponent(isEducated)
-                                .addGap(46, 46, 46)
-                                .addComponent(notEducated)
-                                .addGap(0, 0, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(notEducated))
+                            .addComponent(jLabel10)
                             .addGroup(layout.createSequentialGroup()
-                                .addContainerGap(424, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(isPromise)
-                                        .addGap(41, 41, 41)
-                                        .addComponent(notPromise)
-                                        .addGap(11, 11, 11))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(isGuilty)
-                                        .addGap(54, 54, 54)
-                                        .addComponent(notGuilty)))))
-                        .addGap(0, 466, Short.MAX_VALUE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(isGuilty)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(notGuilty))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(isPromise)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(notPromise))
+                            .addComponent(jLabel11)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(isChildrenOnBoard)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(notOnBoardChildren))
+                            .addComponent(jLabel9)
+                            .addComponent(jLabel12))
+                        .addGap(106, 106, 106))))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(413, 413, 413)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(passwordLabel)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(emailIdLbl)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(usrNameLabel)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel3)
+                                .addComponent(jLabel13))
+                            .addGap(31, 31, 31)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(txtConfPassword)
+                                .addComponent(hospitalJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(jButton1))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(38, 38, 38)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel5)
+                .addGap(160, 160, 160)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(21, 21, 21)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(usrNameLabel)
+                    .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(emailIdLbl)
+                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(passwordLabel))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(txtConfPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
+                .addGap(27, 27, 27)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel13)
+                    .addComponent(hospitalJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(51, 51, 51)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(43, 43, 43)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(usrNameLabel)
-                            .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(26, 26, 26)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(emailIdLbl)
-                            .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
+                        .addComponent(jLabel5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(isPrepared)
                             .addComponent(notPrepared))
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel6)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(isFinance)
-                            .addComponent(notSelectFinance))))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(passwordLabel)
-                            .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtConfPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3))
-                        .addGap(27, 27, 27)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel13)
-                            .addComponent(hospitalJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
+                            .addComponent(notSelectFinance))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel7)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(notBigChange)
-                            .addComponent(isBigChange))
-                        .addGap(18, 18, 18)
+                            .addComponent(isBigChange)
+                            .addComponent(notBigChange))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel8)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(notComfortable)
-                            .addComponent(isComfortable))))
-                .addGap(18, 18, 18)
-                .addComponent(jLabel9)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(notOnBoardChildren)
-                    .addComponent(isChildrenOnBoard))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(isComfortable)
+                            .addComponent(notComfortable)))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel10)
-                        .addGap(18, 18, 18)
+                        .addComponent(jLabel9)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(notEducated)
-                            .addComponent(isEducated)))
-                    .addComponent(btnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(21, 21, 21)
-                .addComponent(jLabel11)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(notPromise)
-                    .addComponent(isPromise))
-                .addGap(18, 18, 18)
-                .addComponent(jLabel12)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(notGuilty)
-                    .addComponent(isGuilty))
-                .addContainerGap(341, Short.MAX_VALUE))
+                            .addComponent(isChildrenOnBoard)
+                            .addComponent(notOnBoardChildren))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel10)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(isEducated)
+                            .addComponent(notEducated))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel11)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(isPromise)
+                            .addComponent(notPromise))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel12)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(isGuilty)
+                            .addComponent(notGuilty))))
+                .addGap(58, 58, 58)
+                .addComponent(btnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(144, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -390,7 +420,7 @@ public class ParentRegister extends javax.swing.JPanel {
             }
              
             
-            if (emailIdPatternCorrect()==false){
+          /*  if (emailIdPatternCorrect()==false){
             emailIdLbl.setForeground (Color.red);
             txtEmail.setBorder(BorderFactory.createLineBorder(Color.RED));
             JOptionPane.showMessageDialog(null, "Email Provided should be in the format of xx_xx@xx.xx");
@@ -409,7 +439,7 @@ public class ParentRegister extends javax.swing.JPanel {
             }else{
             passwordLabel.setForeground (Color.black);
             txtPassword.setBorder(BorderFactory.createEmptyBorder());
-                }
+                }*/
                
         this.username = txtUsername.getText();
         this.email = txtEmail.getText();
@@ -521,7 +551,7 @@ public class ParentRegister extends javax.swing.JPanel {
 
     // Validation part
 
-    private boolean emailIdPatternCorrect(){
+    /*private boolean emailIdPatternCorrect(){
         Pattern p=Pattern.compile("^[a-zA-Z0-9]+[a-zA-Z0-9]+@[a-zA-Z0-9]+.[a-zA-Z0-9]+$");
         Matcher m=p.matcher(txtEmail.getText());
         boolean b=m.matches();
@@ -534,7 +564,7 @@ public class ParentRegister extends javax.swing.JPanel {
         Matcher m1=p1.matcher(txtPassword.getText());
         boolean b1=m1.matches();
         return b1;
-    }
+    }*/
     
     
     

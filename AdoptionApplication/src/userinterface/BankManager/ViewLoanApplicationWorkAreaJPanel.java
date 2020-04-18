@@ -1,45 +1,43 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
+ * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
 package userinterface.BankManager;
 
 import Business.Enterprise.Enterprise;
+import userinterface.CounselorRole.*;
 import Business.Organization.Organization;
 import Business.UserAccount.UserAccount;
-import Business.WorkQueue.HospitalAdminToBank;
+import Business.WorkQueue.BirthMotherToCounselor;
+import Business.WorkQueue.BirthMotherToLoan;
 import java.awt.CardLayout;
+import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author Joy
+ * @author HP
  */
-public class ViewBankAccountRequest extends javax.swing.JPanel {
+public class ViewLoanApplicationWorkAreaJPanel extends javax.swing.JPanel {
 
-    /**
-     * Creates new form ViewBankAccountRequest
-     */
     private JPanel userProcessContainer;
     private Organization organization;
     private UserAccount userAccount;
     private Enterprise enterprise;
-
     /**
      * Creates new form ViewLoanApplicationWorkAreaJPanel
      */
-    public ViewBankAccountRequest(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise) {
+    public ViewLoanApplicationWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, Enterprise enterprise) {
         initComponents();
         
         this.userProcessContainer = userProcessContainer;
-        this.organization = organization;
         this.enterprise = enterprise;
+        this.organization = organization;
         this.userAccount = account;
      
-        valueLabel.setText(organization.getName());
+        valueLabel.setText(enterprise.getName());
         populateRequestTable();
     }
 
@@ -48,20 +46,18 @@ public class ViewBankAccountRequest extends javax.swing.JPanel {
         DefaultTableModel model = (DefaultTableModel) workRequestJTable.getModel();
         
         model.setRowCount(0);
-        for (HospitalAdminToBank request : enterprise.getWorkQueue().getHospitalAdminToBank()){
+        for (BirthMotherToLoan request : enterprise.getWorkQueue().getBirthMotherToLoan()){
             Object[] row = new Object[4];
             row[0] = request;
-            row[1] = request.getBirthMother().getHospital();
-            
-            row[2] = request.getBirthMother().getFirstName();
+            row[1] = request.getLoan().getHospital();
+            row[2] = request.getLoan().getFunds();
             row[3] = request.getStatus();
-            
             
             model.addRow(row);
         }
     }
 
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -74,31 +70,27 @@ public class ViewBankAccountRequest extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         workRequestJTable = new javax.swing.JTable();
         viewBirthMother = new javax.swing.JButton();
+        refreshTestJButton = new javax.swing.JButton();
         enterpriseLabel = new javax.swing.JLabel();
         valueLabel = new javax.swing.JLabel();
-        refreshTestJButton = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
 
         setMaximumSize(new java.awt.Dimension(1245, 1000));
         setMinimumSize(new java.awt.Dimension(1245, 1000));
-        setPreferredSize(new java.awt.Dimension(1245, 1000));
 
         workRequestJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Message", "Hospital", "BirthMother Name", "Status"
+                "Client Name", "Hospital", "Amount Requested", "Status"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Object.class
+                java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, true
+                false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -110,12 +102,26 @@ public class ViewBankAccountRequest extends javax.swing.JPanel {
             }
         });
         jScrollPane1.setViewportView(workRequestJTable);
+        if (workRequestJTable.getColumnModel().getColumnCount() > 0) {
+            workRequestJTable.getColumnModel().getColumn(0).setResizable(false);
+            workRequestJTable.getColumnModel().getColumn(1).setResizable(false);
+            workRequestJTable.getColumnModel().getColumn(2).setResizable(false);
+            workRequestJTable.getColumnModel().getColumn(3).setResizable(false);
+        }
 
+        viewBirthMother.setBackground(new java.awt.Color(255, 153, 51));
         viewBirthMother.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
-        viewBirthMother.setText("VIEW CLIENT DETAILS");
+        viewBirthMother.setText("VIEW LOAN REQUEST");
         viewBirthMother.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 viewBirthMotherActionPerformed(evt);
+            }
+        });
+
+        refreshTestJButton.setText("Refresh");
+        refreshTestJButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                refreshTestJButtonActionPerformed(evt);
             }
         });
 
@@ -124,13 +130,6 @@ public class ViewBankAccountRequest extends javax.swing.JPanel {
 
         valueLabel.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         valueLabel.setText("<value>");
-
-        refreshTestJButton.setText("Refresh");
-        refreshTestJButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                refreshTestJButtonActionPerformed(evt);
-            }
-        });
 
         btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/left-arrow-in-circular-button-black-symbol-2.png"))); // NOI18N
         btnBack.setText("Back");
@@ -144,76 +143,74 @@ public class ViewBankAccountRequest extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(271, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(280, 280, 280)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(324, 324, 324)
-                        .addComponent(viewBirthMother))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 849, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
                             .addComponent(btnBack)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(refreshTestJButton)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(237, 237, 237)
-                        .addComponent(enterpriseLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(valueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(125, 125, 125))
+                            .addComponent(refreshTestJButton)
+                            .addGap(1, 1, 1))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 714, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(viewBirthMother, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(272, 272, 272))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(enterpriseLabel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(valueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(96, 96, 96)))))
+                .addGap(251, 251, 251))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(292, 292, 292)
+                .addGap(317, 317, 317)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(enterpriseLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(valueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(refreshTestJButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(29, 29, 29)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnBack, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(2, 2, 2)
+                        .addComponent(refreshTestJButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(69, 69, 69)
-                .addComponent(viewBirthMother, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(339, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(viewBirthMother, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(373, 373, 373))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void viewBirthMotherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewBirthMotherActionPerformed
         int selectedRow = workRequestJTable.getSelectedRow();
-
+        
         if (selectedRow < 0){
             JOptionPane.showMessageDialog(null, "Please select a row from the table");
             return;
         }
         else{
-            HospitalAdminToBank request = (HospitalAdminToBank)workRequestJTable.getValueAt(selectedRow,0);
+            BirthMotherToLoan request = (BirthMotherToLoan)workRequestJTable.getValueAt(selectedRow,0);
             if(request.getStatus().equals("Pending")){
                 request.setStatus("Processing");
                 request.setReceiver(userAccount);
-
-                //              enterprise.getWorkQueue().getBirthMotherToCounsellor().add(request);
                 CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-                BankAccountCreate b = new BankAccountCreate(userAccount, userProcessContainer, enterprise, request);
-                userProcessContainer.add("BankAccountCreate", b);
+                userProcessContainer.add("ViewBirthMotherJPanel", new ViewLoanRequest(userProcessContainer, userAccount, request, enterprise));
                 layout.next(userProcessContainer);
             }
-            else{
-                JOptionPane.showMessageDialog(null, "Bank Account already created!");
-                return;
-
-            }
         }
-
+        
     }//GEN-LAST:event_viewBirthMotherActionPerformed
 
     private void refreshTestJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshTestJButtonActionPerformed
 
         populateRequestTable();
-
+        
     }//GEN-LAST:event_refreshTestJButtonActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
@@ -222,7 +219,6 @@ public class ViewBankAccountRequest extends javax.swing.JPanel {
         CardLayout cardlayout = (CardLayout) userProcessContainer.getLayout();
         cardlayout.previous(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
