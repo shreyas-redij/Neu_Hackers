@@ -65,14 +65,13 @@ public class BirthMotherWorkAreaJPanel extends javax.swing.JPanel {
         int parent = BirthMother.getParentAidfund();
         int help;
         int loan = BirthMother.getLoanAmountApproved();
-        //int insurance = BirthMother.getInsuranceAmount();
+        int insurance = BirthMother.getInsuranceAmount();
         int counselor = BirthMother.getRequiredFund();
         if(loan != 0){
             help = loan;
         }
         else{
-            //help = insurance;
-            help = 0;
+            help = insurance;
         }
         int extra = counselor - (self+parent+help);
         

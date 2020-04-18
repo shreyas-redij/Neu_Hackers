@@ -40,7 +40,7 @@ public class ViewInsuranceRequest extends javax.swing.JPanel {
         txtFirstName.setText(insuranceRequest.getInsurance().getFirstName());
         txtEmail.setText(insuranceRequest.getInsurance().getEmailId());
         txtAddress.setText(insuranceRequest.getInsurance().getAddress());  
-        txtFunds.setText(String.valueOf(insuranceRequest.getBirthMother().getRequiredFund()));
+        txtFunds.setText(String.valueOf(insuranceRequest.getBirthMother().getNetFunding()));
         txtPolicy.setText(String.valueOf(insuranceRequest.getInsurance().getPolicyNumber()));
         txtLastName.setText(insuranceRequest.getInsurance().getLastName());
         profilePhotoComponent.setIcon(new ImageIcon(insuranceRequest.getInsurance().getDocPath())); 
@@ -266,7 +266,7 @@ public class ViewInsuranceRequest extends javax.swing.JPanel {
             {l.setFundsApproved(Integer.valueOf(txtApprovedAmount.getText()));
              birthmother.setInsuranceAmount(Integer.valueOf(txtApprovedAmount.getText()));
              insuranceRequest.setStatus("Completed");
-             JOptionPane.showMessageDialog(null, "Approverd" );
+             JOptionPane.showMessageDialog(null, "Amount \"+ l.getFundsApproved()+ \" approved " );
              //SuccessDialog d = new SuccessDialog("Amount "+ l.getFundsApproved()+ " approved ");
                // d.setVisible(true);
             }
