@@ -5,11 +5,15 @@
  */
 package userinterface;
 
+import Business.Directory.Counsellor;
 import Business.Directory.Parents;
 import Business.Directory.ParentsDirectory;
 import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
 import Business.Enterprise.HospitalEnterprise;
+import Business.Mail.ConfigUtility;
+import Business.Mail.EmailUtility;
+import Business.Mail.EmailVariables;
 import Business.Network.Network;
 import Business.Organization.Organization;
 import Business.UserAccount.UserAccount;
@@ -19,8 +23,11 @@ import Business.Validations.ValidateStrings;
 import Business.WorkQueue.ParentToCounselor;
 import java.awt.CardLayout;
 import java.awt.Color;
+import java.io.File;
+import java.util.Properties;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import javafx.stage.FileChooser;
 import javax.swing.BorderFactory;
 import javax.swing.InputVerifier;
 import javax.swing.JOptionPane;
@@ -54,10 +61,14 @@ public class ParentRegister extends javax.swing.JPanel {
     private ParentToCounselor parentToCounselor;
     private Enterprise enterprise;
     private Organization organization;
+    private ConfigUtility configUtil;
+    private EmailUtility emailUtil;
     
     
     public ParentRegister(JPanel userProcessContainer, EcoSystem system) {
         initComponents();
+        this.emailUtil = new EmailUtility();
+        this.configUtil = new ConfigUtility();
         this.userProcessContainer = userProcessContainer;
         this.system = system;
         populateComboBox();
@@ -167,88 +178,86 @@ public class ParentRegister extends javax.swing.JPanel {
         });
 
         jLabel5.setText("You are prepared for the “worst case scenario.”");
-        jLabel5.setEnabled(false);
 
         jLabel9.setText("Your current children are on board with the situation.");
-        jLabel9.setEnabled(false);
 
         isChildrenOnBoard.setText("Yes");
-        isChildrenOnBoard.setEnabled(false);
 
         notOnBoardChildren.setText("No");
-        notOnBoardChildren.setEnabled(false);
 
         jLabel10.setText("You are educated about the realities of the type of adoption you are pursuing.");
-        jLabel10.setEnabled(false);
 
         jLabel6.setText("You are financially prepared for the child.");
-        jLabel6.setEnabled(false);
 
         notPrepared.setText("No");
-        notPrepared.setEnabled(false);
 
         isPrepared.setText("Yes");
-        isPrepared.setEnabled(false);
 
         isFinance.setText("Yes");
-        isFinance.setEnabled(false);
 
         notSelectFinance.setText("No");
-        notSelectFinance.setEnabled(false);
 
         isEducated.setText("Yes");
-        isEducated.setEnabled(false);
 
         notEducated.setText("No");
-        notEducated.setEnabled(false);
 
         jLabel11.setText("You plan to make promises or commitments you actually can or will keep");
-        jLabel11.setEnabled(false);
 
         jLabel7.setText("You are able or willing to make BIG changes.");
-        jLabel7.setEnabled(false);
 
         isBigChange.setText("Yes");
-        isBigChange.setEnabled(false);
 
         notBigChange.setText("No");
-        notBigChange.setEnabled(false);
 
         isComfortable.setText("Yes");
-        isComfortable.setEnabled(false);
 
         jLabel8.setText("Your partner is comfortable with the situation.");
-        jLabel8.setEnabled(false);
 
         notComfortable.setText("No");
-        notComfortable.setEnabled(false);
 
         isGuilty.setText("Yes");
-        isGuilty.setEnabled(false);
 
         notGuilty.setText("No");
-        notGuilty.setEnabled(false);
 
         jLabel12.setText("You want to say “yes” not out of guilt.");
-        jLabel12.setEnabled(false);
 
         notPromise.setText("No");
-        notPromise.setEnabled(false);
 
         isPromise.setText("Yes");
-        isPromise.setEnabled(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(203, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(btnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(600, 600, 600))
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(413, 413, 413)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(passwordLabel)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(emailIdLbl)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(usrNameLabel)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel3)
+                                        .addComponent(jLabel13))
+                                    .addGap(31, 31, 31)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(txtConfPassword)
+                                        .addComponent(hospitalJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jButton1)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(211, 211, 211)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel5)
                             .addGroup(layout.createSequentialGroup()
@@ -291,34 +300,12 @@ public class ParentRegister extends javax.swing.JPanel {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(notOnBoardChildren))
                             .addComponent(jLabel9)
-                            .addComponent(jLabel12))
-                        .addGap(106, 106, 106))))
+                            .addComponent(jLabel12))))
+                .addGap(0, 265, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
-                .addGap(413, 413, 413)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(passwordLabel)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(emailIdLbl)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(usrNameLabel)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel3)
-                                .addComponent(jLabel13))
-                            .addGap(31, 31, 31)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(txtConfPassword)
-                                .addComponent(hospitalJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addComponent(jButton1))
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(441, 441, 441)
+                .addComponent(btnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -395,9 +382,9 @@ public class ParentRegister extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(isGuilty)
                             .addComponent(notGuilty))))
-                .addGap(58, 58, 58)
+                .addGap(39, 39, 39)
                 .addComponent(btnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(144, Short.MAX_VALUE))
+                .addContainerGap(237, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -533,6 +520,7 @@ public class ParentRegister extends javax.swing.JPanel {
         hospital.getParentDirectory().addParents(parent);
         parentToCounselor = new ParentToCounselor("Please review the parent profile", parent);
         hospital.getWorkQueue().getParentToCounselor().add(parentToCounselor);
+        sendMail(parent);
         JOptionPane.showMessageDialog(null, "Account Registered Successfully. Account sent to Counselor for Approval");
 
 
@@ -565,6 +553,37 @@ public class ParentRegister extends javax.swing.JPanel {
         boolean b1=m1.matches();
         return b1;
     }*/
+    
+    public void sendMail(Parents parent){
+         
+        String toAddress = txtEmail.getText();
+        String subject = "Family Registration";
+        EmailVariables eVar = new EmailVariables();
+        String start = eVar.getStart();
+        String footer = eVar.getFooter();
+        
+        //FileChooser filePicker = new FileChooser();
+        
+        String content =  " <h3><br>Your Registration is successful! </br> <br>Your Profile ID is " + parent.getParentId()
+                + " and your Userid: "+parent.getUsername()+"</br> <br> Kindly wait for your Counselor to review your details!</br></h3> <h2> Thank you! </h2>";
+        
+        String message = start + content + footer;
+        File[] attachFiles = null;
+        
+        //File selectedFile = new File("..\\images\\adopt.jpg");
+        //attachFiles = new File[] {selectedFile};
+  
+        try {
+            Properties smtpProperties = configUtil.loadProperties();
+            emailUtil.sendEmail(smtpProperties, toAddress, subject, message, attachFiles);
+
+             
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this,
+                    "Error while sending the e-mail: " + ex.getMessage(),
+                    "Error", JOptionPane.ERROR_MESSAGE);
+        }
+     }
     
     
     

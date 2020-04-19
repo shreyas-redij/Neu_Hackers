@@ -4,16 +4,22 @@
  */
 package userinterface.HospitalAdministrativeRole;
 
+import Business.Directory.BirthMother;
 import Business.Enterprise.Enterprise;
 import Business.Organization.CounselorOrganization;
 import Business.Organization.Organization;
 import Business.Directory.Parents;
+import Business.Mail.ConfigUtility;
+import Business.Mail.EmailUtility;
+import Business.Mail.EmailVariables;
 import Business.Role.ParentsRole;
 import Business.UserAccount.UserAccount;
 import Business.Role.Role;
 import Business.WorkQueue.CounselorToAdmin;
 import java.awt.CardLayout;
+import java.io.File;
 import java.util.Date;
+import java.util.Properties;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -28,6 +34,8 @@ public class ParentsRequestWorkAreaJPanel extends javax.swing.JPanel {
     private CounselorOrganization organization;
     private UserAccount account;
     private Enterprise enterprise;
+    private ConfigUtility configUtil;
+    private EmailUtility emailUtil;
 
     private Parents parent;
     
@@ -36,6 +44,8 @@ public class ParentsRequestWorkAreaJPanel extends javax.swing.JPanel {
      */
     public ParentsRequestWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, Enterprise enterprise) {
         initComponents();
+        this.emailUtil = new EmailUtility();
+        this.configUtil = new ConfigUtility();
         
         this.userProcessContainer = userProcessContainer;
        
@@ -279,6 +289,8 @@ public class ParentsRequestWorkAreaJPanel extends javax.swing.JPanel {
                 org.getUserAccountDirectory().createUserAccountParents(request.getParent().getUsername(),request.getParent().getPassword() , parent , role, account.getNetwork());
             }
         } 
+        
+        sendMail(parent);
        
         populateRequestTable();
         }
@@ -297,7 +309,38 @@ public class ParentsRequestWorkAreaJPanel extends javax.swing.JPanel {
         populateRequestTable();
         
     }//GEN-LAST:event_refreshTestJButtonActionPerformed
+    
+    public void sendMail(Parents parent){
+         
+        String toAddress = parent.getEmail();
+        String subject = "Hospital Admin Approval";
+        EmailVariables eVar = new EmailVariables();
+        String start = eVar.getStart();
+        String footer = eVar.getFooter();
+        
+        //FileChooser filePicker = new FileChooser();
+        
+        String content =  " <table cellspacing=\"0\" cellpadding=\"0\" align=\"center\"><tbody><h3><tr><td>Hi "+ parent.getUsername() +"! </td></tr><tr><td>\n <h3>Your Profile ID  " + parent.getParentId()
+                + " and your Userid: "+parent.getUsername()+" has been approved by Hospital Admin</br></td></tr>"+"</br><tr><td>You can now login to the application with your credentials </br></td></tr></h3></tbody>  <h2> Thank you! </h2>";
 
+        String message = start + content + footer;
+        File[] attachFiles = null;
+        
+        //File selectedFile = new File("..\\images\\adopt.jpg");
+        //attachFiles = new File[] {selectedFile};
+  
+        try {
+            Properties smtpProperties = configUtil.loadProperties();
+            emailUtil.sendEmail(smtpProperties, toAddress, subject, message, attachFiles);
+
+             
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this,
+                    "Error while sending the e-mail: " + ex.getMessage(),
+                    "Error", JOptionPane.ERROR_MESSAGE);
+        }
+     }
+    
     private void btnViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewActionPerformed
         // TODO add your handling code here:
         int selectedRow = workRequestJTable.getSelectedRow();

@@ -30,6 +30,7 @@
                   <Group type="103" alignment="0" groupAlignment="1" attributes="0">
                       <Component id="newAccountReqBtn" min="-2" pref="256" max="-2" attributes="0"/>
                       <Component id="viewBankAccountDetails" alignment="1" min="-2" pref="256" max="-2" attributes="0"/>
+                      <Component id="viewLoanApplicationJButton" alignment="1" min="-2" pref="256" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="enterpriseLabel" min="-2" max="-2" attributes="0"/>
@@ -53,7 +54,9 @@
               <Component id="newAccountReqBtn" min="-2" pref="68" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="104" max="-2" attributes="0"/>
               <Component id="viewBankAccountDetails" min="-2" pref="68" max="-2" attributes="0"/>
-              <EmptySpace pref="416" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="94" max="-2" attributes="0"/>
+              <Component id="viewLoanApplicationJButton" min="-2" pref="68" max="-2" attributes="0"/>
+              <EmptySpace pref="254" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -89,6 +92,14 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="newAccountReqBtnActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="viewLoanApplicationJButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="New Loan Applications"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="viewLoanApplicationJButtonActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>
