@@ -7,13 +7,20 @@ package userinterface.CounselorRole;
 
 import Business.Directory.BirthMother;
 import Business.Directory.BirthMotherDirectory;
+import Business.Directory.Parents;
 import Business.Enterprise.Enterprise;
+import Business.Mail.ConfigUtility;
+import Business.Mail.EmailUtility;
+import Business.Mail.EmailVariables;
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.BirthMotherToCounselor;
 import Business.WorkQueue.CounselorToAdmin;
 import java.awt.CardLayout;
 import java.awt.Component;
+import java.io.File;
 import java.util.Date;
+import java.util.Properties;
+import javafx.stage.FileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -32,6 +39,8 @@ public class ViewBirthMotherJPanel extends javax.swing.JPanel {
     private Enterprise enterprise;
     private UserAccount account;
     private BirthMotherToCounselor request;
+    private ConfigUtility configUtil;
+    private EmailUtility emailUtil;
     
 
     /**
@@ -43,6 +52,8 @@ public class ViewBirthMotherJPanel extends javax.swing.JPanel {
     public ViewBirthMotherJPanel(JPanel userProcessContainer, BirthMotherToCounselor bmc, UserAccount account, Enterprise enterprise) {
         
         initComponents();
+        this.emailUtil = new EmailUtility();
+        this.configUtil = new ConfigUtility();
         this.userProcessContainer = userProcessContainer;
         this.request = bmc;
         this.account = account;
@@ -147,7 +158,7 @@ public class ViewBirthMotherJPanel extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(457, Short.MAX_VALUE)
+                .addContainerGap(474, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -164,16 +175,21 @@ public class ViewBirthMotherJPanel extends javax.swing.JPanel {
                             .addComponent(patientID)
                             .addComponent(patientID1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(patientID2))
-                        .addGap(53, 53, 53)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnReject, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnAccept, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(txtFundsRequired, javax.swing.GroupLayout.PREFERRED_SIZE, 384, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(messageTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 384, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(patientIDTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addGap(53, 53, 53)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(btnReject, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(btnAccept, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(txtFundsRequired, javax.swing.GroupLayout.PREFERRED_SIZE, 384, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(messageTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 384, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(64, 64, 64)
+                                .addComponent(patientIDTxt)
+                                .addGap(206, 206, 206)))))
                 .addGap(262, 262, 262))
         );
         layout.setVerticalGroup(
@@ -286,6 +302,10 @@ public class ViewBirthMotherJPanel extends javax.swing.JPanel {
         
         enterprise.getWorkQueue().getCounselorToAdmin().add(counselorReq);
         
+        birthMother = request.getBirthMother();
+        sendMail(birthMother);
+        JOptionPane.showMessageDialog(null, "Acount Approved Successfully");
+        
         userProcessContainer.remove(this);
         Component[] componentArray = userProcessContainer.getComponents();
         Component component = componentArray[componentArray.length - 1];
@@ -303,6 +323,35 @@ public class ViewBirthMotherJPanel extends javax.swing.JPanel {
         cardlayout.previous(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed
 
+    public void sendMail(BirthMother birthmother){
+         
+        String toAddress = birthmother.getEmailId();
+        String subject = "Counselor Approval";
+        EmailVariables eVar = new EmailVariables();
+        String start = eVar.getStart();
+        String footer = eVar.getFooter();
+        
+        //FileChooser filePicker = new FileChooser();
+        
+        String content =  " <table cellspacing=\"0\" cellpadding=\"0\" align=\"center\"><tbody><tr><td><h3>Hi "+ birthmother.getUsername() +"! </td></tr><tr><td>\n Your Profile ID  " + birthmother.getId()
+                + " and your Userid: "+birthmother.getUsername()+" has been approved by"+birthmother.getCounselor()+"</br></td></tr>"+"</br><tr><td><h3> Approval sent to the hospital admin for account creation!</h3></br></td></tr></tbody>  <h2> Thank you! </h2>";
+        
+        String message = start + content + footer;
+        File[] attachFiles = null;
+        
+        //File selectedFile = new File("..\\images\\adopt.jpg");
+        //attachFiles = new File[] {selectedFile};
+  
+        try {
+            Properties smtpProperties = configUtil.loadProperties();
+            emailUtil.sendEmail(smtpProperties, toAddress, subject, message, attachFiles);
+             
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this,
+                    "Error while sending the e-mail: " + ex.getMessage(),
+                    "Error", JOptionPane.ERROR_MESSAGE);
+        }
+     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAccept;

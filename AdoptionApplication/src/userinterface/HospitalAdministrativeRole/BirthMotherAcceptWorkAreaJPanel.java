@@ -11,6 +11,9 @@ import Business.Network.Network;
 import Business.Organization.BankManagerOrganization;
 import Business.Organization.Organization;
 import Business.Directory.BirthMother;
+import Business.Mail.ConfigUtility;
+import Business.Mail.EmailUtility;
+import Business.Mail.EmailVariables;
 import Business.Role.BirthMotherRole;
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.BirthMotherToCounselor;
@@ -19,6 +22,8 @@ import Business.WorkQueue.CounselorToAdmin;
 import Business.WorkQueue.HospitalAdminToBank;
 //import Business.WorkQueue.HospitalAdminToBank;
 import java.awt.CardLayout;
+import java.io.File;
+import java.util.Properties;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -35,12 +40,15 @@ public class BirthMotherAcceptWorkAreaJPanel extends javax.swing.JPanel {
     private Enterprise enterprise;
     private BirthMother birthMother;
     private Network network;
+    private ConfigUtility configUtil;
+    private EmailUtility emailUtil;
     /**
      * Creates new form DoctorWorkAreaJPanel
      */
     public BirthMotherAcceptWorkAreaJPanel(JPanel userProcessContainer, Network network, UserAccount account, Enterprise enterprise) {
         initComponents();
-        
+        this.emailUtil = new EmailUtility();
+        this.configUtil = new ConfigUtility();
         this.userProcessContainer = userProcessContainer;
         this.enterprise = enterprise;
         this.account = account;
@@ -58,6 +66,38 @@ public class BirthMotherAcceptWorkAreaJPanel extends javax.swing.JPanel {
         }
     
     }
+    
+    public void sendMail(BirthMother birthmother){
+         
+        String toAddress = birthmother.getEmailId();
+        String subject = "Hospital Admin Approval";
+        EmailVariables eVar = new EmailVariables();
+        String start = eVar.getStart();
+        String footer = eVar.getFooter();
+        
+        //FileChooser filePicker = new FileChooser();
+        
+        String content =  " <table cellspacing=\"0\" cellpadding=\"0\" align=\"center\"><tbody><h3><tr><td>Hi "+ birthmother.getUsername() +"! </td></tr><tr><td>\n <h3>Your Profile ID  " + birthmother.getId()
+                + " and your Userid: "+birthmother.getUsername()+" has been approved by Hospital Admin</br></td></tr>"+"</br><tr><td>You can now login to the application with your credentials </br></td></tr><tr><td><h3> Approval sent to the Bank Manager for Bank Account Creation!</h3></br></td></tr></h3></tbody>  <h2> Thank you! </h2>";
+
+        
+        String message = start + content + footer;
+        File[] attachFiles = null;
+        
+        //File selectedFile = new File("..\\images\\adopt.jpg");
+        //attachFiles = new File[] {selectedFile};
+  
+        try {
+            Properties smtpProperties = configUtil.loadProperties();
+            emailUtil.sendEmail(smtpProperties, toAddress, subject, message, attachFiles);
+
+             
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this,
+                    "Error while sending the e-mail: " + ex.getMessage(),
+                    "Error", JOptionPane.ERROR_MESSAGE);
+        }
+     }
       
     
     public void populateRequestTable(){
@@ -331,6 +371,8 @@ public class BirthMotherAcceptWorkAreaJPanel extends javax.swing.JPanel {
                         
                     HospitalAdminToBank h = new HospitalAdminToBank(messageTxt.getText(), birthMother);
                     f.getWorkQueue().getHospitalAdminToBank().add(h);
+                    
+                    sendMail(birthMother);
 
                     
                     JOptionPane.showMessageDialog(null, "User account created successfully. Approval sent to Bank");

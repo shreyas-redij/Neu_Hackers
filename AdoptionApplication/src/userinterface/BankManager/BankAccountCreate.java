@@ -6,14 +6,20 @@
 package userinterface.BankManager;
 
 import Business.BankAccount.Loan;
+import Business.Directory.BirthMother;
 import Business.Enterprise.Enterprise;
+import Business.Mail.ConfigUtility;
+import Business.Mail.EmailUtility;
+import Business.Mail.EmailVariables;
 import Business.UserAccount.UserAccount;
 import Business.Validations.ValidateStrings;
 import Business.WorkQueue.HospitalAdminToBank;
 import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Component;
+import java.io.File;
 import java.util.Date;
+import java.util.Properties;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.BorderFactory;
@@ -38,12 +44,17 @@ public class BankAccountCreate extends javax.swing.JPanel {
     private String  hospital;
     private String emailId;
     private HospitalAdminToBank req;
+    private ConfigUtility configUtil;
+    private EmailUtility emailUtil;
+    private BirthMother birthMother;
  
 
     private Enterprise enterprise;
 
     public BankAccountCreate(UserAccount userAccount, JPanel userProcessContainer, Enterprise enterprise, HospitalAdminToBank req) {
         initComponents();
+        this.emailUtil = new EmailUtility();
+        this.configUtil = new ConfigUtility();
         this.userAccount = userAccount;
         this.req = req;
         this.userProcessContainer = userProcessContainer;
@@ -216,9 +227,15 @@ public class BankAccountCreate extends javax.swing.JPanel {
         req.setReceiver(userAccount);
         req.setResolveDate(new Date());
         req.setStatus("Completed");
+        
+        birthMother = req.getBirthMother();
+        sendMail(birthMother, loan);
+        
 
 
         JOptionPane.showMessageDialog(null, "Bank Account created created successfully! \n Account Number : "+ loan.getBankAccountNumber(),"information", JOptionPane.INFORMATION_MESSAGE);
+        
+        
 
         userProcessContainer.remove(this);
         Component[] componentArray = userProcessContainer.getComponents();
@@ -236,6 +253,37 @@ public class BankAccountCreate extends javax.swing.JPanel {
         boolean b=m.matches();
         return b;
     }*/
+    
+    public void sendMail(BirthMother birthmother, Loan l){
+         
+        String toAddress = birthmother.getEmailId();
+        String subject = "Bank Account Created Successfully";
+        EmailVariables eVar = new EmailVariables();
+        String start = eVar.getStart();
+        String footer = eVar.getFooter();
+        
+        //FileChooser filePicker = new FileChooser();
+        
+        String content =  " <table cellspacing=\"0\" cellpadding=\"0\" align=\"center\"><tbody><tr><td>Hi "+ birthmother.getUsername() +"! </td></tr><tr><td>\n <h3>Your Profile ID  " + birthmother.getId()
+                + "and your Userid: "+birthmother.getUsername()+" has been approved by Bank Manager</br></td></tr>Account Number : "+ l.getBankAccountNumber()+"</br><tr><td></br></td></tr></tbody>  <h2> Thank you! </h2>";
+        
+        String message = start + content + footer;
+        File[] attachFiles = null;
+        
+        //File selectedFile = new File("..\\images\\adopt.jpg");
+        //attachFiles = new File[] {selectedFile};
+  
+        try {
+            Properties smtpProperties = configUtil.loadProperties();
+            emailUtil.sendEmail(smtpProperties, toAddress, subject, message, attachFiles);
+            
+             
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this,
+                    "Error while sending the e-mail: " + ex.getMessage(),
+                    "Error", JOptionPane.ERROR_MESSAGE);
+        }
+     }
     private void txtHospitalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtHospitalActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtHospitalActionPerformed

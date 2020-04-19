@@ -428,9 +428,7 @@ public class MotherRegister extends javax.swing.JPanel {
         try {
             Properties smtpProperties = configUtil.loadProperties();
             emailUtil.sendEmail(smtpProperties, toAddress, subject, message, attachFiles);
-             
-            JOptionPane.showMessageDialog(this,
-                    "The e-mail has been sent successfully!");
+
              
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(this,

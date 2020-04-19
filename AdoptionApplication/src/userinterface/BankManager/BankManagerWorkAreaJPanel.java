@@ -49,6 +49,7 @@ public class BankManagerWorkAreaJPanel extends javax.swing.JPanel {
         valueLabel = new javax.swing.JLabel();
         viewBankAccountDetails = new javax.swing.JButton();
         newAccountReqBtn = new javax.swing.JButton();
+        viewLoanApplicationJButton = new javax.swing.JButton();
 
         setMaximumSize(new java.awt.Dimension(1245, 1000));
         setMinimumSize(new java.awt.Dimension(1245, 1000));
@@ -73,6 +74,13 @@ public class BankManagerWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
+        viewLoanApplicationJButton.setText("New Loan Applications");
+        viewLoanApplicationJButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewLoanApplicationJButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -82,7 +90,8 @@ public class BankManagerWorkAreaJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(newAccountReqBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(viewBankAccountDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(viewBankAccountDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(viewLoanApplicationJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(enterpriseLabel)
                         .addGap(4, 4, 4)
@@ -100,7 +109,9 @@ public class BankManagerWorkAreaJPanel extends javax.swing.JPanel {
                 .addComponent(newAccountReqBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(104, 104, 104)
                 .addComponent(viewBankAccountDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(416, Short.MAX_VALUE))
+                .addGap(94, 94, 94)
+                .addComponent(viewLoanApplicationJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(254, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -117,10 +128,19 @@ public class BankManagerWorkAreaJPanel extends javax.swing.JPanel {
         layout.next(userProcessContainer);
     }//GEN-LAST:event_newAccountReqBtnActionPerformed
 
+    private void viewLoanApplicationJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewLoanApplicationJButtonActionPerformed
+
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        userProcessContainer.add("ViewLoanApplicationWorkAreaJPanel", new ViewLoanApplicationWorkAreaJPanel(userProcessContainer, userAccount, enterprise));
+        layout.next(userProcessContainer);
+
+    }//GEN-LAST:event_viewLoanApplicationJButtonActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel enterpriseLabel;
     private javax.swing.JButton newAccountReqBtn;
     private javax.swing.JLabel valueLabel;
     private javax.swing.JButton viewBankAccountDetails;
+    private javax.swing.JButton viewLoanApplicationJButton;
     // End of variables declaration//GEN-END:variables
 }
