@@ -52,9 +52,14 @@ public class MainJFrame extends javax.swing.JFrame {
         btnLogout = new javax.swing.JButton();
         btnRegister = new javax.swing.JButton();
         userProcessContainer = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel1.setBackground(new java.awt.Color(51, 122, 183));
+
+        btnLogin.setBackground(new java.awt.Color(255, 255, 255));
+        btnLogin.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         btnLogin.setText("Login");
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -62,6 +67,8 @@ public class MainJFrame extends javax.swing.JFrame {
             }
         });
 
+        btnLogout.setBackground(new java.awt.Color(255, 255, 255));
+        btnLogout.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         btnLogout.setText("Logout");
         btnLogout.setEnabled(false);
         btnLogout.addActionListener(new java.awt.event.ActionListener() {
@@ -70,6 +77,8 @@ public class MainJFrame extends javax.swing.JFrame {
             }
         });
 
+        btnRegister.setBackground(new java.awt.Color(255, 255, 255));
+        btnRegister.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         btnRegister.setText("Register");
         btnRegister.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -87,26 +96,28 @@ public class MainJFrame extends javax.swing.JFrame {
                         .addGap(130, 130, 130)
                         .addComponent(loginJLabel))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(btnLogin, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
-                                .addComponent(btnLogout, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                        .addContainerGap()
+                        .addComponent(btnRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(42, 42, 42)
-                .addComponent(btnRegister)
-                .addGap(45, 45, 45)
-                .addComponent(btnLogin)
-                .addGap(46, 46, 46)
-                .addComponent(btnLogout)
-                .addGap(32, 32, 32)
+                .addGap(250, 250, 250)
                 .addComponent(loginJLabel)
-                .addContainerGap(748, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnRegister)
+                .addGap(48, 48, 48)
+                .addComponent(btnLogin)
+                .addGap(39, 39, 39)
+                .addComponent(btnLogout)
+                .addContainerGap(573, Short.MAX_VALUE))
         );
 
         jSplitPane1.setLeftComponent(jPanel1);
@@ -115,6 +126,23 @@ public class MainJFrame extends javax.swing.JFrame {
         userProcessContainer.setMinimumSize(new java.awt.Dimension(1245, 1000));
         userProcessContainer.setPreferredSize(new java.awt.Dimension(1245, 1000));
         userProcessContainer.setLayout(new java.awt.CardLayout());
+
+        jPanel2.setMaximumSize(new java.awt.Dimension(1245, 1000));
+        jPanel2.setMinimumSize(new java.awt.Dimension(1245, 1000));
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1245, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1000, Short.MAX_VALUE)
+        );
+
+        userProcessContainer.add(jPanel2, "card2");
+
         jSplitPane1.setRightComponent(userProcessContainer);
 
         getContentPane().add(jSplitPane1, java.awt.BorderLayout.CENTER);
@@ -198,6 +226,7 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnLogout;
     private javax.swing.JButton btnRegister;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JSplitPane jSplitPane1;
     private javax.swing.JLabel loginJLabel;
     private javax.swing.JPanel userProcessContainer;

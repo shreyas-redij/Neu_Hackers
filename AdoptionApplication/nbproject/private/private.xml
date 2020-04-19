@@ -2,6 +2,21 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/git/Neu_Hackers/AdoptionApplication/src/userinterface/BankManager/BankAccountCreate.java</file>
+            <file>file:/C:/git/Neu_Hackers/AdoptionApplication/src/userinterface/BankManager/ViewBankAccount.java</file>
+            <file>file:/C:/git/Neu_Hackers/AdoptionApplication/src/userinterface/MainJFrame.java</file>
+            <file>file:/C:/git/Neu_Hackers/AdoptionApplication/src/userinterface/BirthMotherRole/ViewParentDirectory.java</file>
+            <file>file:/C:/git/Neu_Hackers/AdoptionApplication/src/userinterface/BankManager/ViewBankAccountRequest.java</file>
+            <file>file:/C:/git/Neu_Hackers/AdoptionApplication/src/userinterface/StartupPage.java</file>
+            <file>file:/C:/git/Neu_Hackers/AdoptionApplication/src/userinterface/BankManager/ViewBankAccountDetailsJPanel.java</file>
+            <file>file:/C:/git/Neu_Hackers/AdoptionApplication/src/userinterface/BirthMotherRole/LoanCreation.java</file>
+            <file>file:/C:/git/Neu_Hackers/AdoptionApplication/src/userinterface/BirthMotherRole/BirthMotherWorkAreaJPanel.java</file>
+            <file>file:/C:/git/Neu_Hackers/AdoptionApplication/src/userinterface/BirthMotherRole/InsuranceViewPage.java</file>
+            <file>file:/C:/git/Neu_Hackers/AdoptionApplication/src/userinterface/LoginOptions.java</file>
+            <file>file:/C:/git/Neu_Hackers/AdoptionApplication/src/userinterface/BirthMotherRole/UpdateBankInformation.java</file>
+            <file>file:/C:/git/Neu_Hackers/AdoptionApplication/src/userinterface/BankManager/BankManagerWorkAreaJPanel.java</file>
+            <file>file:/C:/git/Neu_Hackers/AdoptionApplication/src/userinterface/BirthMotherRole/ViewParentApplication.java</file>
+        </group>
     </open-files>
 </project-private>
