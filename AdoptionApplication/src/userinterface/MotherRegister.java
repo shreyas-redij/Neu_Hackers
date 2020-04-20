@@ -109,11 +109,12 @@ public class MotherRegister extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
 
-        setBackground(javax.swing.UIManager.getDefaults().getColor("tab_mouse_over_fill_lower"));
+        setBackground(new java.awt.Color(51, 122, 183));
         setMaximumSize(new java.awt.Dimension(1245, 1000));
         setMinimumSize(new java.awt.Dimension(1245, 1000));
         setPreferredSize(new java.awt.Dimension(1245, 1000));
 
+        jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel6.setText("First Name*:");
 
         nameTxt.addActionListener(new java.awt.event.ActionListener() {
@@ -122,14 +123,19 @@ public class MotherRegister extends javax.swing.JPanel {
             }
         });
 
+        UsrNameLabel.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         UsrNameLabel.setText("Username*:");
 
+        emailIdLbl.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         emailIdLbl.setText("Email*:");
 
+        passwordLabel.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         passwordLabel.setText("Password*:");
 
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel3.setText("Confirm Password*:");
 
+        jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel5.setText("Select Hospital:");
 
         hospitalJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Select Hospital", "Item 2", "Item 3", "Item 4" }));
@@ -139,7 +145,7 @@ public class MotherRegister extends javax.swing.JPanel {
             }
         });
 
-        btnConfirm.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
+        btnConfirm.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         btnConfirm.setText("CONFIRM");
         btnConfirm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -147,7 +153,7 @@ public class MotherRegister extends javax.swing.JPanel {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel1.setText("Birth Mother Registration");
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/left-arrow-in-circular-button-black-symbol-2.png"))); // NOI18N
@@ -162,74 +168,80 @@ public class MotherRegister extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 278, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel3)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jButton1)
+                                .addGap(53, 53, 53))
+                            .addComponent(passwordLabel)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel6)
+                            .addComponent(UsrNameLabel)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(emailIdLbl)
+                                .addGap(9, 9, 9)))))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(356, 356, 356)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(UsrNameLabel)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel5)
-                            .addComponent(passwordLabel)
-                            .addComponent(emailIdLbl)
-                            .addComponent(jLabel6))
-                        .addGap(40, 40, 40)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(confirmPassTxt)
-                                .addComponent(hospitalJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(userNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(nameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(emailTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(passwordTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(356, 356, 356)
-                        .addComponent(jButton1)
-                        .addGap(45, 45, 45)
+                        .addGap(90, 90, 90)
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(423, 423, 423)
-                        .addComponent(btnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(448, Short.MAX_VALUE))
+                        .addGap(49, 49, 49)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(userNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(nameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(emailTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(48, 48, 48)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(passwordTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(78, 78, 78))
+                            .addComponent(confirmPassTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(hospitalJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(447, 447, 447))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(313, 313, 313)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGap(63, 63, 63)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(67, 67, 67)
-                        .addComponent(nameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(userNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(emailTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel6)
-                        .addGap(18, 18, 18)
-                        .addComponent(UsrNameLabel)
-                        .addGap(14, 14, 14)
-                        .addComponent(emailIdLbl)
-                        .addGap(6, 6, 6)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addGap(93, 93, 93)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(passwordTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(passwordLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jLabel6)
+                    .addComponent(nameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(47, 47, 47)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(confirmPassTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(userNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(UsrNameLabel))
+                .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(hospitalJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5))
-                .addGap(66, 66, 66)
+                    .addComponent(emailIdLbl)
+                    .addComponent(emailTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(46, 46, 46)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(passwordLabel)
+                    .addComponent(passwordTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(46, 46, 46)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(confirmPassTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(hospitalJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(44, 44, 44)
                 .addComponent(btnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(258, 258, 258))
+                .addGap(329, 329, 329))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -294,41 +306,24 @@ public class MotherRegister extends javax.swing.JPanel {
                 throw new RuntimeException("Please enter the Hospital");
             }
             
-            //Validation Part
-            /*if (userNameTxt.getText()==""){
-            UsrNameLabel.setForeground (Color.red);
-            userNameTxt.setBorder(BorderFactory.createLineBorder(Color.RED));
-            JOptionPane.showMessageDialog(null, "Username should not be empty");
-            return;
-            } else{
-            UsrNameLabel.setForeground (Color.BLACK);
-            userNameTxt.setBorder(BorderFactory.createEmptyBorder());
+            Random rand1 = new Random(); 
+            Counsellor c1 = new Counsellor();
             
-            }
-             
-            
-            if (emailIdPatternCorrect()==false){
-            emailIdLbl.setForeground (Color.red);
-            emailTxt.setBorder(BorderFactory.createLineBorder(Color.RED));
-            JOptionPane.showMessageDialog(null, " Email  provided should be in the format of xx_xx@xx.xx");
-            return;
-            }else{
-            emailIdLbl.setForeground (Color.BLACK);
-            emailTxt.setBorder(BorderFactory.createEmptyBorder());
+            for (Organization o1 : hospital.getOrganizationDirectory().getOrganizationList()){
+                   if (o1.getName().equals(Organization.Type.Counselor.getValue())){
+                   int size = o1.getEmployeeDirectory().getCounselorlist().size();
+                   c1 = o1.getEmployeeDirectory().getCounselorlist().get(rand1.nextInt(size)); 
+                   
+                   if(c1.getName().equals(null) || c1.equals(null)){
+                       JOptionPane.showMessageDialog(null, "No Counselors available at this hospital, Please select another hospital!");
+                        throw new RuntimeException("No Counselor available");
+                       
+                   
+                   }
+                   }
             }
             
-            if (passwordPatternCorrect()==false){
-            passwordLabel.setForeground (Color.red);
-            passwordTxt.setBorder(BorderFactory.createLineBorder(Color.RED));
-            JOptionPane.showMessageDialog(null, "Password should be at least 6 digits and contain at least one upper case letter,"
-                    + " one lower case letter, one digit and one special character $, *, # or &.");
-            return;
-            }else{
-            passwordLabel.setForeground (Color.black);
-            passwordTxt.setBorder(BorderFactory.createEmptyBorder());
-                }
-                */
-      
+           
       // BirthMother in people created
             birthMother.setEmailId(emailId);
             birthMother.setHospital(hospital.getName());
@@ -345,6 +340,7 @@ public class MotherRegister extends javax.swing.JPanel {
         
                 Random rand = new Random(); 
                 Counsellor c = new Counsellor();
+
                 for (Organization o : hospital.getOrganizationDirectory().getOrganizationList()){
                    if (o.getName().equals(Organization.Type.Counselor.getValue())){
                    int size = o.getEmployeeDirectory().getCounselorlist().size();
