@@ -51,15 +51,17 @@ public class BankManagerWorkAreaJPanel extends javax.swing.JPanel {
         newAccountReqBtn = new javax.swing.JButton();
         viewLoanApplicationJButton = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(51, 122, 183));
         setMaximumSize(new java.awt.Dimension(1245, 1000));
         setMinimumSize(new java.awt.Dimension(1245, 1000));
 
-        enterpriseLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        enterpriseLabel.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         enterpriseLabel.setText("ORGANIZATION:");
 
         valueLabel.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         valueLabel.setText("<value>");
 
+        viewBankAccountDetails.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         viewBankAccountDetails.setText("View Bank Account Details");
         viewBankAccountDetails.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -67,6 +69,7 @@ public class BankManagerWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
+        newAccountReqBtn.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         newAccountReqBtn.setText("New Account Requests");
         newAccountReqBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -74,6 +77,7 @@ public class BankManagerWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
+        viewLoanApplicationJButton.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         viewLoanApplicationJButton.setText("New Loan Applications");
         viewLoanApplicationJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -86,32 +90,34 @@ public class BankManagerWorkAreaJPanel extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(403, 403, 403)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(newAccountReqBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(viewBankAccountDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(viewLoanApplicationJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(386, 386, 386)
                         .addComponent(enterpriseLabel)
-                        .addGap(4, 4, 4)
-                        .addComponent(valueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(430, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addComponent(valueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(411, 411, 411)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(newAccountReqBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(viewBankAccountDetails, javax.swing.GroupLayout.DEFAULT_SIZE, 284, Short.MAX_VALUE)
+                            .addComponent(viewLoanApplicationJButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap(438, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(294, 294, 294)
+                .addGap(93, 93, 93)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(valueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(enterpriseLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20)
+                    .addComponent(enterpriseLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(valueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(68, 68, 68)
                 .addComponent(newAccountReqBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(104, 104, 104)
+                .addGap(77, 77, 77)
                 .addComponent(viewBankAccountDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(94, 94, 94)
+                .addGap(68, 68, 68)
                 .addComponent(viewLoanApplicationJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(254, Short.MAX_VALUE))
+                .addContainerGap(460, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
