@@ -43,20 +43,25 @@ public class RegisterOptions extends javax.swing.JPanel {
         btnParent = new javax.swing.JButton();
         btnBirthMother = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(255, 255, 255));
+        setBackground(new java.awt.Color(51, 122, 183));
         setMaximumSize(new java.awt.Dimension(1245, 1000));
         setMinimumSize(new java.awt.Dimension(1245, 1000));
         setPreferredSize(new java.awt.Dimension(1245, 1000));
 
         btnParent.setBackground(new java.awt.Color(255, 153, 0));
+        btnParent.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
+        btnParent.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/family.png"))); // NOI18N
         btnParent.setText("Parent");
+        btnParent.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnParent.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnParentActionPerformed(evt);
             }
         });
 
-        btnBirthMother.setBackground(new java.awt.Color(255, 153, 0));
+        btnBirthMother.setBackground(new java.awt.Color(255, 255, 255));
+        btnBirthMother.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
+        btnBirthMother.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/maternity.png"))); // NOI18N
         btnBirthMother.setText("Birth Mother");
         btnBirthMother.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -71,18 +76,18 @@ public class RegisterOptions extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(452, 452, 452)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnBirthMother, javax.swing.GroupLayout.DEFAULT_SIZE, 272, Short.MAX_VALUE)
+                    .addComponent(btnBirthMother, javax.swing.GroupLayout.DEFAULT_SIZE, 324, Short.MAX_VALUE)
                     .addComponent(btnParent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(521, Short.MAX_VALUE))
+                .addContainerGap(469, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(399, Short.MAX_VALUE)
-                .addComponent(btnBirthMother, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(57, 57, 57)
-                .addComponent(btnParent, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(392, 392, 392))
+                .addContainerGap(254, Short.MAX_VALUE)
+                .addComponent(btnBirthMother)
+                .addGap(85, 85, 85)
+                .addComponent(btnParent)
+                .addGap(517, 517, 517))
         );
     }// </editor-fold>//GEN-END:initComponents
 
