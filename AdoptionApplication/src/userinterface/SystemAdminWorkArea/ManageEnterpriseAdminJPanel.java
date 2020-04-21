@@ -283,34 +283,8 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
             throw new RuntimeException("Please enter the Name");
             
         }
-           /*  // Validation
-             
-            if (usernamePatternCorrect()==false){
-            UsrNameLabel.setForeground (Color.red);
-            usernameJTextField.setBorder(BorderFactory.createLineBorder(Color.RED));
-            JOptionPane.showMessageDialog(null, "Username should be in the format of xx_xx@xx.xx");
-            return;
-            }else{
-            UsrNameLabel.setForeground (Color.BLACK);
-            usernameJTextField.setBorder(BorderFactory.createLineBorder(Color.black));
-            }
-            
-            
-            if (passwordPatternCorrect()==false){
-            passwordLabel.setForeground (Color.red);
-            passwordJPasswordField.setBorder(BorderFactory.createLineBorder(Color.RED));
-            JOptionPane.showMessageDialog(null, "Password should be at least 6 digits and contain at least one upper case letter,"
-                    + " one lower case letter, one digit and one special character $, *, # or &.");
-            return;
-            }else{
-            passwordLabel.setForeground (Color.BLACK);
-            passwordJPasswordField.setBorder(BorderFactory.createLineBorder(Color.black));
-            
-            }*/
-             
-             
        }catch(Exception e){
-            //e.printStackTrace();
+            e.printStackTrace();
           JOptionPane.showMessageDialog(this, "Please enter valid data", "warning", JOptionPane.WARNING_MESSAGE);
           return;     
             
@@ -330,7 +304,6 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
         else{
             JOptionPane.showMessageDialog(this, "Username exists! Please select another username");
         }
-        JOptionPane.showMessageDialog(null, "Enterprise Admin Created Successfully");
         usernameJTextField.setText("");
         passwordJPasswordField.setText("");
         nameJTextField.setText("");
