@@ -54,7 +54,7 @@ public class HospitalAdminWorkAreaJPanel extends javax.swing.JPanel {
         btnBirthMotherApplications = new javax.swing.JButton();
         btnParentApplications = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(51, 122, 183));
+        setBackground(java.awt.SystemColor.activeCaption);
         setMaximumSize(new java.awt.Dimension(1245, 1000));
         setMinimumSize(new java.awt.Dimension(1245, 1000));
 

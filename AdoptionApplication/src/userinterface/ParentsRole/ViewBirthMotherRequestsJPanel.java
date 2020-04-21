@@ -74,7 +74,7 @@ import javax.swing.table.DefaultTableModel;
         valueLabel = new javax.swing.JLabel();
         bckjButton = new javax.swing.JButton();
 
-        jPanel1.setBackground(new java.awt.Color(51, 122, 183));
+        jPanel1.setBackground(java.awt.SystemColor.activeCaption);
         jPanel1.setMaximumSize(new java.awt.Dimension(1245, 1000));
         jPanel1.setMinimumSize(new java.awt.Dimension(1245, 1000));
         jPanel1.setPreferredSize(new java.awt.Dimension(1245, 1000));

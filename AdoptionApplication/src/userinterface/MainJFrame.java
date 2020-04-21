@@ -127,6 +127,7 @@ public class MainJFrame extends javax.swing.JFrame {
         userProcessContainer.setPreferredSize(new java.awt.Dimension(1245, 1000));
         userProcessContainer.setLayout(new java.awt.CardLayout());
 
+        jPanel2.setBackground(java.awt.SystemColor.activeCaption);
         jPanel2.setMaximumSize(new java.awt.Dimension(1245, 1000));
         jPanel2.setMinimumSize(new java.awt.Dimension(1245, 1000));
 

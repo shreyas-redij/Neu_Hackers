@@ -150,7 +150,7 @@ public class BirthMotherWorkAreaJPanel extends javax.swing.JPanel {
         parentImg = new javax.swing.JLabel();
         lblChart = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(51, 122, 183));
+        setBackground(java.awt.SystemColor.activeCaption);
         setMaximumSize(new java.awt.Dimension(1245, 1000));
         setMinimumSize(new java.awt.Dimension(1245, 1000));
         setPreferredSize(new java.awt.Dimension(1245, 1000));
@@ -179,10 +179,11 @@ public class BirthMotherWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
+        enterpriseLabel.setBackground(java.awt.SystemColor.activeCaption);
         enterpriseLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         enterpriseLabel.setText("ENTERPRISE:");
 
-        valueLabel.setFont(new java.awt.Font("Lucida Grande", 3, 18)); // NOI18N
+        valueLabel.setFont(new java.awt.Font("Lucida Grande", 3, 24)); // NOI18N
         valueLabel.setText("<value>");
 
         viewParentsJButton.setBackground(new java.awt.Color(255, 255, 255));
@@ -334,8 +335,8 @@ public class BirthMotherWorkAreaJPanel extends javax.swing.JPanel {
                         .addComponent(lblChart, javax.swing.GroupLayout.PREFERRED_SIZE, 476, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(64, 64, 64))))
             .addGroup(layout.createSequentialGroup()
-                .addGap(189, 189, 189)
-                .addComponent(enterpriseLabel)
+                .addGap(181, 181, 181)
+                .addComponent(enterpriseLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(57, 57, 57)
                 .addComponent(valueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
