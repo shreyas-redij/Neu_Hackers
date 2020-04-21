@@ -169,7 +169,7 @@ public class ParentsRequestWorkAreaJPanel extends javax.swing.JPanel {
         });
 
         valueLabel1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        valueLabel1.setText("Username:");
+        valueLabel1.setText("Username");
 
         valueLabel2.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         valueLabel2.setText("Password");
