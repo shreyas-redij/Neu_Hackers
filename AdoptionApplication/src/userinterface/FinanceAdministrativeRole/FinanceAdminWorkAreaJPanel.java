@@ -52,7 +52,7 @@ public class FinanceAdminWorkAreaJPanel extends javax.swing.JPanel {
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel1.setText("FINANCE ADMINISTRATIVE WORK AREA");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 60, -1, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 60, -1, -1));
 
         manageUserAccountJButton.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         manageUserAccountJButton.setText("Manage User Account");
