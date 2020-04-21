@@ -119,7 +119,7 @@ public class ParentsWorkAreaJPanel extends javax.swing.JPanel {
         lblEmail = new javax.swing.JLabel();
         parentImg = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(51, 122, 183));
+        setBackground(java.awt.SystemColor.activeCaption);
         setMaximumSize(new java.awt.Dimension(1245, 1000));
         setMinimumSize(new java.awt.Dimension(1245, 1000));
         setPreferredSize(new java.awt.Dimension(1245, 1000));
@@ -127,10 +127,10 @@ public class ParentsWorkAreaJPanel extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel1.setText("Parents Work Area");
 
-        enterpriseLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        enterpriseLabel.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         enterpriseLabel.setText("ENTERPRISE:");
 
-        valueLabel.setFont(new java.awt.Font("Lucida Grande", 3, 18)); // NOI18N
+        valueLabel.setFont(new java.awt.Font("Lucida Grande", 3, 24)); // NOI18N
         valueLabel.setText("<value>");
 
         checkRequestsPending.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
@@ -320,7 +320,7 @@ public class ParentsWorkAreaJPanel extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(enterpriseLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(enterpriseLabel)
                 .addGap(35, 35, 35)
                 .addComponent(valueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 592, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(62, 62, 62))

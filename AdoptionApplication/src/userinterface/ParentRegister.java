@@ -133,7 +133,7 @@ public class ParentRegister extends javax.swing.JPanel {
         notPromise = new javax.swing.JRadioButton();
         isPromise = new javax.swing.JRadioButton();
 
-        setBackground(new java.awt.Color(51, 122, 183));
+        setBackground(java.awt.SystemColor.activeCaption);
         setMaximumSize(new java.awt.Dimension(1245, 1000));
         setMinimumSize(new java.awt.Dimension(1245, 1000));
         setPreferredSize(new java.awt.Dimension(1245, 1000));
@@ -369,9 +369,9 @@ public class ParentRegister extends javax.swing.JPanel {
                         .addGap(35, 35, 35)
                         .addComponent(jLabel10)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(isEducated)
-                            .addComponent(notEducated))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(isEducated, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(notEducated, javax.swing.GroupLayout.Alignment.TRAILING))))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(24, 24, 24)
