@@ -100,14 +100,18 @@ public class ParentProfile extends javax.swing.JPanel {
         setMaximumSize(new java.awt.Dimension(1245, 1000));
         setMinimumSize(new java.awt.Dimension(1245, 1000));
 
+        jPanel1.setBackground(new java.awt.Color(51, 122, 183));
         jPanel1.setMaximumSize(new java.awt.Dimension(1245, 1000));
         jPanel1.setMinimumSize(new java.awt.Dimension(1245, 1000));
         jPanel1.setPreferredSize(new java.awt.Dimension(1245, 1000));
 
+        jLabel10.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel10.setText("BLOOD GROUP:");
 
+        jLabel13.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel13.setText("CONTACT:");
 
+        jLabel11.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel11.setText("CONTRIBUTION:");
 
         txtContact.addActionListener(new java.awt.event.ActionListener() {
@@ -121,10 +125,13 @@ public class ParentProfile extends javax.swing.JPanel {
         jLabel1.setMaximumSize(new java.awt.Dimension(1245, 1000));
         jLabel1.setMinimumSize(new java.awt.Dimension(1245, 1000));
 
+        jLabel12.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel12.setText("ADDRESS:");
 
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel2.setText("USERNAME:");
 
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel3.setText("FIRST NAME:");
 
         txtFunds.addActionListener(new java.awt.event.ActionListener() {
@@ -133,6 +140,7 @@ public class ParentProfile extends javax.swing.JPanel {
             }
         });
 
+        jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel4.setText("LAST NAME:");
 
         txtAddress.addActionListener(new java.awt.event.ActionListener() {
@@ -141,8 +149,10 @@ public class ParentProfile extends javax.swing.JPanel {
             }
         });
 
+        jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel5.setText("EMAIL ID:");
 
+        btnBrowse.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         btnBrowse.setText("Browse");
         btnBrowse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -150,6 +160,7 @@ public class ParentProfile extends javax.swing.JPanel {
             }
         });
 
+        jLabel17.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel17.setText("Upload Image:");
 
         profilePhotoComponent.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -164,6 +175,7 @@ public class ParentProfile extends javax.swing.JPanel {
             }
         });
 
+        jButton2.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         jButton2.setText("Save");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -176,7 +188,7 @@ public class ParentProfile extends javax.swing.JPanel {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(352, Short.MAX_VALUE)
+                .addContainerGap(325, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -265,9 +277,9 @@ public class ParentProfile extends javax.swing.JPanel {
                         .addComponent(jLabel17))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel13)
-                            .addComponent(txtContact, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtContact, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel13)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnBrowse, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))

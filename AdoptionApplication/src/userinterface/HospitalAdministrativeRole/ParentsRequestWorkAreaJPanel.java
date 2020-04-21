@@ -98,6 +98,7 @@ public class ParentsRequestWorkAreaJPanel extends javax.swing.JPanel {
         valueLabel3 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(51, 122, 183));
         setMaximumSize(new java.awt.Dimension(1245, 1000));
         setMinimumSize(new java.awt.Dimension(1245, 1000));
         setPreferredSize(new java.awt.Dimension(1245, 1000));
@@ -136,6 +137,7 @@ public class ParentsRequestWorkAreaJPanel extends javax.swing.JPanel {
             workRequestJTable.getColumnModel().getColumn(3).setResizable(false);
         }
 
+        btnCreate.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         btnCreate.setText("CREATE");
         btnCreate.setEnabled(false);
         btnCreate.addActionListener(new java.awt.event.ActionListener() {
@@ -152,12 +154,13 @@ public class ParentsRequestWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
-        enterpriseLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        enterpriseLabel.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         enterpriseLabel.setText("ENTERPRISE:");
 
         valueLabel.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         valueLabel.setText("<value>");
 
+        btnView.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         btnView.setText("VIEW");
         btnView.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -165,8 +168,10 @@ public class ParentsRequestWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
+        valueLabel1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         valueLabel1.setText("Username:");
 
+        valueLabel2.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         valueLabel2.setText("Password");
 
         txtMessage.addActionListener(new java.awt.event.ActionListener() {
@@ -175,6 +180,7 @@ public class ParentsRequestWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
+        valueLabel3.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         valueLabel3.setText("Message");
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/left-arrow-in-circular-button-black-symbol-2.png"))); // NOI18N
