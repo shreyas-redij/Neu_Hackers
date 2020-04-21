@@ -76,12 +76,13 @@ public class ViewParentDirectory extends javax.swing.JPanel {
         workRequestJTable = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
 
+        jPanel1.setBackground(new java.awt.Color(51, 122, 183));
         jPanel1.setMaximumSize(new java.awt.Dimension(1245, 1000));
         jPanel1.setMinimumSize(new java.awt.Dimension(1245, 1000));
         jPanel1.setPreferredSize(new java.awt.Dimension(1245, 1000));
 
         btnViewApplication.setBackground(new java.awt.Color(255, 255, 255));
-        btnViewApplication.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
+        btnViewApplication.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         btnViewApplication.setText("VIEW APPLICATION");
         btnViewApplication.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -97,7 +98,7 @@ public class ViewParentDirectory extends javax.swing.JPanel {
             }
         });
 
-        enterpriseLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        enterpriseLabel.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         enterpriseLabel.setText("PARENT DIRECTORY:");
 
         valueLabel.setFont(new java.awt.Font("Lucida Grande", 3, 18)); // NOI18N

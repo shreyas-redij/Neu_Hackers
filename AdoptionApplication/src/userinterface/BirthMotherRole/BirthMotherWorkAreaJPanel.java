@@ -150,10 +150,12 @@ public class BirthMotherWorkAreaJPanel extends javax.swing.JPanel {
         parentImg = new javax.swing.JLabel();
         lblChart = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(51, 122, 183));
         setMaximumSize(new java.awt.Dimension(1245, 1000));
         setMinimumSize(new java.awt.Dimension(1245, 1000));
         setPreferredSize(new java.awt.Dimension(1245, 1000));
 
+        chkBankAccount.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         chkBankAccount.setText("Loan Request");
         chkBankAccount.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -161,6 +163,7 @@ public class BirthMotherWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
+        chkInsurance.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         chkInsurance.setText("Insurance");
         chkInsurance.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -168,6 +171,7 @@ public class BirthMotherWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
+        updateProfile.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         updateProfile.setText("View/Update Profile");
         updateProfile.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -181,6 +185,8 @@ public class BirthMotherWorkAreaJPanel extends javax.swing.JPanel {
         valueLabel.setFont(new java.awt.Font("Lucida Grande", 3, 18)); // NOI18N
         valueLabel.setText("<value>");
 
+        viewParentsJButton.setBackground(new java.awt.Color(51, 122, 183));
+        viewParentsJButton.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         viewParentsJButton.setText("View Parent Directory");
         viewParentsJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -188,6 +194,7 @@ public class BirthMotherWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
+        viewBankDetails.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         viewBankDetails.setText("View Bank Details");
         viewBankDetails.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -195,6 +202,7 @@ public class BirthMotherWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnCreateLoan.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         btnCreateLoan.setText("Create Loan Request");
         btnCreateLoan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -202,6 +210,7 @@ public class BirthMotherWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnCreateInsurance.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         btnCreateInsurance.setText("Insurance ");
         btnCreateInsurance.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -307,10 +316,10 @@ public class BirthMotherWorkAreaJPanel extends javax.swing.JPanel {
                                         .addComponent(chkInsurance))
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(129, 129, 129)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(viewParentsJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(btnCreateLoan, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(83, 83, 83)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(viewParentsJButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(btnCreateLoan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addGap(71, 71, 71)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(btnCreateInsurance, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(updateProfile, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE))))

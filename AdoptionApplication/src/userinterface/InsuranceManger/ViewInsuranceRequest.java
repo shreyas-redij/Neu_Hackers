@@ -75,6 +75,7 @@ public class ViewInsuranceRequest extends javax.swing.JPanel {
         btnApprove = new javax.swing.JButton();
         profilePhotoComponent = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(51, 122, 183));
         setMaximumSize(new java.awt.Dimension(1245, 1000));
         setMinimumSize(new java.awt.Dimension(1245, 1000));
         setPreferredSize(new java.awt.Dimension(1245, 1000));
@@ -92,8 +93,10 @@ public class ViewInsuranceRequest extends javax.swing.JPanel {
 
         txtLastName.setEnabled(false);
 
+        jLabel13.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel13.setText("POLICY NO:");
 
+        jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel5.setText("EMAIL ID:");
 
         txtPolicy.setEnabled(false);
@@ -105,6 +108,7 @@ public class ViewInsuranceRequest extends javax.swing.JPanel {
 
         txtEmail.setEnabled(false);
 
+        jLabel11.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel11.setText("FUNDS REQUESTED:");
 
         txtFunds.setEnabled(false);
@@ -114,6 +118,7 @@ public class ViewInsuranceRequest extends javax.swing.JPanel {
             }
         });
 
+        jLabel12.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel12.setText("ADDRESS:");
 
         txtAddress.setEnabled(false);
@@ -125,6 +130,8 @@ public class ViewInsuranceRequest extends javax.swing.JPanel {
 
         jLabel17.setText("VIEW DOCUMENT:");
 
+        jLabel3.setBackground(new java.awt.Color(51, 122, 183));
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel3.setText("FIRST NAME:");
 
         txtFirstName.setEnabled(false);
@@ -134,8 +141,10 @@ public class ViewInsuranceRequest extends javax.swing.JPanel {
             }
         });
 
+        jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel4.setText("LAST NAME:");
 
+        jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel6.setText("INSURANCE AMOUNT APPROVED:");
 
         btnApprove.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
@@ -155,7 +164,7 @@ public class ViewInsuranceRequest extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(361, Short.MAX_VALUE)
+                .addContainerGap(312, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
