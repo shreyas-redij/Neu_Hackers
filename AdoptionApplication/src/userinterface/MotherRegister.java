@@ -16,6 +16,7 @@ import Business.Mail.ConfigUtility;
 import Business.Mail.EmailVariables;
 import Business.Network.Network;
 import Business.Organization.Organization;
+import Business.UserAccount.UserAccount;
 import Business.Validations.ValidateEmailTextField;
 import Business.Validations.ValidatePasswords;
 import Business.Validations.ValidateStrings;
@@ -318,6 +319,38 @@ public class MotherRegister extends javax.swing.JPanel {
                    }
                    }
             }
+            
+            //for(Organization o2 : hospital.getOrganizationDirectory().getOrganizationList()){
+                //if(o2.getName().equals("BirthMother Organization")){
+                    //if (!o2.getUserAccountDirectory().checkIfUsernameIsUnique(username)){
+                        //JOptionPane.showMessageDialog(this, "Username already exists. Please select another username!");
+                        //return;
+                    
+                    //}
+                //}
+            //}
+            
+            for (Network n : system.getNetworkList()){
+            for (Enterprise e : n.getEnterpriseDirectory().getEnterpriseList()){
+                if (e.getEnterpriseType().equals(Enterprise.EnterpriseType.Hospital)){
+                    for(UserAccount ua : e.getUserAccountDirectory().getUserAccountList()){
+                        if(ua.getUsername().equals(username)){
+                            JOptionPane.showMessageDialog(null, "User Name already exists!, Please Enter valid user name","warning", JOptionPane.WARNING_MESSAGE);
+                            return;
+                        }
+                        for(Organization o : e.getOrganizationDirectory().getOrganizationList()){
+                            for(UserAccount ua1 : o.getUserAccountDirectory().getUserAccountList()){
+                                if(ua1.getUsername().equals(username)){
+                                    JOptionPane.showMessageDialog(null, "User Name already exists!, Please Enter valid user name","warning", JOptionPane.WARNING_MESSAGE);
+                                    return;
+                                }
+                            }
+                        }
+
+                    }
+                }
+            }
+        }
             
            
       // BirthMother in people created
