@@ -122,7 +122,7 @@ public class BankManagerWorkAreaJPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void viewBankAccountDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewBankAccountDetailsActionPerformed
-        ViewBankAccountDetailsJPanel accountDetails = new ViewBankAccountDetailsJPanel(userProcessContainer, userAccount, enterprise);
+        ViewBankAccountDetailsJPanel accountDetails = new ViewBankAccountDetailsJPanel(userProcessContainer, userAccount, organization, enterprise);
         userProcessContainer.add("ViewBankAccountDetailsJPanel", accountDetails);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);

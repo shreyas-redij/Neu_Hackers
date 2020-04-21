@@ -15,6 +15,7 @@ import Business.UserAccount.UserAccount;
 import Business.Validations.ValidateEmailTextField;
 import Business.Validations.ValidatePasswords;
 import Business.Validations.ValidatePhoneNumber;
+import Business.Validations.ValidatePolicyNumber;
 import Business.Validations.ValidateStrings;
 import Business.WorkQueue.BirthMotherToInsuranceManager;
 import java.awt.CardLayout;
@@ -98,7 +99,7 @@ public class InsuranceViewPage extends javax.swing.JPanel {
         txtAddress.setInputVerifier(stringValidation);
         InputVerifier passwordValidation = new ValidatePasswords();
         InputVerifier emailValidation = new ValidateEmailTextField();
-        InputVerifier number = new ValidatePhoneNumber();
+        InputVerifier number = new ValidatePolicyNumber();
         txtPolicyNumber.setInputVerifier(number);
         txtLastName.setInputVerifier(stringValidation);
         txtEmail.setInputVerifier(emailValidation);

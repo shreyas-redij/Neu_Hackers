@@ -14,7 +14,6 @@ import java.awt.CardLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-//import userinterface.Dialog.SuccessDialog;
 
 /**
  *
@@ -93,7 +92,7 @@ public class ViewInsuranceRequest extends javax.swing.JPanel {
 
         txtLastName.setEnabled(false);
 
-        jLabel13.setText("POLICY NO.:");
+        jLabel13.setText("POLICY NO:");
 
         jLabel5.setText("EMAIL ID:");
 
@@ -218,8 +217,8 @@ public class ViewInsuranceRequest extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel11)
                             .addComponent(txtFunds, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel12))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -237,7 +236,7 @@ public class ViewInsuranceRequest extends javax.swing.JPanel {
                         .addComponent(profilePhotoComponent, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(53, 53, 53)
                 .addComponent(btnApprove, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(301, Short.MAX_VALUE))
+                .addContainerGap(299, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -271,9 +270,7 @@ public class ViewInsuranceRequest extends javax.swing.JPanel {
             {l.setFundsApproved(Integer.valueOf(txtApprovedAmount.getText()));
              birthmother.setInsuranceAmount(Integer.valueOf(txtApprovedAmount.getText()));
              insuranceRequest.setStatus("Completed");
-             JOptionPane.showMessageDialog(null, "Amount \"+ l.getFundsApproved()+ \" approved " );
-             //SuccessDialog d = new SuccessDialog("Amount "+ l.getFundsApproved()+ " approved ");
-               // d.setVisible(true);
+             JOptionPane.showMessageDialog(null, "Amount "+ l.getFundsApproved()+ " approved " );
             }
             
         }

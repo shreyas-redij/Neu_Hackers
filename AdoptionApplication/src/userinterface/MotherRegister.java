@@ -169,24 +169,20 @@ public class MotherRegister extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 278, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGap(0, 278, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel6)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jLabel3)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jButton1)
+                            .addGap(53, 53, 53))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                             .addComponent(jLabel5)
-                            .addComponent(jLabel3)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton1)
-                                .addGap(53, 53, 53))
-                            .addComponent(passwordLabel)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel6)
-                            .addComponent(UsrNameLabel)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(emailIdLbl)
-                                .addGap(9, 9, 9)))))
+                            .addGap(37, 37, 37)))
+                    .addComponent(UsrNameLabel)
+                    .addComponent(emailIdLbl)
+                    .addComponent(passwordLabel))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(90, 90, 90)
@@ -330,7 +326,7 @@ public class MotherRegister extends javax.swing.JPanel {
             birthMother.setPassword(password);
             birthMother.setUsername(username);
             birthMother.setFirstName(name);
-            JOptionPane.showMessageDialog(null, "BirthMother Profile Created Successfully");
+            JOptionPane.showMessageDialog(null, "BirthMother Profile Created and Email has been sent");
         //Initiating work request for BMC
              BirthMotherToCounselor bmc = new BirthMotherToCounselor(birthMother);
      
