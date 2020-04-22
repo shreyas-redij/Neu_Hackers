@@ -55,6 +55,9 @@ public class LoginOptions extends javax.swing.JPanel {
         btnCounselor.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         btnCounselor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/counselor.png"))); // NOI18N
         btnCounselor.setText("Counselor");
+        btnCounselor.setMaximumSize(new java.awt.Dimension(153, 73));
+        btnCounselor.setMinimumSize(new java.awt.Dimension(153, 73));
+        btnCounselor.setPreferredSize(new java.awt.Dimension(153, 73));
         btnCounselor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCounselorActionPerformed(evt);
@@ -111,10 +114,10 @@ public class LoginOptions extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(189, 189, 189)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnCounselor, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(237, 237, 237)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnAdmin, javax.swing.GroupLayout.DEFAULT_SIZE, 231, Short.MAX_VALUE)
+                    .addComponent(btnCounselor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnBirthMother, javax.swing.GroupLayout.DEFAULT_SIZE, 226, Short.MAX_VALUE)
@@ -135,10 +138,10 @@ public class LoginOptions extends javax.swing.JPanel {
                     .addComponent(btnBirthMother, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(46, 46, 46)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnCounselor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnCounselor, javax.swing.GroupLayout.DEFAULT_SIZE, 86, Short.MAX_VALUE)
                     .addComponent(btnParent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnBank, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(499, Short.MAX_VALUE))
+                .addContainerGap(486, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

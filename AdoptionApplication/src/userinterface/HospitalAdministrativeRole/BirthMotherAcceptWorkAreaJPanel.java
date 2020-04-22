@@ -401,7 +401,10 @@ public class BirthMotherAcceptWorkAreaJPanel extends javax.swing.JPanel {
         txtUserName.setText("");
         txtPassword.setText("");
         messageTxt.setText("");
-        }   
+        }
+        
+        btnView.setEnabled(true);
+        btnCreate.setEnabled(false);
 
   
     }//GEN-LAST:event_btnCreateActionPerformed
@@ -426,6 +429,7 @@ public class BirthMotherAcceptWorkAreaJPanel extends javax.swing.JPanel {
         txtPassword.setText(request.getBirthMother().getPassword());
 
         btnCreate.setEnabled(true);
+        btnView.setEnabled(false);
     }//GEN-LAST:event_btnViewActionPerformed
 
     private void bankComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bankComboBoxActionPerformed

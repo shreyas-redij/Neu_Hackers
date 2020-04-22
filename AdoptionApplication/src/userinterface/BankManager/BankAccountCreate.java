@@ -110,6 +110,7 @@ public class BankAccountCreate extends javax.swing.JPanel {
         jLabel13.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel13.setText("HOSPITAL NAME:");
 
+        txtHospital.setEditable(false);
         txtHospital.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtHospitalActionPerformed(evt);
@@ -119,12 +120,17 @@ public class BankAccountCreate extends javax.swing.JPanel {
         jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel6.setText("COUNSELOR:");
 
+        txtCounselor.setEditable(false);
+
         jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel3.setText("FIRST NAME:");
+
+        txtFirstName.setEditable(false);
 
         emailIdLbl.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         emailIdLbl.setText("EMAIL ID:");
 
+        txtEmail.setEditable(false);
         txtEmail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtEmailActionPerformed(evt);
