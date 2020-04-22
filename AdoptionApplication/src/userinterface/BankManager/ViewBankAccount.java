@@ -56,7 +56,7 @@ public class ViewBankAccount extends javax.swing.JPanel {
         txtAddress.setText(loan.getAddress());
         txtFunds.setText(String.valueOf(loan.getBankBalance()));
         txtPassport.setText(loan.getPassportNumber());
-        txtAccountNumber.setText(loan.getLastName());
+      
         txtAccountNumber.setText(String.valueOf(loan.getBankAccountNumber()));
         
     }

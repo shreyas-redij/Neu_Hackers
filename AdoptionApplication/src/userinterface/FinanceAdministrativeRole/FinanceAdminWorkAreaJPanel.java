@@ -72,13 +72,13 @@ public class FinanceAdminWorkAreaJPanel extends javax.swing.JPanel {
         });
         add(manageOrganizationJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 260, 290, 50));
 
-        enterpriseLabel.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        enterpriseLabel.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         enterpriseLabel.setText("ENTERPRISE:");
-        add(enterpriseLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 160, 140, 30));
+        add(enterpriseLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 160, 170, 30));
 
-        valueLabel.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
+        valueLabel.setFont(new java.awt.Font("Lucida Grande", 1, 24)); // NOI18N
         valueLabel.setText("<value>");
-        add(valueLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 160, 320, -1));
+        add(valueLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 160, 400, -1));
 
         manageEmployeeJButton.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         manageEmployeeJButton.setText("Manage Employee");
