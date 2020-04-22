@@ -309,6 +309,9 @@ public class ParentsRequestWorkAreaJPanel extends javax.swing.JPanel {
         txtMessage.setText("");
         JOptionPane.showMessageDialog(null, "User Account created Successfully");
         
+        btnCreate.setEnabled(false);
+        btnView.setEnabled(true);
+        
     }//GEN-LAST:event_btnCreateActionPerformed
     
     private void refreshTestJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshTestJButtonActionPerformed
@@ -362,6 +365,7 @@ public class ParentsRequestWorkAreaJPanel extends javax.swing.JPanel {
         txtPassword.setText(request.getParent().getPassword());
         
         btnCreate.setEnabled(true);
+        btnView.setEnabled(false);
     }//GEN-LAST:event_btnViewActionPerformed
 
     private void txtMessageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMessageActionPerformed

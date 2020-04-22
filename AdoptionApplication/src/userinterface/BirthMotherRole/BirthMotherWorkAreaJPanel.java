@@ -149,6 +149,7 @@ public class BirthMotherWorkAreaJPanel extends javax.swing.JPanel {
         lblEmail = new javax.swing.JLabel();
         parentImg = new javax.swing.JLabel();
         lblChart = new javax.swing.JLabel();
+        btnRefresh = new javax.swing.JButton();
 
         setBackground(java.awt.SystemColor.activeCaption);
         setMaximumSize(new java.awt.Dimension(1245, 1000));
@@ -300,6 +301,13 @@ public class BirthMotherWorkAreaJPanel extends javax.swing.JPanel {
         lblChart.setMinimumSize(new java.awt.Dimension(350, 350));
         lblChart.setPreferredSize(new java.awt.Dimension(350, 350));
 
+        btnRefresh.setText("Refresh");
+        btnRefresh.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRefreshActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -339,6 +347,8 @@ public class BirthMotherWorkAreaJPanel extends javax.swing.JPanel {
                 .addComponent(enterpriseLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(57, 57, 57)
                 .addComponent(valueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(267, 267, 267)
+                .addComponent(btnRefresh)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -347,7 +357,8 @@ public class BirthMotherWorkAreaJPanel extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(valueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(enterpriseLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(enterpriseLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnRefresh))
                 .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
@@ -497,10 +508,21 @@ public class BirthMotherWorkAreaJPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnCreateInsuranceActionPerformed
 
+    private void btnRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshActionPerformed
+        // TODO add your handling code here:
+        if(BirthMother.getFinalizedParent() != null){
+        this.parent = BirthMother.getFinalizedParent();
+        
+        populateParentDetails();
+        }
+        chart();
+    }//GEN-LAST:event_btnRefreshActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCreateInsurance;
     private javax.swing.JButton btnCreateLoan;
+    private javax.swing.JButton btnRefresh;
     private javax.swing.JRadioButton chkBankAccount;
     private javax.swing.JRadioButton chkInsurance;
     private javax.swing.JLabel enterpriseLabel;

@@ -52,7 +52,8 @@ public class HospitalManageEmployeeJPanel extends javax.swing.JPanel {
         organizationEmpJComboBox.removeAllItems();
         
         for (Organization organization : enterprise.getOrganizationDirectory().getOrganizationList()){
-            organizationEmpJComboBox.addItem(organization);
+            if(organization.getName().equals("Counselor Organization"))
+                organizationEmpJComboBox.addItem(organization);
         }
     }
 

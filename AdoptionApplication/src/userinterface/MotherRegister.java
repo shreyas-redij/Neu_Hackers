@@ -269,31 +269,36 @@ public class MotherRegister extends javax.swing.JPanel {
             String name = nameTxt.getText();
             if (name.equals("")){
                 JOptionPane.showMessageDialog(null, "Please enter the Firstname");
-                throw new RuntimeException("Please enter the Username");
+                //throw new RuntimeException("Please enter the Username");
+                return;
             }
             
             String username = userNameTxt.getText();
             if (username.equals("")){
                 JOptionPane.showMessageDialog(null, "Please enter the Username");
-                throw new RuntimeException("Please enter the Username");
+                return;
+                //throw new RuntimeException("Please enter the Username");
             }
             
             String emailId = emailTxt.getText();
             if (emailId.equals("")){
                 JOptionPane.showMessageDialog(null, "Please enter the Email Id");
-                throw new RuntimeException("Please enter the Email Id");
+                return;
+                //throw new RuntimeException("Please enter the Email Id");
             }
             
             String password = passwordTxt.getText();
             String confpassword = confirmPassTxt.getText();
             if (password.equals("")){
                 JOptionPane.showMessageDialog(null, "Please enter the password");
-                throw new RuntimeException("Please enter the password");
+                return;
+                //throw new RuntimeException("Please enter the password");
             }
             
             if (!password.equals(confpassword)){
                 JOptionPane.showMessageDialog(null, "Confirm Password and Password should match");
-                throw new RuntimeException("Confirm Password and Password should match");
+                return;
+                //throw new RuntimeException("Confirm Password and Password should match");
             }
             
             HospitalEnterprise hospital = (HospitalEnterprise) hospitalJComboBox.getSelectedItem();
@@ -382,12 +387,16 @@ public class MotherRegister extends javax.swing.JPanel {
             WorkQueue wq = hospital.getWorkQueue();
         
             wq.addBirthMotherToCounselor(bmc);
+            
             sendMail(c);
+            
             nameTxt.setText("");
             userNameTxt.setText("");
             emailTxt.setText("");
             passwordTxt.setText("");
             confirmPassTxt.setText("");
+           
+            
                 
             } catch (Exception ex) {
                 JOptionPane.showMessageDialog(this, "No Counselors available at this hospital, Please select another hospital!");
