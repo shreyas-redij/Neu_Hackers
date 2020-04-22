@@ -33,12 +33,6 @@
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="267" max="-2" attributes="0"/>
-                      <Component id="jButton1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
-                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="172" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
@@ -59,7 +53,7 @@
                               <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="txtFirstName" max="32767" attributes="0"/>
-                                  <Component id="txtLastName" max="32767" attributes="0"/>
+                                  <Component id="txtAccountNumber" max="32767" attributes="0"/>
                                   <Component id="txtEmail" max="32767" attributes="0"/>
                                   <Component id="txtFunds" max="32767" attributes="0"/>
                                   <Component id="txtAddress" alignment="0" max="32767" attributes="0"/>
@@ -73,7 +67,12 @@
                               <EmptySpace min="-2" pref="139" max="-2" attributes="0"/>
                               <Component id="btnApprove" min="-2" pref="146" max="-2" attributes="0"/>
                           </Group>
+                          <Component id="jButton1" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="349" max="-2" attributes="0"/>
+                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace min="0" pref="213" max="32767" attributes="0"/>
@@ -83,12 +82,11 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="88" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabel1" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
-                  <Component id="jButton1" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="81" max="-2" attributes="0"/>
+              <Component id="jLabel1" min="-2" pref="38" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jButton1" min="-2" pref="38" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -98,7 +96,7 @@
                       <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtLastName" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtAccountNumber" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -133,7 +131,7 @@
               </Group>
               <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
               <Component id="btnApprove" min="-2" pref="43" max="-2" attributes="0"/>
-              <EmptySpace pref="348" max="32767" attributes="0"/>
+              <EmptySpace pref="347" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -147,7 +145,7 @@
         <Property name="text" type="java.lang.String" value="LOAN REQUEST DETAILS"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtLastName">
+    <Component class="javax.swing.JTextField" name="txtAccountNumber">
       <Properties>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
@@ -234,7 +232,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Times New Roman" size="18" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="LAST NAME:"/>
+        <Property name="text" type="java.lang.String" value="ACCOUNT NUMBER:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel6">

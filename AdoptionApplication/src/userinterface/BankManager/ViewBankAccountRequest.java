@@ -158,7 +158,7 @@ public class ViewBankAccountRequest extends javax.swing.JPanel {
                                 .addGap(149, 149, 149)
                                 .addComponent(enterpriseLabel)
                                 .addGap(18, 18, 18)
-                                .addComponent(valueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(valueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 468, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
